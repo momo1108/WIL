@@ -14,7 +14,7 @@
 
 
 
-- NAT Network
+- NAT Network - 외부 네트워크에서 Host Machine 안에있는 Guest(VM)과 통신하려면 포트포워딩을 이용해야한다.
 
 ![img](https://lh5.googleusercontent.com/L8LRmNfLxJhDEnsvAUhVqXuPyoM5HxmZP_XvbhC2dj2KxSIu2-3l1GL8jXs1KuxjJuo7GfitugHzKM4JqjA1HT2lrf0RQCQt37NKkuW_VtnZNdFMxpOkTO86w_mOusbeqQ)
 
