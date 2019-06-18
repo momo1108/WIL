@@ -6,27 +6,27 @@ services:
   redis-server2:
     image: 'redis'
   node-app:
-    build: . (dockerfile »ç¿ëÇØ¼­ imageºôµå ÈÄ ÄÁÅ×ÀÌ³Ê¸¦½ÇÇàÇÏ°Ú´Ù. sudo docker build -t id/node-app:1.0
-    ports: (sudo docker run -d -p 8080:8081 id/nodeapp:1.0 ¿¡¼­ -p 8080:8081)
+    build: . (dockerfile ì‚¬ìš©í•´ì„œ imageë¹Œë“œ í›„ ì»¨í…Œì´ë„ˆë¥¼ì‹¤í–‰í•˜ê² ë‹¤. sudo docker build -t id/node-app:1.0
+    ports: (sudo docker run -d -p 8080:8081 id/nodeapp:1.0 ì—ì„œ -p 8080:8081)
       - "8080:8081"
 
 
-2. dockerfile ÀĞÀ½ (dockerfileÀ» »ç¿ëÇÒ¶§ ÁÙ¸¶´Ù ¸í·ÉÀ» ½ÇÇàÇÏ°í ±× °á°ú¸¦ ÀÌ¹ÌÁö·Î ¸¸µå´Â ¹æ½ÄÀÌ´Ù.)
+2. dockerfile ì½ìŒ (dockerfileì„ ì‚¬ìš©í• ë•Œ ì¤„ë§ˆë‹¤ ëª…ë ¹ì„ ì‹¤í–‰í•˜ê³  ê·¸ ê²°ê³¼ë¥¼ ì´ë¯¸ì§€ë¡œ ë§Œë“œëŠ” ë°©ì‹ì´ë‹¤.)
 # Specify a base image
 FROM node:10-alpine
 
-WORKDIR /usr/app (ÄÁÅ×ÀÌ³ÊÀÇ ¾î¶² °æ·Î¿¡¼­ ÀÛ¾÷À» ÇÏ°Ú´Ù.)
+WORKDIR /usr/app (ì»¨í…Œì´ë„ˆì˜ ì–´ë–¤ ê²½ë¡œì—ì„œ ì‘ì—…ì„ í•˜ê² ë‹¤.)
 
 # Install some dependencies
-COPY ./package.json . (package.jsonÀ» ÄÁÅ×ÀÌ³Ê·Î º¹»çÇØÁØ´Ù.)
+COPY ./package.json . (package.jsonì„ ì»¨í…Œì´ë„ˆë¡œ ë³µì‚¬í•´ì¤€ë‹¤.)
 
-RUN npm install (npm install Àº node ¼­¹ö ¼³Ä¡. ±×·¯³ª ÀÌ¶§ ÇÊ¿äÇÑ ÆÄÀÏÀÌ package.json ÆÄÀÏÀÌ´Ù. ÀÌ ÆÄÀÏÀ» À§¿¡ ¸ÕÀú º¸³»Áà¾ß ÇÑ´Ù.¡è)
+RUN npm install (npm install ì€ node ì„œë²„ ì„¤ì¹˜. ê·¸ëŸ¬ë‚˜ ì´ë•Œ í•„ìš”í•œ íŒŒì¼ì´ package.json íŒŒì¼ì´ë‹¤. ì´ íŒŒì¼ì„ ìœ„ì— ë¨¼ì € ë³´ë‚´ì¤˜ì•¼ í•œë‹¤.â†‘)
 
-COPY . . (ÇÊ¿äÇÑ ³ª¸ÓÁö ÆÄÀÏÀ» º¸³»ÁØ´Ù.)
+COPY . . (í•„ìš”í•œ ë‚˜ë¨¸ì§€ íŒŒì¼ì„ ë³´ë‚´ì¤€ë‹¤.)
 # Default command
-CMD ["npm", "start"] (¼­¹ö ½ÇÇà. CMD´Â ÀÌ¹ÌÁö°¡ ¸¸µé¾îÁö°í »ç¿ëµÇ¼­ ÄÁÅ×ÀÌ³Ê·Î ¸¸µé¾î Áø ÈÄ ÄÁÅ×ÀÌ³Ê³»¿¡¼­ ½ÇÇàµÇ´Â ¸í·É¾î´Ù.)
+CMD ["npm", "start"] (ì„œë²„ ì‹¤í–‰. CMDëŠ” ì´ë¯¸ì§€ê°€ ë§Œë“¤ì–´ì§€ê³  ì‚¬ìš©ë˜ì„œ ì»¨í…Œì´ë„ˆë¡œ ë§Œë“¤ì–´ ì§„ í›„ ì»¨í…Œì´ë„ˆë‚´ì—ì„œ ì‹¤í–‰ë˜ëŠ” ëª…ë ¹ì–´ë‹¤.)
 
-3. package.json (node ¼­¹ö¸¦ ¼³Ä¡ÇÒ ¶§ Âü°íÇÏ´Â ±âº» ¼³°èµµ)
+3. package.json (node ì„œë²„ë¥¼ ì„¤ì¹˜í•  ë•Œ ì°¸ê³ í•˜ëŠ” ê¸°ë³¸ ì„¤ê³„ë„)
 {
   "name": "node_redis",
   "version": "1.0.0",
@@ -34,7 +34,7 @@ CMD ["npm", "start"] (¼­¹ö ½ÇÇà. CMD´Â ÀÌ¹ÌÁö°¡ ¸¸µé¾îÁö°í »ç¿ëµÇ¼­ ÄÁÅ×ÀÌ³Ê·Î ¸
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js" (¼¼ºÎ ¼³°èµµ¸¦ ¼³Á¤ÇØÁÜ ¡æ app.js)
+    "start": "node app.js" (ì„¸ë¶€ ì„¤ê³„ë„ë¥¼ ì„¤ì •í•´ì¤Œ â†’ app.js)
   },
   "author": "",
   "license": "ISC",
@@ -54,29 +54,29 @@ const app = express();
 const client1 = redis.createClient({
     host:'redis-server1',
     port:6379
-});	(client1 º¯¼ö¿¡ Ã¹¹øÂ° ·¹µğ½º ¼­¹ö(µ¥ÀÌÅÍº£ÀÌ½ºÀÇ ¿ªÇÒ)ÀÇ Á¤º¸¸¦ ÀúÀåÇÑ´Ù.)
+});	(client1 ë³€ìˆ˜ì— ì²«ë²ˆì§¸ ë ˆë””ìŠ¤ ì„œë²„(ë°ì´í„°ë² ì´ìŠ¤ì˜ ì—­í• )ì˜ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤.)
 const client2 = redis.createClient({
     host:'redis-server2',
     port:6379
-});	(client1 º¯¼ö¿¡ µÎ¹øÂ° ·¹µğ½º ¼­¹öÀÇ Á¤º¸¸¦ ÀúÀåÇÑ´Ù.)
+});	(client1 ë³€ìˆ˜ì— ë‘ë²ˆì§¸ ë ˆë””ìŠ¤ ì„œë²„ì˜ ì •ë³´ë¥¼ ì €ì¥í•œë‹¤.)
 
-client1.set('visits', 0); (Ã¹¹øÂ° DB¿¡ visits º¯¼ö¸¦ »ı¼ºÇÏ°í ÃÊ±â°ªÀ» 0À¸·Î ¼±¾ğ)
-client2.set('visits', 0); (µÎ¹øÂ° DB¿¡ visits º¯¼ö¸¦ »ı¼ºÇÏ°í ÃÊ±â°ªÀ» 0À¸·Î ¼±¾ğ)
+client1.set('visits', 0); (ì²«ë²ˆì§¸ DBì— visits ë³€ìˆ˜ë¥¼ ìƒì„±í•˜ê³  ì´ˆê¸°ê°’ì„ 0ìœ¼ë¡œ ì„ ì–¸)
+client2.set('visits', 0); (ë‘ë²ˆì§¸ DBì— visits ë³€ìˆ˜ë¥¼ ìƒì„±í•˜ê³  ì´ˆê¸°ê°’ì„ 0ìœ¼ë¡œ ì„ ì–¸)
 
 (localhost:8080 - containerip:8081)
 app.get('/', (req, res) => {
-    res.send('È²»ó¿íÀÇ ¼­¹ö');
+    res.send('í™©ìƒìš±ì˜ ì„œë²„'); ( "localhost:8080/" ë¡œ ìš”ì²­ì´ ì™”ì„ ë•Œ 'í™©ìƒìš±ì˜ ì„œë²„'ë¥¼ ì¶œë ¥í•´ì¤€ë‹¤. )
 });
 app.get('/one', (req, res) => {
     client1.get('visits', (err, visits) => {
-        res.send('Number of visit is ' + visits);
-        client1.set('visits', parseInt(visits) + 1);
+        res.send('Number of visit is ' + visits);   (ì²«ë²ˆì§¸ DBì—ì„œ visits ë³€ìˆ˜ë¥¼ ê°€ì ¸ì™€ì„œ 'Number of visit is 'ë¬¸ìì—´ ë‹¤ìŒì— ì¶œë ¥í•´ì¤€ë‹¤.)
+        client1.set('visits', parseInt(visits) + 1);  (visits ë³€ìˆ˜ì— 1ì„ ë”í•´ì„œ ì²«ë²ˆì§¸ DBì— ì €ì¥í•´ì¤€ë‹¤.)
     });
 });
 app.get('/two', (req, res) => {
     client2.get('visits', (err, visits) => {
-        res.send('Number of visit is ' + visits);
-        client2.set('visits', parseInt(visits) + 1);
+        res.send('Number of visit is ' + visits);   (ë‘ë²ˆì§¸ DBì—ì„œ visits ë³€ìˆ˜ë¥¼ ê°€ì ¸ì™€ì„œ 'Number of visit is 'ë¬¸ìì—´ ë‹¤ìŒì— ì¶œë ¥í•´ì¤€ë‹¤.)
+        client2.set('visits', parseInt(visits) + 1);  (visits ë³€ìˆ˜ì— 1ì„ ë”í•´ì„œ ë‘ë²ˆì§¸ DBì— ì €ì¥í•´ì¤€ë‹¤.)
     });
 });
 
