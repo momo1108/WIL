@@ -1,0 +1,85 @@
+1. sudo docker-compose up --build
+version: '2'
+services:
+  redis-server1:
+    image: 'redis'
+  redis-server2:
+    image: 'redis'
+  node-app:
+    build: . (dockerfile 사용해서 image빌드 후 컨테이너를실행하겠다. sudo docker build -t id/node-app:1.0
+    ports: (sudo docker run -d -p 8080:8081 id/nodeapp:1.0 에서 -p 8080:8081)
+      - "8080:8081"
+
+
+2. dockerfile 읽음 (dockerfile을 사용할때 줄마다 명령을 실행하고 그 결과를 이미지로 만드는 방식이다.)
+# Specify a base image
+FROM node:10-alpine
+
+WORKDIR /usr/app (컨테이너의 어떤 경로에서 작업을 하겠다.)
+
+# Install some dependencies
+COPY ./package.json . (package.json을 컨테이너로 복사해준다.)
+
+RUN npm install (npm install 은 node 서버 설치. 그러나 이때 필요한 파일이 package.json 파일이다. 이 파일을 위에 먼저 보내줘야 한다.↑)
+
+COPY . . (필요한 나머지 파일을 보내준다.)
+# Default command
+CMD ["npm", "start"] (서버 실행. CMD는 이미지가 만들어지고 사용되서 컨테이너로 만들어 진 후 컨테이너내에서 실행되는 명령어다.)
+
+3. package.json (node 서버를 설치할 때 참고하는 기본 설계도)
+{
+  "name": "node_redis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js" (세부 설계도를 설정해줌 → app.js)
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "redis": "^2.8.0"
+  }
+}
+
+4. app.js
+
+const express = require('express');
+const redis = require('redis');
+
+const app = express();
+
+const client1 = redis.createClient({
+    host:'redis-server1',
+    port:6379
+});	(client1 변수에 첫번째 레디스 서버(데이터베이스의 역할)의 정보를 저장한다.)
+const client2 = redis.createClient({
+    host:'redis-server2',
+    port:6379
+});	(client1 변수에 두번째 레디스 서버의 정보를 저장한다.)
+
+client1.set('visits', 0); (첫번째 DB에 visits 변수를 생성하고 초기값을 0으로 선언)
+client2.set('visits', 0); (두번째 DB에 visits 변수를 생성하고 초기값을 0으로 선언)
+
+(localhost:8080 - containerip:8081)
+app.get('/', (req, res) => {
+    res.send('황상욱의 서버');
+});
+app.get('/one', (req, res) => {
+    client1.get('visits', (err, visits) => {
+        res.send('Number of visit is ' + visits);
+        client1.set('visits', parseInt(visits) + 1);
+    });
+});
+app.get('/two', (req, res) => {
+    client2.get('visits', (err, visits) => {
+        res.send('Number of visit is ' + visits);
+        client2.set('visits', parseInt(visits) + 1);
+    });
+});
+
+app.listen(8081, () =>{
+    console.log('Listening 8080 port');
+});
