@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Table style 테스트</title>
+<style>
+table, th, td {
+    border: 1px solid red;
+}
+th, td {
+    padding: 10px;
+}
+</style>
+</head>
+<body>
+    <h2>Cell that spans two columns</h2>
+    <p>To make a cell span more than one column, use the colspan attribute.</p> 
+    <table style="width:100%">
+        <tr>
+            <td>가</td>
+            <td>나</td>
+            <td>다</td>
+            <td rowspan="4">라</td>
+        </tr>
+        <tr>
+            <td>마</td>
+            <td colspan="2" rowspan="3">바</td>
+        </tr>
+        <tr>
+            <td>사</td>
+        </tr>
+        <tr>
+            <td>아</td>
+        </tr>
+        <tr>
+            <td colspan="2">자</td>
+            <td colspan="2">차</td>
+        </tr>
+        <tr>
+            <td colspan="4">카</td>
+        </tr>
+    </table>
+</body>
+</html>
