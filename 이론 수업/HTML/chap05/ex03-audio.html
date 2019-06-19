@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>오디오 테스트</h1>
+    <h2>오디오 자동 재생/loop</h2>
+    <audio src="../chap04/music/music01.mp3" controls loop autoplay volume="0.5"></audio>
+    <h2>오디오 수동 재생 /w 컨트롤</h2>
+    <audio src="../chap04/music/music02.mp3" controls></audio>
+    <h2>오디오 소스 여러개(앞에서부터 되는게 출력됨)</h2>
+    <audio controls>
+        <source src="../chap04/music/music01.mp3" type="audio/mp3">
+        <source src="../chap04/music/music02.mp3" type="audio/mp3">
+        <source src="../chap04/music/music03.mp3" type="audio/mp3">
+        오디오를 재생할 수 없습니다.
+    </audio>
+</body>
+</html>
