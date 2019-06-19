@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend>날짜 관련 입력</legend>
+            <h4>Enter a date before 1980-01-01:</h4>
+            <input type="date" name="bday" max="1979-12-31">
+            <h4>Enter a date after 2000-01-01:</h4>
+            <input type="date" name="bday" min="2000-01-02">
+            <h4>Birthday (date and time):</h4>
+            <input type="datetime-local" name="bdaytime">
+            <h4>month</h4>
+            <input type="month" name="bdaymonth">
+            <h4>week</h4>
+            <input type="week" name="week_year">
+            <input type="submit" value="제출">
+        </fieldset>
+        <fieldset>
+            <legend>숫자 관련 입력</legend>
+
+            <h4>number</h4>
+            <input type="number" name="number_">
+            <h4>Quantity (between 1 and 5):</h4>
+            <input type="number" name="quantity" min="0" max="100" step="10" value="30">
+            <!-- min과 max는 숫자나 날짜에서 최소와 최대값으로 사용될 수 있다. -->
+            <h4>range</h4>
+            <input type="range" name="range_">
+        </fieldset>
+        <fieldset>
+            <legend>기타</legend>
+            <h4>color</h4>
+            <input type="color" name="color_">
+            <h4>hidden</h4>
+            <input type="hidden" name="hidden_">
+            <h4>파일</h4>
+            <input type="file" name="file_">
+            <h4>Search Google:</h4>
+            <input type="search" name="googlesearch">
+            <!-- search는 search 입력값 자체 reset가능 -->
+            <h4>Telephone:</h4>
+            <input type="tel" name="phone" pattern="[0-3]{3}-[0-9]{3,4}-[0-9]{4}">
+            <!-- tel의 pattern은 정규표현식을 따른다. []는 이 자리에 올수 있는 값의 범위 {}는 갯수 -->
+        </fieldset>
+    </form>
+</body>
+</html>

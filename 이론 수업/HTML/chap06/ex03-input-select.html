@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="server_test.php">
+        <fieldset>
+            <legend>콤보박스 테스트</legend>
+            <select name="Game" size="3" multiple>
+                <!-- size는 콤보박스의 크기, multiple은 선택자의 개수이다. -->
+                <optgroup label="aos게임">
+                    <option value="League of Legend">롤</option>
+                </optgroup>
+                <optgroup label="잡게임">
+                    <option value="Battleground">배그</option>
+                    <option value="Autochess">오토체스</option>
+                    <option value="Path of Exile">POE</option>
+                </optgroup>
+            </select>
+        </fieldset>
+        <input type="submit" value="제출">
+    </form>
+
+</body>
+</html>

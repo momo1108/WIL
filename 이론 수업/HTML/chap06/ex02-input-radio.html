@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="server_test.php" method="GET"> <!-- 입력받은 정보를 보낼 컨트롤러 페이지와 메소드를 써줘야한다. 한다. -->
+        <!-- GET방식은 URL에 정보가 노출되므로 중요한 정보들은 제출된 폼 데이터가 url에 드러나지않는 
+        POST로 보낸다. method를 쓰지않으면 디폴트값인 GET이 수행된다.-->
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="male" checked> Male <br>
+            <input type="radio" name="gender" value="female"> Female <br>
+            <input type="radio" name="gender" value="other"> Other <br>
+        </fieldset>
+        <!-- fieldset 태그를 이용해서 원하는 데이터 폼들을 구분할 수 있다. -->
+        <fieldset>
+            <legend>국적</legend>
+            <input type="radio" name="country" value="Korea" checked> Korea <br>
+            <input type="radio" name="country" value="Japan"> Japan <br>
+            <input type="radio" name="country" value="China"> China <br> 
+        </fieldset> <br>
+        <input type="submit" value="선택 완료/제출">
+    </form>
+
+</body>
+</html>
