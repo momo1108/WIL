@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #p0 {
+            border: 10px solid red;
+            /* margin: 30px 60px 90px 120px; */
+            /* margin: 100px; */
+            margin: 100px 50px;
+            /* 상하와 좌우를 분리해줌
+            padding도 마찬가지로 적용 */
+            padding: 10px 30px;
+            min-width: 300px;
+            max-width: 400px;
+            width: 50%;
+            /* width의 min과 max를 지정해놓으면 width가 50%로 설정되어 있어도 변하는데 제한이 있다. */
+            box-sizing: border-box;
+        }
+
+        #p1 {
+            border: 5px solid red;
+            width: 400px;
+            margin: 10px auto;
+            padding: 70px;
+            box-sizing: border-box;
+            /* width를 전체 박스 사이즈로 생각한다. 패딩이 늘어날 수록 컨텐츠 사이즈가 줄어든다. */
+        }
+
+        #x {
+            margin: auto;
+        }
+
+        #p2 {
+            border: 5px solid red;
+            width: 400px;
+            margin: 10px auto;
+            padding: 20px;
+            box-sizing: content-box;
+            /* width를 컨텐츠 사이즈로 생각한다. 패딩이 늘어나도 컨텐츠 크기는 변하지 않고 전체 크기가 커진다. */
+        }
+    </style>
+</head>
+
+<body>
+    <div id="x">
+        <h1 class="h">문단 1</h1>
+        <p id="p0">Lorem ipsum dolor sit amet, Etiam nisi felis, faucibus et elementum ut, elementum in velit. Cras
+            sagittis
+            justo vitae tincidunt porta. Maecenas non urna a felis tempor pharetra. Sed maximus lacinia massa sed
+            venenatis.
+            Donec quam lacus, Sed egestas urna in nulla finibus, eget ultrices massa euismod.</p>
+        <h2 class="h">문단 2</h2>
+        <p id="p1">Lorem ipsum dolor sit amet, Etiam nisi felis, faucibus et elementum ut, elementum in velit. Cras
+            sagittis justo vitae tincidunt porta. Maecenas non urna a felis tempor pharetra. Sed maximus lacinia massa
+            sed venenatis.
+            Donec quam lacus, Sed egestas urna in nulla finibus, eget ultrices massa euismod.</p>
+        <h2 class="h">문단 3</h2>
+        <p id="p2">Lorem ipsum dolor sit amet, Etiam nisi felis, faucibus et elementum ut, elementum in velit. Cras
+            sagittis justo vitae tincidunt porta. Maecenas non urna a felis tempor pharetra. Sed maximus lacinia massa
+            sed venenatis.
+            Donec quam lacus, Sed egestas urna in nulla finibus, eget ultrices massa euismod.</p>
+    </div>
+</body>
+
+</html>

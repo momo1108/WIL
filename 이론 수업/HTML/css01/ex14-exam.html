@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .parent1 {
+            width: 600px;
+            display: table;
+            margin: 0 auto;
+            margin-top: 100px;
+            text-align: center;
+        }
+        .parent2 {
+            width: 600px;
+            display: table;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .box1 {
+            display: table-cell;
+            height: 130px;
+        }
+        .box2 {
+            display: table-cell;
+            height: 500px;
+        }
+
+        .box-name {
+            width: 100%;
+        }
+
+        .box-a {
+            width: 33%;
+        }
+
+        .box-b {
+            width: 34%;
+        }
+
+        .box-c {
+            width: 33%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent1">
+        <div class="box1 box-name">SERVICES<br>Lorem ipsum dolor sit amet, consectetur adipiscing elit.<br></div><br>
+    </div>
+    <div class="parent2">
+        <div class="box2 box-a">A</div>
+        <!-- 클래스를 여러개 지정할수도 있다. 클래스들끼리는 동등하다 -->
+        <div class="box2 box-b">B</div>
+        <div class="box2 box-c">C</div>
+    </div>
+</body>
+
+</html>
