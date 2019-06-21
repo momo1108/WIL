@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #spanblock {
+            background-color: blue;
+        }
+
+        #span2 {
+            position: relative;
+            top: 10px;
+            left: 10px;
+            /* relative 일 경우 얼마나 상대적으로 떨어질지 정할 수 있다.
+            원래 자리에서 top 10px, left 10px만큼 떨어져있다. */
+            background-color: tomato;
+        }
+
+        #span3 {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            /* width: 100px;
+            height: 100px; */
+            padding: 50px;
+            background-color: grey;
+            border: 1px solid blue;
+            /* 브라우져의 특정 위치에 고정시켜놓아서 아무리 브라우져 창이 움직여도 고정되있음 */
+        }
+    </style>
+</head>
+
+<body>
+    <h1>position 테스트</h1>
+    <p>
+        밝은 희망의 소리다.이것은 얼음에 있으며, <span id="spanblock">두기 이상은 있으랴?</span> 우리 별과 영원히 어디 반짝이는 피는 하는 노래하며
+        실현에 이것이다. <span id="span2">듣기만 구하지 청춘의 것은 구하지 많이 인간이 이것이다.</span> 것은 방황하였으며, 가는 봄날의
+        가치를 구할 보이는 <span id="span3">밥을 사람은 있다. 이상,</span> 그러므로 끓는 광야에서 장식하는 더운지라 것이다.밝은 희망의 소리다.이것은 얼음에 있으며, 두기 이상은 있으랴?
+        우리 별과 영원히 어디 반짝이는 피는 하는 노래하며 실현에 이것이다. 듣기만 구하지 청춘의 것은 구하지 많이 인간이 이것이다. 것은 방황하였으며, 가는 봄날의 가치를 구할 보이는 밥을 사람은 있다.
+        이상, 그러므로 끓는 광야에서 장식하는 더운지라 것이다.
+    </p>
+</body>
+
+</html>

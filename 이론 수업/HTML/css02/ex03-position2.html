@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #menu {
+            position: relative;
+            width: 200px;
+            height: 50px;
+            background-color: tomato;
+        }
+        #submenu1 {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 160px;
+            height: 50px;
+            background-color: wheat;
+        }
+        #submenu2 {
+            position: absolute;
+            top: 12px;
+            right: 0px;
+            width: 160px;
+            height: 50px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>position 테스트</h1>
+    <div id="menu">
+        여긴 relative 위치입니다.
+        <div id="submenu1">
+            absolute 위치입니다.
+        </div>
+        <div id="submenu2">
+            여기도 absolute 위치입니다.
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>백그라운드버튼을 만들어보자</title>
+    <style>
+      /* 선택자를 사용해서 여러개를 한꺼번에 선택해서 스타일을 바꿔줄 수 있다.
+      class라는 것은 그룹을 지어준다는 개념이다. id보다 포괄적인 선택자이다.
+      선택자가 class로 선언된 경우에는 앞에 . 을 붙어주어야 한다.*/
+      .js{
+        font-weight : bold;
+        color:skyblue;
+      }
+      /*선택자가 id로 선언된 경우에는 앞에 # 을 붙어주어야 한다. id라는 것은 어떤
+      한가지 대상을 식별한다는 개념이다. id는 여러곳에 중복사용할 수 없다. class보다 우선한다. */
+      #first{
+        color:green;
+        font-weight : normal;
+      }
+      /*span의 경우에는 모든 span 선택자에 적용이된다.
+      id보단 class가, class보단 span이 포괄적이라 볼 수 있다.
+      또 css상의 span의 옵션보단 본문의 span옵션이 더 우선시된다.*/
+      span{
+        background-color : yellow;
+      }
+    </style> <!-- 선택자를 사용해서 여러개를 한꺼번에 선택해서 스타일을 바꿔줄 수 있다.
+      이 태그 안은 css다 라고 웹 브라우져에게 알려준다.-->
+  </head>
+  <body style="background-color:gray; color:hotpink;">
+    <h1 style="background-color:powderblue; color:red;">자바스크립트(영어: JavaScript)</h1>는 객체 기반의 스크립트 프로그래밍 언어이다.
+    <br>이 언어는 웹 브라우저 내에서 주로 <span>사용</span>하며, 다른 응용 프로그램의 내장 객체에도 접근할 수 있는 기능을 가지고 있다.
+    <br>또한 Node.js와 같은 런타임 환경과 같이 서버 사이드 네트워크 프로그래밍에도 <span>사용</span>되고 있다.
+    <br><span id="first" class="js">자바스크립트</span>는 본래 넷스케이프 커뮤니케이션즈 코퍼레이션의 브렌던 아이크(Brendan Eich)가
+    <br>처음에는 모카(Mocha)라는 이름으로, 나중에는 라이브스크립트(LiveScript)라는 이름으로 개발하였으며,
+    <br>최종적으로 <span class="js">자바스크립트</span>가 되었다. <span class="js">자바스크립트</span>가 썬 마이크로시스템즈의 자바와 구문이 유사한 점도 있지만,
+    <br>이는 사실 두 언어 모두 C 언어의 기본 구문에 바탕을 뒀기 때문이고, 자바와 <span class="js">자바스크립트</span>는 직접적인 관련성이 없다.
+    <br>이름과 구문 외에는 자바보다 셀프나 스킴과 유사성이 많다.
+    <div class="js">
+      div 태그는 무색 무취의 태그이다. 이놈은 어디에다 쓸까? 바로 style을 입히고 싶을 때 이다.
+      <br>하지만 이 태그는 줄바꿈이 일어나는 태그이다. 그렇다면 줄바꿈이 없는 무색 무취의 태그는 무엇일까?
+    </div>
+    <br><span style="font-weight:900;">바로</span> <span style="background-color:white;color:hotpink;">span</span> 태그이다.
+  </body>
+</html>

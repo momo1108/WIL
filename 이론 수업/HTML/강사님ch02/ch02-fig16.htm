@@ -1,0 +1,65 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+  <title> New Document </title>  
+
+  <style> 
+     *  { box-sizing: border-box; }
+    #header  { background: dimgray; color: white; } 
+    #menu  {  background: #333; color: white; } 
+    #content  { background: ghostwhite; } 
+    #side-right  { background: Gainsboro; } 
+    #footer  { background: darkgray; }   
+
+    /* step-2 */
+    #menu  { float: left;  width: 20%; } 
+    #content  { float: left;  width: 60%; } 
+    
+    /* step-3 */
+    #menu a  { display: block;  color: white; } 
+
+    /* step-4 */
+    #footer { clear : both; }    
+
+    /* step 6 */
+    #container  { height: 400px; } 
+    #header  { height: 15%; } 
+    #menu, #content, #side-right  { height: 75% } 
+    #footer  { height: 10%; } 
+
+    /* step 7 */ 
+    iframe { margin: 0px 0px; padding: 0px 0px; border: 0px;  
+             width: 100%; height : 100% ; } 
+    #header, #menu, #side-right, #footer  { text-align: Center; }   
+  </style> 
+
+</head>
+
+<body>   
+<div id="container" >  
+ <div id="header"> Header </div>
+  <div id="menu"> 
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+    <a href="#">Link</a>
+  </div>     
+  <div id="content">
+      <iframe src="sample.htm" name="maincontent" seamless></iframe>
+  </div>  
+  <div id="side-right"> Side(right) </div>  
+  <div id="footer"> Footer </div>
+</div> 
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+ 

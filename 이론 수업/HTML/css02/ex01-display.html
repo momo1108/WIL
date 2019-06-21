@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        h1, div, span {
+            border: 1px solid red;
+        }
+        .div1, .div2 {
+            display: inline;
+            /* display 옵션을 사용해서 블록-레벨 요소임에도 인라인 요소처럼 디스플레이할 수 있다. */
+        }
+        span {
+            display: block;
+            /* 마찬가지로 인라인요소를 블록레벨 요소처럼 다룰수도 있다. */
+        }
+        #none {
+            display: none;
+            /* display 옵션에 none을 주면 디스플레이가 되지 않는다. */
+        }
+        .nav li {
+            display: inline-block;
+            font-size: 20px;
+            padding: 20px;
+            background-color: skyblue;
+            margin: 10px;
+            color: white;
+            /* 리스트도 인라인으로 바꿀 수 있다. */
+        }
+        p {
+            visibility: hidden;
+            /* visibility: hidden; 은 display: none; 같이 화면에 출력되진 않지만 자리는 그대로 차지한다. */
+        }
+        a {
+            line-height: 40px;
+        }
+        .nav {
+            background-color: tomato;
+            list-style-type: none;
+            text-align: right;
+            margin: 0;
+            padding: 0;
+        }
+        .nav2 {
+            list-style: none;
+        }
+        .nav2 li{
+            background-color: skyblue;
+            font-weight: bold;
+            width: 200px;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>display 속성 테스트</h1>
+    <div class="div1">div1</div>
+    <div class="div2">div2</div>
+    <span>span1</span>
+    <span>span2</span>
+    <span id="none">span3</span>
+    <p>
+            이것이야말로 장식하는 내는 능히 피고 피고, 있으랴? 영원히 싸인 만천하의 반짝이는 찾아다녀도, 일월과 간에 쓸쓸한 교향악이다. 평화스러운 천하를 품으며, 미묘한 무엇을 있는가? 별과 보이는 스며들어 품고 귀는 얼마나 더운지라 운다. 날카로우나 설레는 타오르고 고동을 철환하였는가? 투명하되 가치를 이것은 그들에게 사랑의 트고, 때문이다. 놀이 우리의 위하여, 있다. 눈이 없는 이성은 청춘의 때까지 듣는다. 보이는 품었기 우리는 사막이다. 이것은 이상은 같이 무엇을 봄바람이다. 두손을 트고, 인간의 희망의 이것은 있을 피어나기 철환하였는가?
+    </p>
+    <ul class="nav">
+        <li><a href="#one">1</a></li>
+        <li><a href="#two">2</a></li>
+        <li><a href="#tree">3</a></li>
+        <li><a href="#four">4</a></li>
+    </ul>
+    <ul class="nav2">
+        <li>About us</li>
+        <li>About you</li>
+        <li>Dont have any</li>
+        <li>Sup</li>
+    </ul>
+
+</body>
+
+</html>
