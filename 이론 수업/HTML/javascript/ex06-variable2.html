@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/script1.js"></script>
+</head>
+
+<body>
+    <h1>Hello Javascript</h1>
+    <script>
+        var test1;
+        test1 = 123;
+        document.write(typeof test1 + '<br>');
+        
+        var test2;
+        test2 = "abc";
+        document.write(typeof test2 + '<br>');
+
+        var test3;
+        test3 = true;
+        document.write(typeof test3 + '<br>');
+        // boolean은 true, false만 가질 수 있음
+
+        var test4 = function wel() {
+            console.log('ㅎㅇ');
+        };
+        document.write(typeof test4 + '<br>');
+
+        var test5;
+        test5 = {
+            name: '홍길동',
+            age: 24
+        }
+        document.write(typeof test5 + '<br>');
+
+        
+        var test6;
+        test6 = "abcdef";
+        // 문자열이라는 걸 알려주기 위해 '' 혹은 "" 를 사용해준다.
+        document.write(typeof test6 + '<br>');
+        document.write(test6.length + '<br>');
+        document.write(test6[2] + '<br>');
+        test6 = 12;
+        document.write(typeof test6 + '<br>');
+        document.write(test6.length + '<br>');
+        
+        var test7;
+        test7 = "철수가 \"안녕\" 이라고 인사했다.";
+        document.write(typeof test7 + '<br>');
+        document.write(test7 + '<br>');
+        document.write(test7.length + '<br>');
+        document.write(test7[2]);
+
+    </script>    
+</body>
+
+</html>
