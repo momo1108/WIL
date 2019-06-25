@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            .button button {
+                width: 100px;
+                height: 100px;
+                border-radius: 50px;
+                border: 3px solid black;
+                cursor: pointer;
+            }
+    
+            #red {
+                background-color: red;
+            }
+    
+            #green {
+                background-color: green;
+            }
+    
+            #blue {
+                background-color: blue;
+            }
+    
+            #yellow {
+                background-color: yellow;
+            }
+    
+            #skyblue {
+                background-color: skyblue;
+            }
+        </style>
+</head>
+<body>
+    <h1>어떤 게임?</h1>
+    <button type="button" onclick="season();">계절놀이</button>
+    <button type="button" onclick="grade();">성적입력</button>
+    <script>
+        function season() {
+            var num = prompt('월(month)를 입력하세요 (ex. 12월 : 12)');
+            if (num < 3) {
+                alert('시린 겨울이와~');
+            } else if (num < 6) {
+                alert('봄 봄 봄 봄이왔네요~');
+            } else if (num < 9) {
+                alert('여름 여름 여름 여름 여름이다~');
+            } else if (num < 12) {
+                alert('가을이다');
+            } else {
+                alert('시린 겨울이와~');
+            }
+        }
+        function grade() {
+            var num = prompt('성적을 입력하세요 (ex. 90점 : 90) 싫어도 해 ^^');
+        if (num >= 90) {
+            alert('A A A A~');
+        } else if (num >= 80) {
+            alert('BB 크림~');
+        } else if (num >= 70) {
+            alert('CC 크림~');
+        } else if (num >= 60) {
+            alert('D 재수강 가즈아~');
+        } else {
+            alert('F 이맛이야!');
+        }
+        }
+    </script>
+    <br><br><br>
+    <div class="button">
+    <button type="button" id="red" onclick="check('red')"></button>
+    <button type="button" id="green" onclick="check('green')"></button>
+    <button type="button" id="blue" onclick="check('blue')"></button>
+    <button type="button" id="yellow" onclick="check('yellow')"></button>
+    <button type="button" id="skyblue" onclick="check('skyblue')"></button>
+    </div>
+    <script>
+        function check(color) {
+            var btn = color;
+            if (btn == "red") {
+                alert('꽝! 빠빠빨간맛');
+            } else if (btn == "green") {
+                alert('꽝! 초록초록');
+            } else if (btn == "blue") {
+                alert('꽝! 아이 삘 블루~');
+            } else if (btn == "yellow") {
+                alert('당첨! 아이좋아~');
+            } else {
+                alert('꽝! 파란하늘~')
+            }
+        }
+
+    </script>
+</body>
+</html>

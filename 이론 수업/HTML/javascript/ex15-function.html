@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>함수</h3>
+    <hr>
+    <script>
+        var qty = 10;
+        var price = 1000;
+        var discount = 10;
+
+        var charge = getCharge(qty, price, discount);
+        document.write(charge);
+
+        function getCharge(qty, price, discount) {
+            var total = qty * price - discount;
+            var output = '<table border=1><tr><td>total is</td> <td>' + total + '</td></tr></table>'
+            return output;
+        }
+    </script>
+</body>
+</html>

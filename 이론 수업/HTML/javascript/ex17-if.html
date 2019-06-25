@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>18시 이전이면 Good Day 출력</p>
+
+    <p id="demo">Good Evening!</p>
+
+    <script>
+        document.write('지금 몇시? ' + new Date().getHours() + '시!');
+        var hour = new Date().getHours();
+        var greeting;
+        if (new Date().getHours() < 18) {
+            greeting = "Good morning";
+        } else {
+            greeting = "Good evening";
+        }
+        document.getElementById('demo').innerHTML = greeting;
+    </script>
+</body>
+
+</html>

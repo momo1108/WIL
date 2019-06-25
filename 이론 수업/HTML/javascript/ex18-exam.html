@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>어떤 게임?</h1>
+    <button type="button" onclick="evenodd();">홀짝을 하겠노라</button>
+    <button type="button" onclick="signout();">탈퇴를 하겠노라</button>
+    <script>
+        function evenodd() {
+            var num = prompt('숫자를 입력하세요!');
+            var eo = num % 2;
+            if (eo == 0) {
+                alert('짝짜라작짝 오늘도');
+            } else {
+                alert('홀홀홀~');
+            }
+        }
+        function signout() {
+            var out = confirm('회원 탈퇴를 하시겠습니까?');
+        if (out == 1) {
+            alert('회원 탈퇴가 되었습니다. 다신오지마세요');
+        } else {
+            alert('탈퇴가 취소되었습니다. 현명하시네요 ^^');
+        }
+        }
+    </script>
+</body>
+</html>

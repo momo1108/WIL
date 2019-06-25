@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        button {
+            width: 100px;
+            height: 100px;
+            border-radius: 50px;
+            border: 3px solid black;
+            cursor: pointer;
+        }
+
+        #red {
+            background-color: red;
+        }
+
+        #green {
+            background-color: green;
+        }
+
+        #blue {
+            background-color: blue;
+        }
+
+        #yellow {
+            background-color: yellow;
+        }
+
+        #skyblue {
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>1. MouseClick 이벤트 처리</h2>
+
+    경품 추첨! 원하는 공을 클릭하세요 <br><br><br>
+
+    <button type="button" id="red"></button>
+    <button type="button" id="green"></button>
+    <button type="button" id="blue"></button>
+    <button type="button" id="yellow"></button>
+    <button type="button" id="skyblue"></button>
+    <script>
+        document.getElementById('red').onclick = function () {
+            alert('꽝~');
+        }
+        document.getElementById('green').onclick = function () {
+            alert('꽝~');
+        }
+        document.getElementById('blue').onclick = function () {
+            alert('꽝~');
+        }
+        document.getElementById('yellow').onclick = function () {
+            alert('당첨!');
+        }
+        document.getElementById('skyblue').onclick = function () {
+            alert('꽝~');
+        }
+
+    </script>
+
+</body>
+
+</html>
