@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/script1.js"></script>
+</head>
+
+<body>
+    <h1>Hello Javascript</h1>
+    <script>
+        var test1 = 123;
+        // 이 상태에서 test1은 숫자형 변수로 선언이된다.
+        test1 = "hello";
+        // 여기서 test1은 문자형 변수로 바뀌어 선언이된다.
+
+        {
+            var test1 = "hello2";
+        }
+        console.log('test1 = ' + test1);
+        // 다른 언어들과 다르게 자바스크립트는 중괄호 안에 
+        // 변수를 선언해도 지역변수가 아닌 전역변수로 선언이된다.
+
+
+
+        
+        // 이를 막기 위해 let 변수를 사용한다.
+        // let 변수는 같은 이름의 (전역)변수를 재선언을 불가능하게 해놓았다.
+        // 다만 중괄호 안에 선언하면 let은 지역변수로 선언하기 때문에 오류는 발생하지 않는다.
+        let test2 = 123;
+
+        {
+            let test2 = 345;
+            console.log('test2 = ' + test2);
+    
+        }
+        // let test2 = 345; 를 여기서 다시 선언해주면 오류가 발생한다.
+        console.log('test2 = ' + test2);
+
+
+
+
+        // 중괄호로 여러개의 명령문들을 묶을 수 있다. function 명령어에도 사용
+        document.write(test1);
+
+        function welcome2() {
+            var test1 = 345;
+            console.log('welcome2() test1 = ' + test1);
+        }
+
+        console.log('test1 = ' + test1);
+        welcome2();
+        console.log('test1 = ' + test1);
+
+        
+
+
+
+
+
+        var test3 = 123;
+
+        function welcome3() {
+            var test3 = 345;
+            console.log('welcome3() test3 = ' + test3);
+        }
+
+        console.log('test3 = ' + test3);
+        welcome3();
+        console.log('test3 = ' + test3);
+        // 함수 안에서 선언된것도 함수 밖에서 선언된 것은 이름이 같아도 서로 다른 변수이다!
+        // 그리고 함수 안의 변수는 함수가 끝나면 사라져버린다!
+        // 대신 함수 전에 선언된 변수를 함수 내에서 호출을 하면 그 변수가 오게된다.
+        // 함수 바깥에 있는 변수는 '전역 변수' 함수 안에 있는 변수는 '지역 변수'라고 한다.
+    </script>
+
+</body>
+
+</html>
