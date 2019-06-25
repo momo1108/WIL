@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/script1.js"></script>
+</head>
+
+<body>
+    <h3> 자동 형변환 </h3>
+    <hr>
+    <script>
+        document.write((7 + null) + '<br>');
+        document.write(("7" + null) + '<br>');
+        document.write(("7" + 2) + '<br>'); // 더하기 연산자는 문자도 있고 숫자도 있음 따라서 27로 출력
+        document.write((2 + "7") + '<br>'); 
+        document.write(("7" - 2) + '<br>'); // 빼기 연산은 숫자에만 있기 때문에 7-2로 5가 출력
+        document.write((2 - "7") + '<br>'); // 마찬가지
+        document.write(("7" * "2") + '<br>'); // 곱하기도 숫자열만에 있다.
+        document.write(("7" / "2") + '<br>'); // 나누기도 숫자열에만 있다.
+        document.write(("abc" - 2) + '<br>'); // NaN
+        document.write(("abc" * 2) + '<br>');
+        document.write(("abc" / 2) + '<br>');
+    </script>
+</body>
+
+
+</html>

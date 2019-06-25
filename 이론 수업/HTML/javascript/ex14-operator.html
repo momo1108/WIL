@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h3>연산자</h3>
+    <hr>
+    <script>
+        // 산술 연산자
+        var unit_price = 10;
+        var qty = 3;
+        var total = unit_price + qty;
+        var diff = unit_price - qty;
+        var times = unit_price * qty;
+        var divide = unit_price / qty;
+        var remainder = unit_price % qty; // % 는 앞을 뒤 변수로 나눈 나머지
+
+
+        // 할당 연산자
+        var kor = 100;
+        var eng = 80;
+        var math = 70;
+
+        var sum = kor;
+        console.log(sum);
+        sum += eng; // sum = sum + eng;
+        console.log(sum);
+        sum -= math; // sum = sum - math;
+        console.log(sum);
+
+
+        // 비교 연산자
+        id == 'hong';
+        age >= 10;
+        hour <= 18;
+        id != 'hong'; // 여기까진 다른 언어들과 비슷
+        // 자바스크립트에서만 존재하는 것
+        age === 10; // 값이 같아야 하고 타입도 같아야 한다.
+        age == 10;
+        age == '10'; // == 는 타입이 달라도(숫자와 문자열) 값이 같으면 된다.
+    </script>
+</body>
+</html>
