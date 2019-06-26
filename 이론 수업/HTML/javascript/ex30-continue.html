@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var months = [1,2,3,4,5,6,7,8,9,10,11,12];
+        var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        var season = ["봄", "여름", "가을", "겨울"];
+
+        document.write("월 : ",months,"<br>");
+        document.write("요일 : ",days,"<br>");
+        document.write("<hr>",season.length," 계절 종류 : ");
+        for (i=0; i<season.length; i++) {
+            document.write(season[i],' ');
+        }
+
+        document.write("<br>");
+        document.write("<hr>",season.length," 계절 종류 : ");
+        season.forEach(function(value) {
+            document.write(value,' ');
+        })
+
+        document.write("<br>");
+        document.write("<hr>",season.length," 계절 종류 : ");
+        // for (var in) 쉽고 직관적인 사용을 위해 단축시킨 기능
+        for (var i in season) {
+            document.write(season[i],' ');
+        }
+    </script>
+</body>
+
+</html>
