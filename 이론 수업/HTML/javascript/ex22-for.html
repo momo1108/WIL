@@ -27,7 +27,13 @@
             document.write(i);
             i++;
         }
-
+        // for문 안의 for문
+        for(let i=2; i<=9; i++) {
+            document.write("<hr><h2>",i,"단</h2>")
+            for(let j=1; j<=9; j++) {
+                document.write(i," * ",j," = ",i*j, "<br>")
+            }
+        }
     </script>
 </body>
 </html>

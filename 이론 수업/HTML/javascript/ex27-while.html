@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            min-width: 23%;
+        }
+        * {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="randombox" style="width: 35%">
+        <h1>숫자 맞추기 게임</h1>
+        <br>
+        숫자는 1부터 100 사이에 있습니다. <br>
+        숫자 입력 : 
+        <input type="text" id="num">
+        <input type="submit" value="확인" onclick="randomg();">
+        <br>
+        <br>
+        추측 횟수 : <div id="guessnum" style="border: 1px solid grey; display: inline-block;">&nbsp;</div><br>
+        힌트 : <div id="hint" style="border: 1px solid grey; display: inline-block;">&nbsp;</div>
+    </div>
+    <script>
+        var i = 0;
+        var randnum = Math.random() * 99 + 1;
+        function randomg() {
+            i++;
+            document.getElementById('guessnum').innerHTML = i;
+            let randint = parseInt(randnum);
+            let guess = document.getElementById('num').value;
+            let realguess = Number(guess);
+            if(realguess<randint) {
+                document.getElementById('hint').innerHTML = "더 높은 숫자에요";
+            } else if(realguess>randint) {
+                document.getElementById('hint').innerHTML = "더 낮은 숫자에요";
+            } else {
+                document.getElementById('hint').innerHTML = "더이상 알려줄게 없다.";
+                alert('ㅊㅋㅊㅋ');
+            }
+
+        }
+    </script>
+</body>
+
+</html>
