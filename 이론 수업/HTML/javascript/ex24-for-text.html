@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Stylish&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>2~9 까지 숫자 받아 구구단 출력</h1>
+    <p id="demo" style="font-family: 'Stylish', sans-serif; font-size: 30px;"></p>
+        <script>
+            let gugu = 0;
+            let text = "";
+            gugu = prompt('구구단 몇단을 출력하시겠습니까?(2~9)');
+            // console.log(Number.isInteger(Number(gugu))); << gugu가 정수값인지 확인해줌
+            if (gugu == 2 || gugu == 3 || gugu == 4 || gugu == 5 || gugu == 6 || gugu == 7 || gugu == 8 || gugu == 9) {
+                for (i = 9; i > 0; i--) {
+                    let gugudan = gugu * i;
+                    text += "<span style='color: rgb(93, 180, 112);'>" + gugu + ' 곱하기 ' + i + ' 는 ' + gugudan + '</span>' + '<br>';
+                }
+            } else {
+                alert('값을 똑바로 입력하셔야죠 ^^');
+                text += '<span style="color: red;">' + '다음부터는 똑바로 입력하쇼 ^^' + '</span>' + '<br>';
+            }
+            document.getElementById("demo").innerHTML = text;
+        </script>
+        <br>
+        <button onclick="myFunction()" style="border: 3px solid red; border-radius: 5px; color: red; font-family: 'Stylish', sans-serif; font-size: 30px;">다시하기</button>
+
+        <script>
+        function myFunction() {
+          location.replace("ex24-for-text.html")
+        }
+        </script>
+    
+</body>
+
+</html>

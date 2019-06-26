@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1 ~ 10 까지 총합을 구해보자.
+        // 반복문을 사용하지 않는 경우
+        var sum = 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8 + 9 + 10;
+        document.write(sum + '<br>');
+
+        // for문을 이용
+        let sum2 = 0;
+        for (let i=0; i<=10; i++) {
+            sum2 += i;
+            document.write('i = ' + i + '<br>' + '현재 총합 : ' + sum2 + '<br>');
+        }
+        document.write('최종 합계는 ' + sum2);
+    </script>
+</body>
+</html>

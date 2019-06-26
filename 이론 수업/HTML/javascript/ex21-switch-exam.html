@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>학점 계산기</h1>
+    <p id="demo"></p>
+    <script>
+        var num = prompt('점수를 입력하세요');
+        var num2 = parseInt(Number(num) / 10);
+        var grade;
+        switch (num2) {
+            case 9:
+                grade = "학점 : A";
+                break;
+            case 8:
+                grade = "학점 : B";
+                break;
+            case 7:
+                grade = "학점 : C";
+                break;
+            case 6:
+                grade = "학점 : D";
+                break;
+            case 5:
+                grade = "학점 : E";
+                break;
+            case 4:
+                grade = "학점 : F";
+                break;
+            case 3:
+                grade = "학점 : F";
+                break;
+            case 2:
+                grade = "학점 : F";
+                break;
+            case 1:
+                grade = "학점 : F";
+                break;
+            case 0:
+                grade = "학점 : F";
+                break;
+            default :
+                grade = "점수를 잘못입력하셨소 ^^"
+        }
+        document.getElementById("demo").innerHTML = grade;
+    </script>
+</body>
+</html>

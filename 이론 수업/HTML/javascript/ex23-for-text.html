@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>10 ~ 25 까지 합</h1>
+    <script>
+        let sum1 = 0;
+        for (let i=10; i<=25; i++) {
+            sum1 += i;
+            document.write('i = ' + i + '<br>' + '현재 총합 : ' + sum1 + '<br>');
+        }
+        document.write('<hr>' + '최종 합계는 ' + sum1);
+    </script>
+    <h1>10 ~ 100 까지 3씩 듸는 합 (10, 13, 16 ...)</h1>
+    <script>
+        let sum2 =  0;
+        // let j = 0;
+        // for (let i=0; i<=30; i++) {
+        //     j = 3 * i + 10;
+        //     sum2 += j;
+        //     document.write('j = ',j,'<br>','현재 총합 : ',sum2,'<br>');
+        //     + 대신 , 를 써줘도 된다.
+        // }
+        for (let i=10; i<=100; i = i + 3) {
+            sum2 += i;
+            document.write('i = ',i,'<br>','현재 총합 : ',sum2,'<br>');
+        }
+        document.write('<hr>' + '최종 합계는 ' + sum2);
+        //for문을 돌고 나서도 i값이 필요 할 경우 var로 선언해준다.
+    </script>
+</body>
+</html>
