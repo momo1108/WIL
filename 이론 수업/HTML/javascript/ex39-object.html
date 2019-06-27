@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>객체 테스트</h1>
+    <script>
+        var d1 = new Date();
+        var d2 = new Date(2019,01,01);
+        // 1970년 이후에 ms 단위로 시간을 타임스탬프로 지정가능
+        var d3 = new Date(123132131);
+
+        document.write(d1, "<BR>");
+        document.write(d2, "<BR>");
+        document.write(d3, "<BR>");
+        // getTime은 저장된 시간을 타임스탬프로 불러옴
+        var diff = d1.getTime() - d2.getTime()
+        document.write(diff, "<BR>");
+        document.write(diff / 1000, "sec <BR>");
+        document.write(diff / (1000 * 60), "min <BR>");
+        document.write(diff / (1000 * 60 * 60), "hour <BR>");
+        document.write(diff / (1000 * 60 * 60 * 24), "days <BR>");
+
+            
+    </script>
+</body>
+
+</html>

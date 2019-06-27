@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>객체 테스트</h1>
+    <script>
+        var str = "Hello Thank you good luck to you";
+        document.write(str.charAt(16), "<br>"); // 16번 인덱스에 위치한 문자
+        document.write(str.indexOf("you"), "<br>"); // 첫 you의 (시작위치)인덱스 위치. 0부터 시작
+        document.write(str.indexOf("you", 10), "<br>"); // 인덱스 10 이후의 you의 인덱스 위치
+        document.write(str.lastIndexOf("you"), "<br>"); // 마지막 you의 인덱스 위치.
+        document.write(str.lastIndexOf("you", 25), "<br>"); // ??
+        document.write(str.match("luck"), "<br>");
+        document.write(str.search("you"), "<br>");
+        document.write(str.substr(21, 4), "<br>"); // 21번 인덱스(0부터 시작)부터 4글자 가져와라
+        document.write(str.substring(6, 12), "<br>"); // 6번 인덱스부터 12번 인덱스까지 가져와라
+        document.write(str.replace("you", "me"), "<br>");
+        document.write(str.toLowerCase(), "<br>"); // 소문자로
+        document.write(str.toUpperCase(), "<br>"); // 대문자로
+        document.write(str.length, "<br>");
+
+        var arr = str.split(" "); // 공백을 기준으로 나눠서 어레이에 집어넣어라.
+        document.write(arr[0], "<br>"); // Hello
+        document.write(arr[4], "<br>"); // luck
+
+        document.write(str.charCodeAt(0), "<br>");
+        document.write(String.fromCharCode(72), "<br>");
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array 테스트</h1>
+    <script>
+        let score = [10, 20, 30];
+        let data5 = ["hello", 1, 3.14, [3,4,5], new Array(10,20)];
+        console.log(score);
+        console.log(data5);
+        // push는 어레이 객체 마지막에 새 데이터를 삽입한다.
+        score.push(40);
+        score.push(50);
+        score.push("hello");
+        score.push([60,'Its a trap!',90]);
+        console.log('push 후에 score 상태는?');
+        console.log(score);
+        // pop은 배열의 마지막 인덱스에 저장된 데이터를 꺼내오고 배열에서 삭제한다.
+        console.log('pop을 한 후에 score 상태는?');
+        let data6 = score.pop();
+        let data7 = score[5];
+        let data8 = score.pop();        
+        console.log(score);
+        console.log(data6);
+        console.log(data7);
+        console.log(data8);
+        // shift는 배열의 첫번째 인덱스에 저장된 데이터를 꺼내오고 배열에서 삭제한다.
+        let data5_a = data5.shift();
+        console.log(data5_a);
+        //data5 = [1, 3.14, [3,4,5], new Array(10,20)];
+        // unshift는 새로운 요소를 배열의 맨 앞쪽에 추가하고, 새로운 길이를 반환한다.
+        let data5_b = data5.unshift(4,5);
+        console.log(data5_b);
+        // 배열 객체 중 일부를 잘라서 출력 (start, end)
+        let data5_c = data5.slice(2,4);
+        console.log(data5_c);
+        console.log(data5);
+
+        
+    </script>
+</body>
+
+</html>

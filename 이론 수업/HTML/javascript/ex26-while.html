@@ -12,6 +12,7 @@
 
     <p id="demo" style="text-align: center;"></p>
     
+    <!-- 여기는 내 풀이 -->
     <script>
         let b = "";
         let a = 0;
@@ -21,6 +22,19 @@
             b += "*";
             document.write(b, "<br>");
             c++;
+        }
+    </script>
+    <script>
+        let text2="*";
+        let i = prompt('트리의 줄 수를 입력하세요');
+        for(; i>0; i--) {
+            let j=0;
+            while(j<=i){
+                document.write('&nbsp;');
+                j++;
+            }
+            document.write(text2,"<br>");
+            text2 += "**";
         }
     </script>
     <!-- <script>
@@ -33,20 +47,46 @@
         }
     </script> -->
     <br><hr><br>
-    <script>
-        let text2="*";
-        let i = prompt('트리의 줄 수를 입력하세요');
-        for(; i>0; i--) {
-            let text1="";
-            let j=0;
-            while(j<=i){
-                text1 += "&nbsp;";
-                j++;
+    
+
+
+    <!-- 여기부턴 강사님 풀이 -->
+    <!-- <script>
+        var n = prompt('숫자 입력','');
+
+        for(var i=0; i<n; i++) {
+            for(var j=0; j<=i; j++) {
+                document.write('*');
             }
-            document.write(text1,text2,"<br>");
-            text2 += "**";
+            document.write('<br>');
         }
-    </script>
+    </script> -->
+    <!-- <script>
+        var n = prompt('숫자 입력','');
+
+        for (var i=1; i<n; i++) {
+            for(var k=1; k<=n-i; k++) {
+                document.write('&nbsp;')
+            }
+            for(var j=1; j<=i; j++) {
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+    </script> -->
+    <!-- <script>
+        var n = prompt('숫자 입력','');
+
+        for (var i=1; i<n; i++) {
+            for(var k=1; k<=n-i; k++) {
+                document.write('&nbsp;')
+            }
+            for(var j=1; j<=2*i-1; j++) {
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+    </script> -->
 </body>
 
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array 테스트</h1>
+    <script>
+        let num = [10, 20, 30];
+        let data = new Array(10, 20, 30); 
+        let data1 = [];
+        let data2 = new Array();
+        let data3 = new Array(10);
+        let data4 = ["hello", 1, 3.14, [3,4,5], new Array(10,20)];
+        console.log(num);
+        console.log(data);
+        console.log(data1);
+        console.log(data2);
+        console.log(data3);
+        console.log(data4);
+        console.log(num[0]);
+        console.log(num[4]);
+
+        // 배열 접근
+        
+        document.write(num[0],', ',num[1],', ',num[2],', ',num[3]);
+        // 다른 언어들과 다르게 배열의 범위를 넘어선 부분도 undefined라고 출력해준다.
+        document.write('<br>');
+        document.write(data4[0],', ',data4[3][1],', ',data4[4]);
+        // 어레이 안의 어레이의 부분을 출력하고 싶을 때는 안쪽에 쓰지 않고 연속으로 써준다.
+        document.write('<br>');
+        for(let i=0; i<data4.length; i++) {
+            document.write('[',i,'] = ',data4[i],'<br>');
+        }
+        // 배열의 길이는 length에 저장된다.
+        
+    </script>
+</body>
+
+</html>

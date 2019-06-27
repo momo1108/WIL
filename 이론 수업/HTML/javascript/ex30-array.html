@@ -9,6 +9,8 @@
 </head>
 
 <body>
+    <h1>Array 테스트</h1>
+    <!-- 어레이는 같은 성질의 데이터들을 프로그래밍 적으로 처리할 때 좀더 쉽게 하기 위해서 사용 -->
     <script>
         var months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
         var days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
@@ -23,6 +25,7 @@
 
         document.write("<br>");
         document.write("<hr>", season.length, " 계절 종류 : ");
+        // 
         season.forEach(function (value) {
             document.write(value, ' ');
         })

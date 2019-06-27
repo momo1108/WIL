@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>객체 테스트</h1>
+    <script>
+        // 0 (포함) and 1 (불포함) 난수를 반환
+        // function getRandom() {
+        //     return Math.random();
+        // }
+        // min (포함) 과 max (불포함) 사이의 난수를 반환
+        // function getRandomArbitrary(min, max) {
+        //     return Math.random() * (max - min) + min;
+        // }
+        // min (포함) 과 max (불포함) 사이의 임의 정수를 반환
+        // Math.round() 를 사용하면 고르지 않은 분포를 얻게된다!
+        // function getRandomInt(min, max) {
+        //     return Math.floor(Math.random() * (max - min)) + min;
+        // }
+        // min (포함) 과 max (포함) 사이의 임의 정수를 반환
+        // Math.round() 를 사용하면 고르지 않은 분포를 얻게된다!
+        // function getRandomIntInclusive(min, max) {
+        //     return Math.floor(Math.random() * (max - min + 1)) + min;
+        // }
+        
+        var lotto = [];
+        lotto[0] = Math.floor(Math.random() * 45) + 1;
+        var i = 1;
+        while(lotto.length<7) {
+            lotto[i] = Math.floor(Math.random() * 45) + 1;
+            for(; ; i++)
+            if(lotto[i] != lotto[i-1]){
+                i++;
+            }
+        }
+        document.write(lotto[0],' ',lotto[1],' ',lotto[2],' ',lotto[3],' ',lotto[4],'<BR>보너스번호 : ',lotto[5]);
+    </script>
+</body>
+
+</html>

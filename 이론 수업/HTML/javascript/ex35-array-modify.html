@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Array 테스트</h1>
+    <script>
+        let score1 = [10, 20, 30, 40, 50];
+        let score2 = [10, 20, 30, 40, 50];
+        let data4 = ["여기","다음에","data5","배열이","붙습니다"];
+        let data5 = ["hello", 1, 3.14, [3,4,5], new Array(10,20)];
+        // 배열 객체 중 일부를 골라서 출력 (start인덱스부터 end인덱스 바로 "전"까지)
+        let data5_c = data5.slice(1,6);
+        console.log(data5_c);
+        console.log(data5);
+        // spice(시작위치,자를 갯수, 추가할 데이터들(a,b,c.....))
+        score1.splice(2,2);
+        console.log(score1);
+        score2.splice(2,2,10000,50);
+        console.log(score2);
+        // join은 배열요소를 연결문자로 연결해 하나의 문자열로 출력
+        console.log(score1.join('그리고'));
+        // concat은 2개의 배열 객체를 하나로 결합
+        // array1.concat(array2) 는 array1의 뒤에 array2를 붙인다.
+        // 붙여진 배열은 삭제되지않고 그대로 남아있는다.
+        console.log(data4.concat(data5));
+    </script>
+</body>
+
+</html>

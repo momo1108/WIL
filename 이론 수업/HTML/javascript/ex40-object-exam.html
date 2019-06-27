@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>객체 테스트</h1>
+    <script>
+        var d1 = new Date(2019, 05, 27);
+        var d2 = new Date(2019, 11, 31);
+        var diff = d2.getTime - d1.getTime;
+        var day = diff / (1000 * 60 * 60 * 24);
+        var whatday;
+        switch (d1.getDay()) {
+            case 0:
+                whatday = "일";
+                break;
+            case 1:
+                whatday = "월";
+                break;
+            case 2:
+                whatday = "화";
+                break;
+            case 3:
+                whatday = "수";
+                break;
+            case 4:
+                whatday = "목";
+                break;
+            case 5:
+                whatday = "금";
+                break;
+            case 6:
+                whatday = "토";
+                break;
+            default:
+            //
+        }
+        document.write('오늘은 ', d1.getFullYear(), '년 ', d1.getMonth() + 1, '월 ', d1.getDate(), '일 ', whatday, '요일 입니다.<BR>');
+        document.write('현재 시각은 ', Date.getHours(), '시 ', Date.getMinutes(), '분 입니다');
+        Date.parse("2015-03-25");
+
+
+    </script>
+</body>
+
+</html>

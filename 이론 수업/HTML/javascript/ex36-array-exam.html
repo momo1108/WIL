@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // function add() {
+        //     let a = document.getElementById('name').value;
+        //     console.log(a);
+        //     private.push(a)
+        //     let b = document.getElementById('kor').value;
+        //     console.log(b);
+        //     private.push(b)
+        //     let c = document.getElementById('eng').value;
+        //     console.log(c);
+        //     private.push(c)
+        //     let d = document.getElementById('math').value;
+        //     console.log(d);
+        //     private.push(d);
+        // }
+    </script>
+</head>
+
+<body>
+    <h1>Array 테스트</h1>
+    <hr>
+    <!-- <input type="text" id="name" placeholder="이름을 입력하세요">
+    <input type="number" id="kor" placeholder="국어성적을 입력하세요">
+    <input type="number" id="eng" placeholder="영어성적을 입력하세요">
+    <input type="number" id="math" placeholder="수학성적을 입력하세요"> <br><br>
+    <input type="button" value="제출" onclick="add()"> <br><br> -->
+    <!-- <script>
+        let starNum = [10,40,30,20];
+        for(let i=0; i<starNum.length; i++) {
+            document.write(starNum[i],' : ');
+            for(let j=0; j<starNum[i]; j++) {
+                document.write('*');
+            }
+            document.write('<br>');
+        }
+    </script> -->
+    <script>
+
+        let standard = ["이름", "국어", "영어", "수학", "합계", "평균"];
+        let private = ["홍길동", 60, 50, 80, "임꺽정", 30, 56, 70, "송중기", 70, 30, 50, "안동원", 70, 50, 30];
+        let total = [];
+        let avg = [];
+        let peopleNum = private.length / 4;
+        console.log(peopleNum);
+        document.write('<table border=1>');
+        document.write('<tr><th>', standard[0], '</th><th>', standard[1], '</th><th>', standard[2], '</th><th>', standard[3], '</th><th>', standard[4], '</th><th>', standard[5], '</th></tr>');
+        for (let i = 1; i <= peopleNum; i++) {
+            // for while
+            let counter1 = 4 * i - 1;
+            let counter2 = counter1 - 3;
+            // for total
+            let sum = 0;
+            while (counter1 > counter2) {
+                sum += private[counter1];
+                counter1--;
+            }
+            total.push(sum);
+            avg.push(sum / 3);
+            let j = i - 1;
+            let k = 4 * j;
+            document.write('<tr><td>', private[k], '</td><td>', private[k + 1], '</td><td>', private[k + 2], '</td><td>', private[k + 3], '</td><td>', total[j], '</td><td>', avg[j], '</td></tr>');
+        }
+        //document.write('</table>');
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>객체 테스트</h1>
+    <script>
+        let score = [10, 20, 30];
+
+        let newobj = { name: "홍길동", age: 30 };
+        // 객체는 key와 value값을 가지고있고 내부적으로 method를 가지고 있다.
+        // 객체는 내부에 함수를 가질 수 있는데 이 함수는 이름이 없다. 이를 '익명함수'라고 한다.
+        var person = {
+            firstName: "John",
+            lastName: "Doe",
+            id: 5566,
+            fullName: function () {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+            
+            console.log(newobj);
+            console.log(newobj.name);
+            console.log(newobj.age);
+            console.log(newobj["name"]);
+            console.log(newobj["age"]);
+
+            
+    </script>
+</body>
+
+</html>
