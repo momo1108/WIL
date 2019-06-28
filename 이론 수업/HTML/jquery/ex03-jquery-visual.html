@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            $("#btn1").click(function () {
+                $(".delA").hide();
+            });
+            $("#btn2").click(function () {
+                $(".delA").show();
+            });
+            $("#btn3").on('click', function () {
+                $(".delB").css('font-size', '100px');
+            });
+
+        });
+        $(document).ready(function () {
+            // on을 이용하면 하나의 태그에 여러개의 이벤트를 등록할 수 있다.
+            // naver에 접속하면 브라우져가 naver의 html 코드를 캐시에 저장해놓고 보여준다.
+            $("#btn4").on({
+                mouseenter: function () {
+                    $(this).css("background-color", "lightgray");
+                },
+                mouseleave: function () {
+                    $(this).css("background-color", "lightblue");
+                },
+                click: function () {
+                    $(this).css("background-color", "yellow");
+                }
+            });
+            $("#btn5").hover(function () {
+                alert("You entered p1!");
+            },
+                function () {
+                    alert("Bye! You now leave p1!");
+                });
+            $('#focus').focus(function () {
+                $(this).css("background-color", "#cccccc");
+            });
+            $('#toggle').click(function () {
+
+                $(".delC").toggle();
+            });
+            $("#btn6").click(function () {
+                $("#div1").fadeToggle();
+                $("#div2").fadeToggle("slow");
+                $("#div3").fadeToggle(2000);
+            });
+            $("#btn7").click(function () {
+                $("#div1").animate({height: '300px', opacity: '0.4'}, "slow");
+                $("#div2").fadeTo("slow", 0.4);
+                $("#div3").fadeTo("slow", 0.7);
+            });
+        });
+
+    </script>
+</head>
+
+<body>
+    <h2>타이틀</h2>
+    <p class="delA">이것을은 지워져야만 해~</p>
+    <p class="delB">이것을은 지워져야만 해~</p>
+    <p class="delC">이것을은 지워져야만 해~</p>
+    <p class="delD">이것을은 지워져야만 해~</p>
+    <p class="delE">이것을은 지워져야만 해~</p>
+    <p>This is a paragraph.</p>
+    <p>This is another paragraph.</p>
+    <a href="" ></a>
+    <button id="btn1">클릭하면 사라짐</button>
+    <button id="btn2">클릭하면 나타남</button>
+    <button id="btn3">클릭하면 바뀜</button>
+    <button id="btn4">클릭하면 뭐임</button>
+    <button id="btn5">클릭하면 뭐임</button>
+    <button id="toggle">클릭하면 토글</button>
+    <input type="text" id="focus">
+
+    <button id="btn6">Click to toggle fading</button><br><br>
+    <button id="btn7">Click to fade to boxes</button><br><br>
+
+    <div id="div1" style="width:80px;height:80px;display:none;background-color:red;"></div><br>
+    <div id="div2" style="width:80px;height:80px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:80px;height:80px;display:none;background-color:blue;"></div>
+</body>
+
+</html>

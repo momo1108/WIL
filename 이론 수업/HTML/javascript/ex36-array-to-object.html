@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+    </script>
+</head>
+
+<body>
+    <h1>Array 테스트</h1>
+    <hr>
+    
+    <script>
+        var title = ["이름", "국어", "영어", "수학", "총점", "평균"];
+        var data = [
+                    ["학생A", 60, 40, 80],
+                    ["학생B", 80, 70, 60],
+                    ["학생C", 50, 70, 90],
+                    ];
+        var data2 = [
+        {"name":"학생A", "kor":60, "eng":40, "math":80},
+        {"name":"학생B", "kor":80, "eng":50, "math":60},
+        {"name":"학생C", "kor":50, "eng":70, "math":90}
+        ];
+        let sum = 0;
+        let avg = 0;
+        for(let i in data2) {
+            console.log(data2[i]);
+            sum = data2[i].kor + data2[i].eng + data2[i].math;
+            avg = sum / 3;
+            avg = avg.toPrecision(3);
+            console.log(data2[i].name,'의 총점수 : ',sum,'<br>');
+            console.log(data2[i].name,'의 평균 : ',avg,'<br>');
+        }
+
+        // 이런 객체의 형태를 나타낸 포맷을 JSON 포맷이라고 한다. 히스토리를 타고 올라가보면 XML이라는게 있었다.
+        // 하지만 JSON이 훨씬 간단하기 때문에 요즘 대부분의 데이터의 전송이 JSON으로 통일되고 있다.
+        // 표준 JSON 포맷에서는  key값을 설정할 때 ""로 감싸줘야 하지만 javascript의 경우만 ""로 감싸지 않고
+        // 바로 써줘도 괜찮다. 하지만 obj-name 처럼 이름에 - 같은 특수문자가 들어가면 ""로 감싸주자.
+        // 그리고 data6 = JSON.stringify(data3); 로 JSON 자료를 불러오면 객체가 아닌 문자열로 받아온다.
+        // 따라서 JSON 파싱을 통해 이 문자열을 다시 객체형태로 바꿔줘야 한다. data7 = JSON.parse(data6)
+        
+        
+    </script>
+</body>
+
+</html>

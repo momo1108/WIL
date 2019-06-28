@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        
+    </script>
+</head>
+
+<body>
+    <h1>Array 테스트</h1>
+    <hr>
+    
+    <script>
+        var title = ["이름", "국어", "영어", "수학", "총점", "평균"];
+        var data = [
+                    ["학생A", 60, 40, 80],
+                    ["학생B", 80, 70, 60],
+                    ["학생C", 50, 70, 90],
+                    ];
+        console.log(data.length);
+
+        let sum = 0;
+        let avg = 0;
+        for(let i=0; i<data.length; i++) {
+            sum = 0;
+            avg = 0;
+            for(let j=1; j<data[i].length; j++) {
+                sum += data[i][j];
+            }
+            avg = sum / 3;
+            // 소수점이 길게나오면 보기 싫으니 줄여준다. toPrecision과 toFixed가 있는데
+            // 이 둘의 차이는 전자가 수의 길이를 제한한다면, 후자는 소수점의 자리수를 제한한다.
+            avg = avg.toPrecision(4); // xx.xx 형태 (숫자가 4개 나와야함)
+            data[i].push(sum);
+            data[i].push(avg);
+            // console.log(sum);
+        }
+        document.write('<table border=1;><tr><th>',title[0],'</th><th>',title[1],'</th><th>',title[2],'</th><th>',title[3],'</th><th>',title[4],'</th><th>',title[5],'</th></tr>');
+        for(let a=0; a<data.length; a++) {
+            document.write('<tr>');
+            for(let b=0; b<data[a].length; b++) {
+                document.write('<td>',data[a][b],'</td>');
+            }
+            document.write('</tr>');
+        }
+        
+    </script>
+</body>
+
+</html>
