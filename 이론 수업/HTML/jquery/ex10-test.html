@@ -5,40 +5,109 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
     <style>
-        div {
-            border: 1px solid black;
-            width: 200px;
-            padding-left: 10px;
+        #bigbox {
+            width: 60%;
+        }
+
+        #addinput {
+            width: 90%;
+        }
+
+        #todo {
+            text-align: left;
+        }
+
+        #addinput,
+        #addbtn {
+            line-height: 35px;
+        }
+
+        #innerbox {
+            position: relative;
+            border: 1px solid rgb(172, 172, 172);
+            line-height: 100%;
+            padding: 10px;
+            width: 100%;
+        }
+
+        .closebtn {
+            position: absolute;
+            right: 5px;
+            border: none;
+            background-color: transparent;
+            font-size: 20px;
+            font-weight: bold;
+            color: grey;
         }
     </style>
     <script>
+        // text input에 입력한 내용을 저장할 변수 선언
+        let innertext;
+        // 닫기버튼을 누를 시 innerbox를 hide시킨다.
+        $(document).on('click', '.closebtn', function () { $(this).closest('#innerbox').hide(); });
+        // innerbox의 텍스트를 클릭할 시 날짜를 추가하고 css를 적용한다
+        $(document).on('click', '.changetxt', function () {
+            console.log($(this).attr('name'));
+            if(!$(this).attr('name')) {
+                $(this).append('@(' + new Date() + ')');
+            $(this).css('color', 'grey').css('text-decoration', 'line-through');
+            $(this).attr('name','changed');
+            } else {
+                alert('이미 지워졌습니다.');
+            }
+            
+        });
+        // 더큐먼트가 로드가 되었을 때 선택자에 이벤트들을 달아준다. 이 경우 처음 인덱스화면에 선택자가
+        // 존재하면 이벤트가 달리지만 동적으로 생성되는 경우 처음부터 존재하지 않기때문에 이벤트가 달리지 않는다.
+        // 따라서 이 이벤트들을 따로 바깥쪽에 빼준다.
         $(function () {
-            $('.item-b').parent().css({ 'border': '5px solid red' });
+            $('#addbtn').on({
+                click: function () {
+                    innertext = $('#addinput').val();
+                    if (!innertext) {
+                        alert('내용을 입력하세요');
+                    } else {
+                        console.log(innertext);
+                        $('.bigoutputbox').append($("<div id='innerbox'>").html('<span class=changetxt>' + innertext + '</span>' + '<button type="button" class="closebtn">X</button>'));
+                        $('#addinput').val('');
+                        $('#addinput').focus();
+                    }
 
+                }
+            });
+            $('#addinput').on({
+                keydown: function (key) {
+                    if (key.keyCode == 13) {
+                        innertext = $('#addinput').val();
+                        if (!innertext) {
+                            alert('내용을 입력하세요');
+                        } else {
+                            $('.bigoutputbox').append($("<div id='innerbox'>").html('<span class=changetxt>' + innertext + '</span>' + '<button type="button" class="closebtn">X</button>'));
+                            $('#addinput').val('');
+                            $('#addinput').focus();
+                        }
+                    }
+                }
+            });
         });
     </script>
 </head>
 
 <body>
-    <div class="level-1">
-        <div class="item-i">I</div>
-        <div class="item-ii">II
-            <div class="level-2">
-                <div class="item-a">A</div>
-                <div class="item-b">B
-                    <div class="level-3">
-                        <div class="item-1">1</div>
-                        <div class="item-2">2</div>
-                        <div class="item-3">3</div>
-                    </div>
-                </div>
-                <div class="item-c">C</div>
-            </div>
+    <div class="container" id="bigbox">
+        <div class="jumbotron" style="padding: 100px 50px;">
+            <h1 id="todo">Todo List</h1>
+            <input type="text" placeholder="Title..." id="addinput"><button type="button" id="addbtn">추가</button>
         </div>
-        <div class="item-iii">III</div>
+    </div>
+
+    <div class="container bigoutputbox" id="bigbox">
     </div>
 </body>
 
