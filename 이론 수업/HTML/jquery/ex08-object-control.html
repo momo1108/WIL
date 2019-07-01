@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(function () {
+            //    $('.level-1').find('ul').css({'color':'red'}); ul을 찾아서 적용
+            // $('.level-3 li').css('color', 'pink');
+            // $('.item-b').after('<li class="item-d">test</li>'); item-b 뒤에
+            // $('.item-2').parent().append('<li class="item-4">test</li>'); 바로 위 부모태그
+            // $('.item-2').parents().append('<li class="item-4">test</li>'); 모든 부모태그들
+            // $('.level-1').children().append('<li class="test">test</li>'); 모든 자식태그들
+            // $('.level-1').children('.item-ii').append('<li class="test">test</li>'); 특정 자식태그지정
+            // $('.level-1').find('.level-2').append('<li class="test">test</li>'); 찾아서 적용
+            // $('.item-a').siblings().append('<li class="test">test</li>'); 모든 형제태그들
+            // $('.item-a').siblings('.item-c').append('<li class="test">test</li>'); 특정 형제태그 지정
+            // $('.item-a').next().append('<li class="test">test</li>'); 특정 태그의 다음 형제 태그
+            // $('.item-a').closest('ul').append('<li class="test">test</li>'); 나와 가장 가까운 특정태그
+            // jQuery는 체이닝 기술을 지원하기 때문에 뒤에 .을써서 한번에 많은 일을 수행할수 있다.
+            $('.item-1').parents().css('color','red').css('font-size','35px');
+        });
+    </script>
+</head>
+
+<body>
+    <ul class="level-1">
+        <li class="item-i">I</li>
+        <li class="item-ii">II
+            <ul class="level-2">
+                <li class="item-a">A</li>
+                <li class="item-b">B
+                    <ul class="level-3">
+                        <li class="item-1">1</li>
+                        <li class="item-2">2</li>
+                        <li class="item-3">3</li>
+                    </ul>
+                </li>
+                <li class="item-c">C</li>
+            </ul>
+        </li>
+        <li class="item-iii">III</li>
+    </ul>
+</body>
+
+</html>
