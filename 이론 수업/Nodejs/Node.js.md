@@ -16,6 +16,10 @@
 
   npm -v
 
+- npm 업데이트
+
+  npm install -g npm
+
 - code . (비주얼 스튜디오 실행)
 
 - cmd 창에서 node를 실행하면 node js가 실행된다.
