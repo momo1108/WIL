@@ -2,6 +2,7 @@
 const http = require('http');
 // url란 모듈을 사용하겠다 선언
 const url = require('url');
+const querystring = require('querystring');
 
 var port = 3000;
 // 서버 생성
@@ -25,6 +26,10 @@ server.on('close', function () {
 server.on('request', function (req, res) {
     var urlp = url.parse(req.url, true);
     console.log(urlp.pathname);
+    var samplequery = "id=hong&password=1234";
+    var query = querystring.parse(samplequery);
+    console.log(query.id);
+    console.log(query.password);
     // console.log('클라이언트 요청');
     // console.dir(req);
     if (urlp.pathname == '/login') {
