@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
     // 이렇게 한번 더 써주는 경우
     // Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
     // client에 response가 sent된경우 header를 set해줄수 없다고 오류가 뜬다.
-})
+});
 
 app.get('/about', (req, res) => {
     console.log('/about 요청이 들어옴');
@@ -23,7 +23,7 @@ app.get('/about', (req, res) => {
     res.writeHead(200, { 'Content-Type': 'text/html' });
     res.write('<h1>/About</h1>');
     res.end();
-})
+});
 
 // http://localhost:3000/query?id=hong&name=gildong
 app.get('/query', (req,res) => {
@@ -33,7 +33,7 @@ app.get('/query', (req,res) => {
     var name = req.query.name;
     console.log(id, ', ', name);
     console.log(req.query);
-})
+});
 
 // sementic url을 사용하면 query가 더럽게 나오지 않고 깔끔하게 url형태로 나타낼 수 있다.
 app.get('/sementic/:book/:page', (req,res) => {
@@ -45,4 +45,4 @@ app.get('/sementic/:book/:page', (req,res) => {
 
 app.listen(port, function () {
     console.log('server listen at ...' + port);
-})
+});
