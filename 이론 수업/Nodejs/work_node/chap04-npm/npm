@@ -1,0 +1,50 @@
+확장 모듈
+기본 제공 모듈만으로는 힘들어 서드파티에서 만들어서 공개해놓은 모듈
+클라이언트는 패키지를 다운받아서 사용할 수 있다.
+npmjs.com 에서 npm 다운가능
+node package manager : 확장 모듈 패키지들을 관리하는 플랫폼?
+npm 사이트에 올라와 있는 노드 모듈을 패키지, 확장 모듈이라 한다.
+하나의 모듈을 사용하려면 의존성에 맞는 다른 모듈도 같이 설치해야하는데 이것도 npm이 수행해줌
+확장 모듈을 사용하면 사용자쪽의 package.json에 기록 저장
+페이스북에서 npm을 개선해서 만든 yarn으로도 패키지 설치 가능 (리액트 수업때)
+npm install -g npm 으로 업데이트가능
+npm init으로 기본 파일(package.json)을 생성해준다.
+npm install --save express (--save 옵션은 패키지 설치한것을 package.json 파일에 저장하는 옵션)
+package.json 은 무엇을 사용한다고만 설명되어있고 진짜로 들어있진 않음 진짜는 node_modules에 저장된다.
+node_modules에 express 디렉터리가 생성된것을 볼 수 있다.
+node_modules 디렉터리를 지워도 package.json에 있는 dependencies에 따른 패키지를 다시 생성해준다.
+package-lock.json 파일도 생성되는데 이 파일은 파일이 작성된 시점의 dependencies tree가 생성된다.
+package-lock.json 파일은 의존성 트리에 대한 정보를 모두 가지고 있습니다.
+package-lock.json 파일은 저장소에 꼭 같이 커밋해야 합니다.
+package-lock.json 파일은 node_modules 없이 배포하는 경우 반드시 필요합니다.
+
+
+"package이름" : "(major버전).(minor버전).(patch버전)"
+major 버전 : 0이면 개발중, 1부터 정식 버전, 하위 호환 보장 안됨
+minor 버전 : 하위 호환성이 있는 업데이트가능
+patch 버전 : 버그 수정
+
+package.json 에서 dependencies 버전 표시 방법
+"version" : 해당 버전과 일치하는 버전 설치
+"=version" : 일치하는 버전 설치
+">=version" : version 이상 버전 설치
+"<=version" : version 이하 버전 설치
+"^version" : version과 호환되는 버전 설치
+
+글로벌 설치
+노드의 시스템 디렉토리에 확장 모듈 설치
+한번 설치하면 다시 설치할 필요 없이 다른 프로젝트에서도 사용 가능
+소스코드와 관계없이 커맨드라인 명령을 제공하는 모듈
+글로벌 설치 명령 : npm install <모듈명> -g
+로컬에 설치된 확장 모듈 확인 : npm list -g
+
+npm install <모듈명> --save-dev : package.json에 devDependencies에 저장됨. 개발에만 사용한다고 지정
+
+업데이트 할 수 있는 패키지 목록 확인
+npm outdated
+
+로컬에 설치된 확장 모듈 확인
+npm list
+
+확장 모듈 정보 조회
+npm info <모듈명>
