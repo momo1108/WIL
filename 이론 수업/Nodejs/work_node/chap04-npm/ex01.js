@@ -20,8 +20,8 @@ app.get('/about', (req, res) => {
     console.log('/about 요청이 들어옴');
     // res.send는 res.writeHead, res.write, res.end를 합친 기능
     // res.send('<h1>/About</h1>');
-    res.writeHead(200, { 'Content-Type': 'text/html' });
-    res.write('<h1>/About</h1>');
+    res.writeHead(200, { 'Content-Type': 'text/html;charset=UTF-8' });
+    res.write('<h1>/About 어바웃</h1>');
     res.end();
 });
 

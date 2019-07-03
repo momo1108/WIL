@@ -8,6 +8,8 @@ const port = 3000;
 // app.use();
 app.use(express.static(path.join(__dirname, 'public')));
 // 찾아보고 있으면 출력, 없으면 넘어감
+// 아파치는 자동으로 경로를 url에 매핑을 해주나
+// node(와스)의 경우에는 스태틱 미들웨어를 사용하지 않으면 url 매핑이 되어있지않다.
 
 app.get('/', (req,res) => {
     res.send('<h1>home page</h1>');

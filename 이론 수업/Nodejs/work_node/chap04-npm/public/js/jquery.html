@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        var memlist = [];
+        var i = 0;
+        $(function () {
+            $('#signup').click(function () {
+                let memobj = {};
+                memobj["name"] = $('#name').val();
+                memobj["number"] = $('#number').val();
+                memobj["address"] = $('#address').val();
+                memlist[i] = memobj;
+                $('#member').append('<li>이름 : ' + memlist[i]["name"] + ', 전화번호 : ' + memlist[i]["number"] + ', 주소 : ' + memlist[i]["address"] + '</li>');
+                i++;
+                console.log(memlist);
+            });
+        })
+    </script>
+</head>
+
+<body>
+    <input id="name" type="text" placeholder="이름을 입력하세요">
+    <input id="number" type="text" placeholder="전화번호">
+    <input id="address" type="text" placeholder="주소">
+    <input id="signup" type="submit" value="등록">
+    <h1>회원 명단</h1><hr>
+    <ol id="member">
+
+    </ol>
+</body>
+
+</html>

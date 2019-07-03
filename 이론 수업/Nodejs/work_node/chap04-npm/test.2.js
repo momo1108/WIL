@@ -24,6 +24,7 @@ app.post('/signin', (req,res) => {
     info.push(req.body);
     // res.send(`<h1>id : ${req.body.id}</h1><h1>password : ${req.body.password}</h1><h1>회원가입 되었습니다.</h1>`);
     res.render('select.html');
+    req.body = {};
     console.log('회원가입 완료');
     console.log('현재 유저 목록\n',info);
     i++;
