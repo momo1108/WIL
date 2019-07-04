@@ -11,6 +11,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
+        function serializeObject($form) {
+            var unindexed_array = $form.serializeArray();
+            var indexed_array = {};
+            $.map(unindexed_array, function (n, i) {
+                indexed_array[n['name']] = n['value'];
+            });
+            return indexed_array;
+        }
+
         $(() => {
             $('#again').click(() => {
                 $.ajax({
@@ -37,7 +46,7 @@
         $(() => {
             $('#gogo').click(() => {
 
-                let newData = {'carNumber':'car01','owner':'owner1'};
+                let newData = { 'carNumber': 'car01', 'owner': 'owner1' };
 
                 $.ajax({
                     type: 'POST',
@@ -58,11 +67,7 @@
 </head>
 
 <body>
-        <!-- <input type="text" value="4" name="number">
-        <input type="text" value="김철수" name="name">
-        <input type="text" value="32" name="age">
-        <input type="text" value="부산" name="address"> -->
-        <input type="submit" value="제출" id="gogo">
+    <input type="button" value="제출" id="gogo">
     <button type="button" id="again">또나와</button>
     <table>
         <thead>
