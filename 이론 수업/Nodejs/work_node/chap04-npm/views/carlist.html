@@ -10,6 +10,14 @@
 </head>
 
 <body>
+    <form action="/submit" method="POST">
+        <input type="text" value="이건1" name="one">
+        <input type="text" value="이건2" name="two">
+        <input type="text" value="이건3" name="three">
+        <input type="text" value="이건4" name="four">
+        <input type="text" value="이건5" name="five">
+        <input type="submit" value="제출" id="gogo">
+    </form>
     <table>
         <thead>
             <tr>
@@ -31,8 +39,8 @@
             // ajax 가 지원하는 function사용 $.ajax() 형식
             // 안에 객체를 넣어줘야하니까 {} 쓰자
             $.ajax({
-                type: 'GET',
-                url: '/api/carlist',
+                type: 'POST',
+                url: '/submit',
                 success: (data) => {
                     console.log('success');
                     console.log(data);

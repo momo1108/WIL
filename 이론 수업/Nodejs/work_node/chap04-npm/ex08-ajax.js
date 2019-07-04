@@ -13,6 +13,9 @@ app.use(express.urlencoded({
 
 app.use(express.static(path.join(__dirname,'public')));
 
+// 받아오는 데이터를 json으로 받아온다.
+app.use(express.json());
+
 var Userlist = [
     {
         number : 1,
@@ -44,6 +47,12 @@ app.get('/userlist',(req,res)=>{
 
 app.get('/api/userlist', (yochung, baneung) => {
     baneung.json(Userlist);
+})
+
+app.post('/submit',(req,res)=>{
+    console.log(req.body);
+    // Userlist.push(req.body);
+    res.json(Userlist);
 })
 
 app.listen(port, ()=>{

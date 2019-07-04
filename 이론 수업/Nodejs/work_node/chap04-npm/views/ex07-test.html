@@ -1,36 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script>
         $(() => {
-            $.ajax({
-                type: 'GET',
-                url: '/api/userlist',
-                success: (data) => {
-                    console.log('성공!');
-                    $.each(data,(i,part)=>{
-                        $('#users').append(`
+            $('#again').click(() => {
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/userlist',
+                    success: (data) => {
+                        console.log('성공!');
+                        $.each(data, (i, part) => {
+                            $('#users').append(`
                             <tr>
                                 <td>${part.number}</td>
                                 <td>${part.name}</td>
                                 <td>${part.age}</td>
                                 <td>${part.address}</td>
                         `);
-                    });
-                },
-                error: (err) => {
-                    console.log(err);
-                }
-            });
+                        });
+                    },
+                    error: (err) => {
+                        console.log(err);
+                    }
+                });
+            })
+        })
+        $(() => {
+            $('#gogo').click(() => {
+
+                let newData = {'carNumber':'car01','owner':'owner1'};
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/submit',
+                    dataType: 'json',
+                    data: newData,
+                    success: (data) => {
+                        console.log('성공!');
+                        console.log(data);
+                    },
+                    error: (err) => {
+                        console.log(err);
+                    }
+                });
+            })
         })
     </script>
 </head>
+
 <body>
+        <!-- <input type="text" value="4" name="number">
+        <input type="text" value="김철수" name="name">
+        <input type="text" value="32" name="age">
+        <input type="text" value="부산" name="address"> -->
+        <input type="submit" value="제출" id="gogo">
+    <button type="button" id="again">또나와</button>
     <table>
         <thead>
             <tr>
@@ -41,8 +74,9 @@
             </tr>
         </thead>
         <tbody id="users">
-            
+
         </tbody>
     </table>
 </body>
+
 </html>
