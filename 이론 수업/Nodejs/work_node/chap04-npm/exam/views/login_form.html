@@ -7,7 +7,10 @@
     <title>로그인</title>
 </head>
 <body>
-    <form action="http://localhost:3000/login" method="POST">
+    <!-- form action에 http://localhost:3000을 넣어준 이유는 한 컴퓨터에서 서버, 클라이언트
+    역할을 둘다 수행했기 때문이다. 실제 상황을 가정하면 서버의 페이지를 받아왔을 때 로컬 호스트가
+    아니라 서버의 주소를 그대로 사용해야 하므로 앞부분은 날려주고 /login만 남겨준다.-->
+    <form action="/login" method="POST">
         <input type="text" placeholder="id" name="id">
         <input type="text" placeholder="password" name="password">
         <input type="submit" value="전송">

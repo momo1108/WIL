@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Pacifico|Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <style>
+        /* 메뉴 css */
+        .jumbotron {
+            padding: 10px 0;
+            border-bottom: 1px solid rgb(216, 216, 216);
+            background-color: white;
+            margin: 0;
+        }
+
+        .menucon {
+            position: relative;
+            width: 100%;
+            padding-left: 20px;
+            margin: 0 4px;
+        }
+
+        .carlogo {
+            display: inline-block;
+            font-family: 'Permanent Marker', cursive;
+            color: rgb(199, 57, 57);
+            text-align: center;
+            font-size: 25px;
+        }
+
+        .menuset {
+            display: inline-block;
+            height: 100%;
+            position: absolute;
+            line-height: 95.19px;
+            ;
+            right: 50px;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .menuset a {
+            color: rgb(34, 34, 34);
+            text-decoration-line: none;
+        }
+
+        /* 본문 css */
+        .maincon {
+            background-image: url('../public/image/car1.jpg');
+            margin: 0;
+            background-size: cover;
+            text-align: center;
+        }
+
+        .mainexpln {
+            padding: 150px 0;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 70px;
+            /* font-weight: bold; */
+            color: orange;
+        }
+
+        /* 본문 메뉴버튼 */
+        .carmenu {
+            width: 60%;
+            padding-bottom: 50px;
+        }
+
+        .btn-primary {
+            padding: 17px 0;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            background-color: rgb(197, 184, 0);
+            border-color: rgb(197, 184, 0);
+            color: rgb(255, 255, 255);
+        }
+
+        .btn-primary:hover {
+            background-color: rgb(197, 135, 0);
+            border-color: rgb(197, 135, 0);
+        }
+
+        .carinfo {
+            border-right-color: rgb(197, 135, 0);
+            border-radius: 30px 0 0 30px;
+        }
+
+        .carhistory {
+            border-color: rgb(197, 184, 0) rgb(197, 135, 0);
+        }
+
+        .carlist {
+            border-color: rgb(197, 184, 0) rgb(197, 135, 0);
+        }
+
+        .carreg {
+            border-left-color: rgb(197, 135, 0);
+            border-radius: 0 30px 30px 0;
+        }
+
+        /* 차 정보 검색 박스 */
+        .carinfobox {
+            width: 65%;
+            display: inline-block;
+            position: relative;
+        }
+
+        .infoinput {
+            position: absolute;
+            padding: 15px 0 15px 30px;
+            left: 40px;
+            width: 70%;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 15px;
+            line-height: 27px;
+        }
+
+        .infosearch {
+            background-color: rgb(197, 135, 0);
+            border-color: rgb(197, 135, 0);
+            border-style: solid;
+            position: absolute;
+            padding: 15px 0;
+            right: 40px;
+            width: 15%;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 맨위 메뉴 -->
+    <div class="jumbotron jumbotron-fluid">
+        <div class="menucon">
+            <div class="carlogo">
+                <img src="../public/image/carlogo.png" alt="" width="145px"><br>Carset
+            </div>
+            <div class="menuset">
+                <a href="http://localhost:3000/login_form" style="margin-right: 50px;">로그인</a>
+                <a href="http://localhost:3000/signin_form">회원가입</a>
+            </div>
+        </div>
+    </div>
+    <!-- 본문 시작 -->
+    <div class="maincon">
+        <div class="mainexpln">
+            자동차 온라인 마켓의 시작<br>
+            <span style="color: orangered; font-weight: bold; position: relative; left: 300px;">카 셋.</span>
+        </div>
+        <div class="btn-group carmenu">
+            <button type="button" class="btn btn-primary carinfo">자동차 정보 조회</button>
+            <button type="button" class="btn btn-primary carhistory">자동차 이력조회</button>
+            <button type="button" class="btn btn-primary carlist">자동차 리스트 조회</button>
+            <button type="button" class="btn btn-primary carreg">자동차 등록</button>
+        </div>
+        <div class="container carinfobox">
+            <!-- 동적인 '기능'을 요청 -->
+            <form action="">
+                <input class="infoinput" type="text" placeholder="보고싶은 차종을 입력하세요. (ex. 2019 벤츠 S 클래스)">
+                <input class="infosearch" type="submit" value="조회하기">
+            </form>
+            <div>
+                asdf
+            </div>
+        </div>
+        <div class="carhistorybox">
+
+        </div>
+        <div class="carlistbox">
+
+        </div>
+        <div class="carregbox">
+
+        </div>
+    </div>
+</body>
+
+</html>

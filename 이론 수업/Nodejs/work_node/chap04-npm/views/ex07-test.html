@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(() => {
+            $.ajax({
+                type: 'GET',
+                url: '/api/userlist',
+                success: (data) => {
+                    console.log('성공!');
+                    $.each(data,(i,part)=>{
+                        $('#users').append(`
+                            <tr>
+                                <td>${part.number}</td>
+                                <td>${part.name}</td>
+                                <td>${part.age}</td>
+                                <td>${part.address}</td>
+                        `);
+                    });
+                },
+                error: (err) => {
+                    console.log(err);
+                }
+            });
+        })
+    </script>
+</head>
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>회원번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>거주지</th>
+            </tr>
+        </thead>
+        <tbody id="users">
+            
+        </tbody>
+    </table>
+</body>
+</html>

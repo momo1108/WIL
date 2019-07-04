@@ -1,13 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
+
 <body>
-    성공 하지만 미완성~
-    <form action="http://localhost:3000/"><input type="submit" value="로그아웃"></form>
+    <table>
+        <thead>
+            <tr>
+                <th>번호</th>
+                <th>차 번호</th>
+                <th>소유주</th>
+                <th>차 모델</th>
+                <th>제조회사</th>
+                <th>사고횟수</th>
+                <th>소유주이전회수</th>
+            </tr>
+        </thead>
+        <tbody id="list">
+
+        </tbody>
+    </table>
+    <script>
+        $(function () {
+            // ajax 가 지원하는 function사용 $.ajax() 형식
+            // 안에 객체를 넣어줘야하니까 {} 쓰자
+            $.ajax({
+                type: 'GET',
+                url: '/api/carlist',
+                success: (data) => {
+                    console.log('success');
+                    console.log(data);
+                    // each는 for in과 비슷한 기능
+                    $.each(data, (i, item) => {
+                        $('#list').append(`
+                        <tr>
+                            <td>${i+1}</td>
+                            <td>${item.carNumber}</td>
+                            <td>${item.owner}</td>
+                            <td>${item.model}</td>
+                            <td>${item.company}</td>
+                            <td>${item.numOfAccident}</td>
+                            <td>${item.numOfOwnerChange}</td>
+                        </tr>
+                        `);
+                    })
+                        
+                },
+                error: (err) => {
+                    console.log('err');
+                }
+            })
+            $.each(data, (i, item) => {
+
+            })
+        })
+    </script>
 </body>
+
 </html>
