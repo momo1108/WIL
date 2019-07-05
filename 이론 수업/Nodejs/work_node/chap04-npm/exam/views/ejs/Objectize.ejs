@@ -1,5 +1,5 @@
 <script>
-    function serializeObject($form) {
+    function Objectize($form) {
         var unindexed_array = $form.serializeArray();
         var indexed_array = {};
         $.map(unindexed_array, function (n, i) {

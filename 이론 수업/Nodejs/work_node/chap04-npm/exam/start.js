@@ -4,7 +4,6 @@ const app = express();
 const port = 3000;
 let info = [];
 let user = {};
-let i = 0;
 
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
 app.set('views', path.join(__dirname, 'views'));
@@ -33,33 +32,58 @@ app.get('/signin_form', (req, res) => {
 })
 
 app.post('/signin', (req, res) => {
-    
+    let k = 0;
+    user = req.body;
+    while (1) {
+        if (info.length==0){
+            info.push(user);
+            console.log(`회원수 : ${info.length} 명`);
+            console.log(info);
+            res.redirect('/carlist');
+            break;
+        }else if (info[k].id == user.id) {
+            res.redirect('/signin_form');
+            break;
+        }
+        k++;
+        if (k >=info.length) {
+            info.push(user);
+            console.log(`회원수 : ${info.length} 명`);
+            console.log(info);
+            res.redirect('/carlist');
+            break;
+        }
+    }
 })
 
 app.get('/login_form', (req, res) => {
     res.render('login_form.html');
 })
 
-app.get('/carlist', (req, res) => {
-    console.log('들어옴');
-    res.render('carlist.html');
-})
-
 app.post('/login', (req, res) => {
     let j = 0;
     user = req.body;
     while (1) {
-        if (info[j].id == user.id && info[j].password == user.password) {
+        if (info.length==0){
+            res.redirect('/login_form');
+            break;
+        }else if (info[j].id == user.id && info[j].password == user.password) {
             res.redirect('/carlist');
             break;
         }
         j++;
-        if (j >= i) {
+        if (j >=info.length) {
             res.redirect('/login_form');
             break;
         }
     }
 })
+
+app.get('/carlist', (req, res) => {
+    res.render('carlist.html');
+})
+
+
 
 
 

@@ -8,7 +8,7 @@
     <title>로그인</title>
     <% include ./ejs/header.ejs %>
     <% include ./ejs/headermenu.ejs %>
-    <% include ./ejs/serialobj.ejs
+    <% include ./ejs/Objectize.ejs %>
     <link href="https://fonts.googleapis.com/css?family=Cute+Font|Yeon+Sung&display=swap" rel="stylesheet">
     <style>
         .welcome {
@@ -28,7 +28,7 @@
         }
         .whattoinput {
             font-family: 'Nanum Gothic', sans-serif;
-            color: grey;
+            color: rgb(173, 77, 13);
             font-size: 15px;
         }
         .loginbox form input[type='text'],
@@ -43,8 +43,8 @@
             color: white;
             margin-top: 35px;
             font-family: 'Nanum Gothic', sans-serif;
-            background-color: rgb(74, 123, 248);
-            border: 1px solid rgb(74, 123, 248);
+            background-color: rgb(212, 50, 1);
+            border: 1px solid rgb(212, 50, 1);
         }
     </style>
 </head>
@@ -59,7 +59,8 @@
         <p>환영합니다 고객님!</p>
     </div>
     <div class="container loginbox">
-        <form action="/login" method="POST" style="padding: 0 25px;">
+        <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
+        <form action="/login" method="POST" style="padding: 0 25px;" id="loginput">
             <span class="whattoinput">이메일</span><br>
             <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>
             <span class="whattoinput">비밀번호</span><br>
