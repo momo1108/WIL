@@ -6,11 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <% include ./inc/header.ejs %>
+    <style>
+        th {
+            padding: 5px;
+        }
+    </style>
     <script>
+        // 내부기능인 serializeArray 는 너무 지저분해서 직접 만든 함수
         function serializeObject($form) {
             var unindexed_array = $form.serializeArray();
             var indexed_array = {};
@@ -22,6 +25,9 @@
 
         $(() => {
             $('#again').click(() => {
+                // 페이지를 완성하는 방법 1. ajax - 비동기 방식으로 내용들을 서버에 요청하면
+                // 받아오는 방법, 여러개를 받아와야 될 때 여러번 서버를 호출해야되서 비효율적
+                // 2. template engine - 서버쪽에서 페이지를 완성해서 보내주는 방식
                 $.ajax({
                     type: 'GET',
                     url: '/api/userlist',
@@ -46,7 +52,7 @@
         $(() => {
             $('#gogo').click(() => {
 
-                let newData = { 'carNumber': 'car01', 'owner': 'owner1' };
+                let newData = serializeObject($('form[name=getit]'));
 
                 $.ajax({
                     type: 'POST',
@@ -67,7 +73,15 @@
 </head>
 
 <body>
-    <input type="button" value="제출" id="gogo">
+    <form action="" id="letsgo" name="getit">
+        <!-- 숫자로 선언을 해줘도 json 형식으로 바꾸면 string으로 바뀐다.
+        그래도 javascript 에서는 숫자로 연산들을 해줄 수 있기 때문에 괜찮다. -->
+        <input type="number" name="number">
+        <input type="text" name="name">
+        <input type="number" name="age">
+        <input type="text" name="address">
+        <input type="button" value="제출" id="gogo">
+    </form>
     <button type="button" id="again">또나와</button>
     <table>
         <thead>

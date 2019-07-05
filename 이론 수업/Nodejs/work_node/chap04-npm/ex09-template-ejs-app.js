@@ -57,6 +57,18 @@ app.post('/submit',(req,res)=>{
     res.json(Userlist);
 })
 
+app.get('/ejs',(req,res)=>{
+    res.render('ejs.html', {userid: 'momo1108', name: '방혜찬', age: 27, loop: 5});
+})
+
+app.get('/ejs2',(req,res)=>{
+    res.render('ejs2.html', {list: Userlist});
+})
+
+app.get('/ejs3',(req,res)=>{
+    res.render('ejs3.html', Userlist[0]);
+})
+
 app.listen(port, ()=>{
     console.log('Server is listening to the port number',port);
 })

@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
+    <% include ./ejs/headermenu.ejs %>
 </head>
 <body>
+    <% include ./ejs/bodymenu.ejs %>
     <!-- form action에 http://localhost:3000을 넣어준 이유는 한 컴퓨터에서 서버, 클라이언트
     역할을 둘다 수행했기 때문이다. 실제 상황을 가정하면 서버의 페이지를 받아왔을 때 로컬 호스트가
     아니라 서버의 주소를 그대로 사용해야 하므로 앞부분은 날려주고 /login만 남겨준다.

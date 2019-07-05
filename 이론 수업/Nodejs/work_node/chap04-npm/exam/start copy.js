@@ -14,10 +14,6 @@ app.engine('html', require('ejs').renderFile);
 app.use(express.urlencoded({
     extended: false
 }));
-
-// 받아오는 데이터를 json으로 받아온다.
-app.use(express.json());
-
 // 클라이언트가 기능을 호출하면 서버에서 기능의 경로를 확인하고 불러온 뒤 그 안에서 필요한
 // static한 소스 파일(ex 이미지)들이 있을 때 다시 서버로 불러와달라고 요청을 한다.
 // 서버는 static한 소스파일을 달라는 요청을 받으면 static 경로를 찾아간다.
@@ -28,12 +24,32 @@ app.get('/', (req, res) => {
 })
 
 app.get('/signin_form', (req, res) => {
-    console.log('회원가입신청');
     res.render('signin_form.html');
 })
 
 app.post('/signin', (req, res) => {
-    
+    let k = 0;
+    user = req.body;
+    while (1) {
+        if (i==0) {
+            info.push(user);
+            //res.render('carlist.html');
+            res.redirect('/carlist');
+            break;
+        }
+        if (info[k].id == user.id) {
+            res.redirect('/signin_form');
+            break;
+        }
+        k++;
+        if (k >= i) {
+            info.push(user);
+            res.redirect('/carlist.html');
+            break;
+        }
+    }
+    console.log('현재 유저 목록\n', info);
+    i++;
 })
 
 app.get('/login_form', (req, res) => {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <% include ./inc/header.ejs %>
+</head>
+
+<body>
+    <h1>EJS Text</h1>
+    <%# //console.log('gd') %>
+    <table>
+        <thead>
+            <tr>
+                <th>회원번호</th>
+                <th>이름</th>
+                <th>나이</th>
+                <th>주소</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let i=0; i<list.length; i++) { %>
+                <tr>
+                    <!--아래의 태그는 변수의 '값'을 가져오는 것 -->
+                    <td><%= list[i].number %></td>
+                    <td><%= list[i].name %></td>
+                    <td><%= list[i].age %></td>
+                    <td><%= list[i].address %></td>
+                </tr>
+            <%}%>
+        </tbody>
+
+    </table>
+</body>
+
+</html>

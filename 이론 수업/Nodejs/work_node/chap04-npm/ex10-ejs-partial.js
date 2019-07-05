@@ -57,6 +57,23 @@ app.post('/submit',(req,res)=>{
     res.json(Userlist);
 })
 
+app.get('/ejs',(req,res)=>{
+    res.render('ejs.html', {userid: 'momo1108', name: '방혜찬', age: 27, loop: 5});
+})
+
+app.get('/ejs2',(req,res)=>{
+    res.render('ejs2.html', {list: Userlist});
+})
+
+app.get('/ejs3',(req,res)=>{
+    res.render('ejs3.html', Userlist[0]);
+})
+// render는 ejs의 기능이므로 입력받는 인자의 확장자 default가 .ejs이다. 따라서 ejs 확장자를 쓰는 파일은
+// 확장자를 안붙여줘도 된다.
+app.get('/main',(req,res)=>{
+    res.render('main');
+})
+
 app.listen(port, ()=>{
     console.log('Server is listening to the port number',port);
 })

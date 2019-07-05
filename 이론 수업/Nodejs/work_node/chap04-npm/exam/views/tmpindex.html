@@ -6,203 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-    <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Pacifico|Permanent+Marker&display=swap"
-        rel="stylesheet">
-    <script>
-        // background-color: rgb(197, 135, 0);
-        // background-color: rgb(197, 184, 0);
-        $(() => {
-            $('.carinfo').click(() => {
-                $('.carinfo').siblings().css({'background-color':'rgb(197, 184, 0)'},{'border-color':'rgb(197, 184, 0)'});
-                $('.carinfo').css({'background-color':'rgb(197, 135, 0)'},{'border-color':'rgb(197, 135, 0)'});
-            });
-        });
-
-    </script>
-    <style>
-        a {
-            text-decoration-line: none;
-        }
-
-        /* 메뉴 css */
-        .jumbotron {
-            width: 100%;
-            padding: 10px 0;
-            border-bottom: 1px solid rgb(216, 216, 216);
-            background-color: white;
-            margin: 0;
-        }
-
-        .menucon {
-            position: relative;
-            width: 100%;
-            padding-left: 20px;
-        }
-
-        .carlogo {
-            display: inline-block;
-            font-family: 'Permanent Marker', cursive;
-            color: rgb(199, 57, 57);
-            text-align: center;
-            font-size: 25px;
-        }
-
-        .menuset {
-            display: inline-block;
-            height: 100%;
-            position: absolute;
-            line-height: 95.19px;
-            right: 50px;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 20px;
-            font-weight: bold;
-        }
-
-        .menuset a {
-            color: rgb(34, 34, 34);
-        }
-
-        /* 본문 css */
-        .maincon {
-            background-image: url('../public/image/car1.jpg');
-            width: 100%;
-            margin: 0;
-            background-size: cover;
-            text-align: center;
-            padding-bottom: 50px;
-        }
-
-        .mainexpln {
-            padding: 150px 0;
-            text-align: center;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 70px;
-            /* font-weight: bold; */
-            color: orange;
-        }
-
-        /* 본문 메뉴버튼 */
-        .carmenu {
-            width: 60%;
-            padding-bottom: 25px;
-        }
-
-        .btn-primary {
-            padding: 17px 0;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-weight: bold;
-            font-size: 18px;
-            background-color: rgb(197, 184, 0);
-            border-color: rgb(197, 184, 0);
-            color: rgb(255, 255, 255);
-        }
-
-        .btn-primary:hover {
-            background-color: rgb(197, 135, 0);
-            border-color: rgb(197, 135, 0);
-        }
-
-        .carinfo {
-            border-right-color: rgb(197, 135, 0);
-            border-radius: 30px 0 0 30px;
-        }
-
-        .carhistory {
-            border-color: rgb(197, 184, 0) rgb(197, 135, 0);
-        }
-
-        .carlist {
-            border-color: rgb(197, 184, 0) rgb(197, 135, 0);
-        }
-
-        .carreg {
-            border-left-color: rgb(197, 135, 0);
-            border-radius: 0 30px 30px 0;
-        }
-
-        /* 차 정보 검색 박스 */
-        .maincon .container {
-            width: 65%;
-            display: none;
-            text-align: center;
-            padding: 25px 15px 25px 15px;
-            background-color: rgba(68, 68, 75, 0.3);
-        }
-
-        .infoinput {
-            padding: 15px 0 15px 30px;
-            width: 70%;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 15px;
-            line-height: 27px;
-            float: left;
-            margin-left: 30px;
-        }
-
-        .infosearch {
-            background-color: rgb(197, 135, 0);
-            border-color: rgb(197, 135, 0);
-            border-style: solid;
-            padding: 15px 0;
-            width: 15%;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-weight: bold;
-            font-size: 18px;
-            color: white;
-            float: right;
-            margin-right: 30px;
-        }
-
-        .carinfodes {
-            clear: both;
-            width: 100%;
-            padding: 15px;
-        }
-
-        .carinfodes .help {
-            padding: 0 5px;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 14px;
-            color: white;
-            cursor: help;
-        }
-
-        .carinfodes li {
-            background-color: transparent;
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 14px;
-            color: white;
-            border-width: 0 1px;
-            border-style: solid;
-            border-color: grey;
-            padding: 7px;
-        }
-
-        .warning {
-            font-family: 'Nanum Gothic', sans-serif;
-            font-size: 25px;
-            color: white;
-        }
-    </style>
+    <% include ./ejs/headermenu.ejs %>
+    <% include ./ejs/headermain.ejs %>
 </head>
 
 <body>
-    <!-- 맨위 메뉴 -->
-    <div class="jumbotron jumbotron-fluid">
-        <div class="menucon">
-            <div class="carlogo">
-                <img src="../public/image/carlogo.png" alt="" width="145px"><br>Carset
-            </div>
-            <div class="menuset">
-                <a href="http://localhost:3000/login_form" style="margin-right: 50px;">로그인</a>
-                <a href="http://localhost:3000/signin_form">회원가입</a>
-            </div>
-        </div>
-    </div>
+    <% include ./ejs/bodymenu.ejs %>
     <!-- 본문 시작 -->
     <div class="maincon">
         <div class="mainexpln">
@@ -221,7 +30,7 @@
                 <input class="infoinput" type="text" placeholder="보고싶은 차종을 입력하세요. (ex. 2019 벤츠 S 클래스)">
                 <input class="infosearch" type="submit" value="조회하기">
             </form>
-            <div class="carinfodes">
+            <div class="cardes">
                 <span class="help" title="출시가와 주요제원, 엔진, 성능, 치수, 섀시 등을 알 수 있습니다.">제원/가격</span>
                 <span class="help" title="차의 사진은 미리 볼 수 있습니다.">이미지</span>
                 <span class="help" title="회원들의 의견을 볼 수 있습니다.">자동차 토크</span><br><br><br>
@@ -233,7 +42,7 @@
                 <input class="infoinput" type="text" placeholder="띄어쓰기 없이 차량번호를 입력하세요. (ex. 12가1234)">
                 <input class="infosearch" type="submit" value="조회하기">
             </form>
-            <div class="carinfodes">
+            <div class="cardes">
                 <span class="help"
                     title="자동차는 각 차량마다 고유한 번호를 부여받아 생산되는데요, 한국에서는 “차대번호”라고 부르고 영어로는 V.I.N.(Vehicle Idenfication Number) 즉 자동차 식별번호로 불립니다.">차대번호란?</span>
                 <span class="help"
@@ -245,10 +54,10 @@
         </div>
         <div class="container carlistbox">
             <form action="" method="POST">
-                <input class="infoinput" type="text" placeholder="보고싶은 차종을 입력하세요. (ex. 2019 벤츠 S 클래스)">
+                <input class="infoinput" type="text" placeholder="보고싶은 자동차의 회사를 입력해주세요.">
                 <input class="infosearch" type="submit" value="조회하기">
             </form>
-            <div class="carinfodes">
+            <div class="cardes">
                 <span class="help" title="출시가와 주요제원, 엔진, 성능, 치수, 섀시 등을 알 수 있습니다.">제원/가격</span>
                 <span class="help" title="차의 사진은 미리 볼 수 있습니다.">이미지</span>
                 <span class="help" title="회원들의 의견을 볼 수 있습니다.">자동차 토크</span><br><br><br>
@@ -257,10 +66,9 @@
         </div>
         <div class="container carregbox">
             <form action="" method="POST">
-                <input class="infoinput" type="text" placeholder="보고싶은 차종을 입력하세요. (ex. 2019 벤츠 S 클래스)">
-                <input class="infosearch" type="submit" value="조회하기">
+                <input class="infosearch" type="submit" value="조회하기" style="width: 50%; float: none; margin: 0;">
             </form>
-            <div class="carinfodes">
+            <div class="cardes">
                 <span class="help" title="출시가와 주요제원, 엔진, 성능, 치수, 섀시 등을 알 수 있습니다.">제원/가격</span>
                 <span class="help" title="차의 사진은 미리 볼 수 있습니다.">이미지</span>
                 <span class="help" title="회원들의 의견을 볼 수 있습니다.">자동차 토크</span><br><br><br>
