@@ -8,10 +8,11 @@
     <title>로그인</title>
     <% include ./ejs/header.ejs %>
     <% include ./ejs/headermenu.ejs %>
+    <% include ./ejs/serialobj.ejs
     <link href="https://fonts.googleapis.com/css?family=Cute+Font|Yeon+Sung&display=swap" rel="stylesheet">
     <style>
         .welcome {
-            margin-top: 50px;
+            margin: 35px 0;
             text-align: center;
             font-family: 'Nanum Gothic', sans-serif;
             font-size: 30px;
@@ -20,9 +21,10 @@
         }
 
         .loginbox {
-            width: 30%;
-            border: 1px solid rgb(216, 216, 216);
+            width: 31%;
             border-radius: 5px;
+            border: 1px solid rgb(216, 216, 216);
+            padding: 30px 0;
         }
         .whattoinput {
             font-family: 'Nanum Gothic', sans-serif;
@@ -39,6 +41,7 @@
         }
         input[type='submit'] {
             color: white;
+            margin-top: 35px;
             font-family: 'Nanum Gothic', sans-serif;
             background-color: rgb(74, 123, 248);
             border: 1px solid rgb(74, 123, 248);
@@ -56,13 +59,13 @@
         <p>환영합니다 고객님!</p>
     </div>
     <div class="container loginbox">
-        <form action="/login" method="POST">
+        <form action="/login" method="POST" style="padding: 0 25px;">
             <span class="whattoinput">이메일</span><br>
-            <input type="text" placeholder="ex) abcdefg@naver.com" name="id"><br><br>
+            <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>
             <span class="whattoinput">비밀번호</span><br>
-            <input type="text" placeholder="password" name="password"><br>
-            <p><a href="/findpw">비밀번호 찾기</a></p>
-            <input type="checkbox">비밀번호 기억하기
+            <input type="text" placeholder="password" name="password" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <p style="margin-top: 15px; font-size: 15px; font-family: 'Nanum Gothic', sans-serif;"><a href="/findpw" style="text-decoration-line: none;">비밀번호 찾기</a></p>
+            <input type="checkbox"><span class="whattoinput"> 로그인 정보 기억하기</span>
             <input type="submit" value="로그인">
         </form>
     </div>
