@@ -1,22 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>로그인</title>
+    <% include ./ejs/header.ejs %>
     <% include ./ejs/headermenu.ejs %>
+    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Yeon+Sung&display=swap" rel="stylesheet">
+    <style>
+        .welcome {
+            margin-top: 50px;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        .loginbox {
+            width: 30%;
+            border: 1px solid rgb(216, 216, 216);
+            border-radius: 5px;
+        }
+        .whattoinput {
+            font-family: 'Nanum Gothic', sans-serif;
+            color: grey;
+            font-size: 15px;
+        }
+        .loginbox form input[type='text'],
+        input[type='submit'] {
+            border-radius: 5px;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        input[type='submit'] {
+            color: white;
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: rgb(74, 123, 248);
+            border: 1px solid rgb(74, 123, 248);
+        }
+    </style>
 </head>
+
 <body>
     <% include ./ejs/bodymenu.ejs %>
     <!-- form action에 http://localhost:3000을 넣어준 이유는 한 컴퓨터에서 서버, 클라이언트
     역할을 둘다 수행했기 때문이다. 실제 상황을 가정하면 서버의 페이지를 받아왔을 때 로컬 호스트가
     아니라 서버의 주소를 그대로 사용해야 하므로 앞부분은 날려주고 /login만 남겨준다.
     form으로 post나 get을 할 경우 페이지가 리프레쉬 되기때문에 ajax를 사용한다.-->
-    <form action="/login" method="POST">
-        <input type="text" placeholder="id" name="id">
-        <input type="text" placeholder="password" name="password">
-        <input type="submit" value="전송">
-    </form>
+    <div class="welcome">
+        <p>환영합니다 고객님!</p>
+    </div>
+    <div class="container loginbox">
+        <form action="/login" method="POST">
+            <span class="whattoinput">이메일</span><br>
+            <input type="text" placeholder="ex) abcdefg@naver.com" name="id"><br><br>
+            <span class="whattoinput">비밀번호</span><br>
+            <input type="text" placeholder="password" name="password"><br>
+            <p><a href="/findpw">비밀번호 찾기</a></p>
+            <input type="checkbox">비밀번호 기억하기
+            <input type="submit" value="로그인">
+        </form>
+    </div>
 </body>
+
 </html>
