@@ -24,6 +24,12 @@
 
 - cmd 창에서 node를 실행하면 node js가 실행된다.
 
+- npm install --save express
+
+- npm install --save ejs
+
+- npm install --save-dev nodemon
+
 
 
 ### 파일 생성과 실행
