@@ -83,7 +83,11 @@ app.get('/carlist', (req, res) => {
     res.render('carlist.html');
 })
 
-
+app.post('/carimg', (req,res)=>{
+    console.log(req.body);
+    if(!req.body) console.log('내용을 입력해')
+    else res.json('image/m1.png');
+})
 
 
 
