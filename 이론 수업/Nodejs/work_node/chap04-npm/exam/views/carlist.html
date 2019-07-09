@@ -10,11 +10,11 @@
     <% include ./ejs/headermenu.ejs %>
     <% include ./ejs/serializeObject.ejs %>
     <script>
-    $(() => {
+        $(() => {
             $('.listsearchbtn').click(() => {
 
                 let newData = serializeObject($('.carspec'));
-                if (newData=={}) alert('옵션들을 선택하세요');
+                if (newData == {}) alert('옵션들을 선택하세요');
                 console.log(newData);
                 $.ajax({
                     type: 'POST',
@@ -24,7 +24,10 @@
                     success: (data) => {
                         console.log('성공!');
                         console.log(data);
-                        $('.imgbox').append(`<img src='${data}'>`);
+                        $('.imgbox').empty();
+                        $.each(data, (i, part) => {
+                            $('.imgbox').append(part);
+                        });
                     },
                     error: (err) => {
                         console.log(err);
@@ -61,7 +64,7 @@
 
         .form-control {
             display: inline-block;
-            width: 23%;
+            width: 35%;
         }
 
         .listsearchbtn {
@@ -76,6 +79,47 @@
             border-radius: 7px;
             color: white;
         }
+
+        /* 차 이미지와 정보, 이력 조회 */
+        .mercedes {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+            border: 1px solid grey;
+            margin: 2px;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            /* Black see-through */
+            color: #f1f1f1;
+            width: 100%;
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .mercedes:hover .overlay {
+            opacity: 1;
+        }
+
+        .lokup, .lokup input {
+            display: inline-block;
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+
+        .imgbox {
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -83,6 +127,7 @@
     <% include ./ejs/bodymenu1.ejs %>
     <div class="listsearchbox">
         <div class="whiteback">
+            <%= myid %>님 환영합니다.
             <p class="listtext">자동차 리스트 검색</p>
             <div class="sel-box">
                 <form class="carspec">
@@ -97,7 +142,7 @@
                         <option>폭스바겐</option>
                         <option>포드</option>
                     </select>
-                    <select class="form-control" name="outlook">
+                    <!-- <select class="form-control" name="outlook">
                         <option value="" selected disabled hidden>외형</option>
                         <option>전체</option>
                         <option>세단</option>
@@ -109,7 +154,7 @@
                         <option>RV</option>
                         <option>밴</option>
                         <option>트럭</option>
-                    </select>
+                    </select> -->
                     <select class="form-control" name="size">
                         <option value="" selected disabled hidden>차종</option>
                         <option>경형</option>
