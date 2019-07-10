@@ -10,10 +10,38 @@
     <% include ./ejs/headermenu1.ejs %>
     <% include ./ejs/serializeObject.ejs %>
     <style>
+        .carousel {
+            width: 50%;
+            margin: 0 auto;
+        }
+
         /* Make the image fully responsive */
+        .carousel-inner {
+            text-align: center;
+        }
+
         .carousel-inner img {
-            width: 100%;
-            height: 100%;
+            width: 60%;
+            height: 60%;
+        }
+
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            height: 100px;
+            width: 100px;
+            background-image: none;
+        }
+
+        .carousel-control-next-icon:after {
+            content: '>';
+            font-size: 55px;
+            color: red;
+        }
+
+        .carousel-control-prev-icon:after {
+            content: '<';
+            font-size: 55px;
+            color: red;
         }
     </style>
 </head>
@@ -32,13 +60,13 @@
         <!-- The slideshow -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="image/m1.png" width="30%">
+                <img src="image/m1.png" width="300px">
             </div>
             <div class="carousel-item">
-                <img src="image/m2.png" width="30%">
+                <img src="image/m2.png" width="300px">
             </div>
             <div class="carousel-item">
-                <img src="image/m3.png" width="30%">
+                <img src="image/m3.png" width="300px">
             </div>
         </div>
 

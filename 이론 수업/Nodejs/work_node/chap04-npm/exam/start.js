@@ -1,3 +1,4 @@
+// '리퀘스트가 올 때 마다' 모든 코드가 순서대로 쭉 실행된다.
 const express = require('express');
 const path = require('path');
 const app = express();
@@ -5,7 +6,7 @@ const cookieparser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const hasher = require('pbkdf2-password')();
-const flash = require('express-flash-messages');
+// const flash = require('connect-messages');
 const morgan = require('morgan');
 const fs = require('fs');
 const port = 3000;
@@ -28,7 +29,7 @@ app.use(express.urlencoded({
 app.use(express.json());
 // 쿠키파서 미들웨어 등록
 app.use(cookieparser());
-app.use(flash());
+// app.use(flash());
 app.use(session({
     // 암호화 키 (임의지정 가능)
     secret: '1q2w3e4r',
@@ -38,6 +39,10 @@ app.use(session({
     saveUninitialized: true,
     store: new FileStore()
 }));
+app.use((req,res,next)=>{
+    res.locals.user = req.session.user;
+    next();
+});
 // fs.writeFile - 파일을 생성해라 라는 비동기함수
 // fs.writeFileSync - 뒤에 Sync를 붙어있는 동기함수를 사용
 // JSON.stringify로 json 포맷으로 변환시킨 후 저장해야 내용 확인 가능(옵션을 줘서 이쁘게 저장 가능).
@@ -102,7 +107,7 @@ app.post('/signin', (req, res) => {
 });
 
 app.get('/login_form', (req, res) => {
-    res.render('login_form.html', { fmsg: req.flash('fmsg') });
+    res.render('login_form.html');
 })
 
 app.post('/login', (req, res) => {
@@ -122,8 +127,8 @@ app.post('/login', (req, res) => {
         }, function (err, pass, salt, hash) {
             if (err) {
                 console.log('ERR : ', err);
+                // req.flash('fmsg', '오류가 발생했습니다.');
                 res.redirect('/login_form');
-                req.flash('fmsg', '오류가 발생했습니다.');
             }
             if (hash === user.password) {
                 console.log('INFO : ', userid, ' 로그인 성공')
@@ -134,13 +139,13 @@ app.post('/login', (req, res) => {
                     res.redirect('/carlist');
                 })
             } else {
-                req.flash('fmsg', '패스워드가 맞지 않습니다.');
+                // req.flash('fmsg', '패스워드가 맞지 않습니다.');
                 console.log('비밀번호가 틀렸습니다.');
                 res.redirect('/login_form');
             }
         });
     } else {
-        req.flash('fmsg', '아이디가 없습니다.');
+        // req.flash('fmsg', '아이디가 없습니다.');
         res.redirect('/login_form');
     }
 })
@@ -156,7 +161,7 @@ app.get('/carlist', (req, res) => {
     // cookie의 user 정보 가져와서 carlist.html 에 뿌려주기
     if (req.session.user) {
         console.log('로그인된 사용자');
-        res.render('carlist.html', { myid: req.session.user.userid });
+        res.render('carlist.html');
     } else {
         console.log('로그인 안됨. 로그인 페이지로 이동');
         res.redirect('/login_form');
@@ -166,7 +171,7 @@ app.get('/carlist', (req, res) => {
 app.get('/carinfo', (req, res) => {
     if (req.session.user) {
         console.log('차 정보 확인');
-        res.render('carinfo.html', { myid: req.session.user.userid })
+        res.render('carinfo.html')
     } else {
         console.log('로그인 안됨. 로그인 페이지로 이동');
         res.redirect('/login_form');
@@ -176,7 +181,7 @@ app.get('/carinfo', (req, res) => {
 app.get('/carhistory', (req, res) => {
     if (req.session.user) {
         console.log('차 정보 확인');
-        res.render('carhistory.html', { myid: req.session.user.userid })
+        res.render('carhistory.html')
     } else {
         console.log('로그인 안됨. 로그인 페이지로 이동');
         res.redirect('/login_form');

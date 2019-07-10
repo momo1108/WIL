@@ -9,6 +9,11 @@
         <div class="menuset">
             <a href="/login_form" style="margin-right: 50px;">로그인</a>
             <a href="/signin_form">회원가입</a>
+            <% if (user) {%>
+                <% console.log(user); %>
+                <% console.log(typeof user); %>
+                <a href="/logout">로그아웃</a>
+            <%}%>
         </div>
     </div>
 </div>

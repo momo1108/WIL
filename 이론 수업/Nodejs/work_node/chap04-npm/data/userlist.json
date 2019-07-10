@@ -1,6 +1,8 @@
 {
-    "undefined": {
-        "password": "xqQZyc6m+2uTb546WW67xsi170WubCO6Ztym7US5IqkJg1EaDIhCJBfnPRR3aIam/5XFZQvlqgiVV1ROg654+bwfYZovnsOnRxq1Cjkaks61tB82jC3/7I2xGFadleBf4yuGsVD10PG62DkdYPRHec1WEDjK5SUC8wIuajQKKT8=",
-        "salt": "5us6byOiq0qA6EsH2EGwlDae3oz+gOIvicqaEEte0GMvukDpyIaXb5MXnNmace1XAU3Itqv6TC/ehCrScSnBsw=="
+    "momo1108": {
+        "userid": "momo1108",
+        "originpass": "123",
+        "password": "mAUfN5VvQQhxqIMCbj2uXDg+7/mNia+L03r0qdw4KuKpLS87hjXt0ydP9000GhEUN2Ogli4/r2N1Bb8wTj2e5Ruudoh62SjPwbPwG7vglYKemwyUD8a+pJurXlHK4fPE7nF1wLaf/fjCUh+KRhbJh1HAIciqKkMaKsO2qOrRBYc=",
+        "salt": "nshmJGLdbl726hCO6X8o6fw8shLr3x78p/Nj0zI27jiT6mJjKoUcTOEZ2qXCDx08idGaCgHZLlp5TNP/zTz6UQ=="
     }
 }

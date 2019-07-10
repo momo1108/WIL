@@ -65,9 +65,6 @@
     <div class="container loginbox">
         <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
         <form action="/login" method="POST" style="padding: 0 25px;" id="loginput">
-            <% if (fmsg) { %>
-                <div class="flashmsg"><%= fmsg %></div>
-            <%}%>
             <span class="whattoinput">이메일</span><br>
             <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>
             <span class="whattoinput">비밀번호</span><br>
