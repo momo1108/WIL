@@ -4,15 +4,19 @@ const app = express();
 const cookieparser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
+const hasher = require('pbkdf2-password')();
+const morgan = require('morgan');
 const port = 3000;
 let info = [];
 let imagelist = [];
-let user = {};
+let sampleUserList = [];
 
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
+
+app.use(morgan('dev'));
 
 app.use(express.urlencoded({
     extended: false
@@ -48,74 +52,165 @@ app.get('/signin_form', (req, res) => {
 })
 
 app.post('/signin', (req, res) => {
-    let k = 0;
-    user = req.body;
     console.log(req.body);
-    while (1) {
-        if (info.length==0){
-            info.push(user);
-            console.log(`회원수 : ${info.length} 명`);
-            console.log(info);
-            req.session.user = user;
-            req.session.save(function () {
-                res.redirect('/carlist');
-            })
-            break;
-        }else if (info[k].id == user.id) {
-            res.redirect('/signin_form');
-            break;
+    // 회원가입
+    let userid = req.body.id;
+    let password = req.body.password;
+    console.log('userid = ', userid);
+    console.log('password = ', password);
+
+    hasher({
+        // salt는 임의로 지정해주고 나중에 로그인 할 때 user 변수에 저장된 salt값을 불러온다.
+        password: req.body.password
+    }, (err, pass, salt, hash) => {
+        if (err) {
+            console.log('ERR: ', err);
+            res.redirect('/signup_form');
         }
-        k++;
-        if (k >=info.length) {
-            info.push(user);
-            console.log(`회원수 : ${info.length} 명`);
-            console.log(info);
-            res.session = user;
-            req.session.save(function () {
-                res.redirect('/carlist');
-            })
-            break;
+        let user = {
+            userid: userid,
+            password: hash,
+            salt: salt
         }
-    }
-})
+        sampleUserList[userid] = user;
+        console.log('user added : ', user.userid);
+        res.redirect('/login_form');
+    });
+});
 
 app.get('/login_form', (req, res) => {
     res.render('login_form.html');
 })
 
 app.post('/login', (req, res) => {
-    let j = 0;
-    user = req.body;
-    while (1) {
-        if (info.length==0){
-            res.redirect('/login_form');
-            break;
-        }else if (info[j].id == user.id && info[j].password == user.password) {
-            res.redirect('/carlist');
-            break;
+    console.log(req.body);
+    let userid = req.body.id;
+    let password = req.body.password;
+    console.log('userid = ', userid);
+    console.log('password = ', password);
+    console.log('userlist = ', sampleUserList);
+    let bFound = false;
+
+    for (let i = 0; i < sampleUserList.length; i++) {
+        let user = sampleUserList[i];
+        console.log(sampleUserList[i]);
+        if (userid === user.userid) {
+            console.log('[found] userid = ', userid);
+            bFound = true;
+
+            // hasher는 비동기이기 때문에 break문이 어떤것을 break할건지 모른다.
+            // hasher를 비동기로 실행시키고 다 되면 뒤에 이어지는 함수를 실행시켜달라함.
+            // https://dev.eyegood.co.kr/entry/Javascript-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-return%EA%B3%BC-break%EC%9D%98-%EC%B0%A8%EC%9D%B4
+            return hasher({
+                password: password,
+                salt: user.salt
+            }, function (err, pass, salt, hash) {
+                if (err) {
+                    console.log('ERR : ', err);
+                    //req.flash('fmsg', '오류가 발생했습니다.');
+
+                }
+                if (hash === user.password) {
+                    console.log('INFO : ', userid, ' 로그인 성공')
+
+                    req.session.user = sampleUserList[i];
+                    req.session.save(function () {
+                        res.redirect('/carlist');
+                    })
+                    return;
+                } else {
+                    // req.flash('fmsg', '패스워드가 맞지 않습니다.');
+                    console.log('비밀번호가 틀렸습니다.');
+                    res.redirect('/login_form');
+                    return;
+                }
+            });
         }
-        j++;
-        if (j >=info.length) {
-            res.redirect('/login_form');
-            break;
-        }
+        // if (bFound) break;
     }
-})
+
+    //req.flash.msg('')
+    if (!bFound) {
+        console.log('아이디가 없습니다.');
+    }
+
+    //req.flash('fmsg', '사용자가 없습니다.');
+    res.redirect('/login_form');
+
+
+});
 
 app.get('/carlist', (req, res) => {
     // cookie의 user 정보 가져와서 carlist.html 에 뿌려주기
-    res.render('carlist.html',{myid: req.session.user.id});
+    res.render('carlist.html', { myid: req.session.user.userid });
 })
 
-app.post('/carimg', (req,res)=>{
+app.get('/carlist2',(req,res)=>{
+    // if의 ()와 같은 조건문에서는 변수값이 들어가는게 아닌 true false로 들어간다.
+    if(req.session.user){
+        console.log('로그인된 사용자');
+        res.render('carlist.html', { myid: req.session.user.userid });
+    } else {
+        console.log('로그인 안됨. 로그인 페이지로 이동');
+        res.redirect('/login_form');
+    }
+})
+
+app.post('/carimg', (req, res) => {
     console.log(req.body);
     imagelist = [];
-    if(req.body.company=='벤츠') {
-        for(let i=1; i<56; i++) {
+    if (req.body.company == '벤츠' && req.body.size == '경형') {
+        res.json(imagelist);
+        return;
+    }
+    if (req.body.company == '벤츠' && req.body.size == '소형') {
+        imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        res.json(imagelist);
+        return;
+    }
+    if (req.body.company == '벤츠' && req.body.size == '준중형') {
+        for (let i = 2; i < 16; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
         }
+        res.json(imagelist);
+        return;
     }
-    res.json(imagelist);
+    if (req.body.company == '벤츠' && req.body.size == '중형') {
+        for (let i = 16; i < 29; i++) {
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        }
+        res.json(imagelist);
+        return;
+    }
+    if (req.body.company == '벤츠' && req.body.size == '준대형') {
+        for (let i = 51; i < 56; i++) {
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        }
+        res.json(imagelist);
+        return;
+    }
+    if (req.body.company == '벤츠' && req.body.size == '대형') {
+        for (let i = 29; i < 43; i++) {
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        }
+        res.json(imagelist);
+        return;
+    }
+    if (req.body.company == '벤츠' && req.body.size == '스포츠카') {
+        for (let i = 43; i < 51; i++) {
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        }
+        res.json(imagelist);
+        return;
+    }
+    if (req.body.company == '벤츠') {
+        for (let i = 1; i < 56; i++) {
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        }
+        res.json(imagelist);
+        return;
+    }
+    
 })
 
 

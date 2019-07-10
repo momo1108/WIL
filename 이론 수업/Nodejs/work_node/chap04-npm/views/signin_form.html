@@ -47,9 +47,6 @@
             background-color: rgb(212, 50, 1);
             border: 1px solid rgb(212, 50, 1);
         }
-        .flashmsg {
-            text-align: center;
-        }
     </style>
 </head>
 
@@ -60,21 +57,16 @@
     아니라 서버의 주소를 그대로 사용해야 하므로 앞부분은 날려주고 /login만 남겨준다.
     form으로 post나 get을 할 경우 페이지가 리프레쉬 되기때문에 ajax를 사용한다.-->
     <div class="welcome">
-        <p>환영합니다 고객님!</p>
+        <p>새로운 회원님을 진심으로 환영합니다!</p>
     </div>
     <div class="container loginbox">
         <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
-        <form action="/login" method="POST" style="padding: 0 25px;" id="loginput">
-            <% if (fmsg) { %>
-                <div class="flashmsg"><%= fmsg %></div>
-            <%}%>
-            <span class="whattoinput">이메일</span><br>
+        <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput">
+            <span class="whattoinput">사용할 이메일</span><br>
             <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>
-            <span class="whattoinput">비밀번호</span><br>
+            <span class="whattoinput">사용할 비밀번호</span><br>
             <input type="password" placeholder="password" name="password" style="border: 1px solid rgb(216, 216, 216);"><br>
-            <p style="margin-top: 15px; font-size: 15px; font-family: 'Nanum Gothic', sans-serif;"><a href="/findpw" style="text-decoration-line: none;">비밀번호 찾기</a></p>
-            <input type="checkbox"><span class="whattoinput"> 로그인 정보 기억하기</span>
-            <input type="submit" value="로그인">
+            <input type="submit" value="회원가입 신청">
         </form>
     </div>
 </body>

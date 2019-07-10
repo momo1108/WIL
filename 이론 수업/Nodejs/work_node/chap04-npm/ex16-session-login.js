@@ -69,8 +69,6 @@ app.get('/api/userlist', (yochung, baneung) => {
 
 app.get('/test/setsession', (req, res) => {
     console.log('/test/setsession');
-    // 이제 setsession에 접속을 하면 sessions 디렉터리가 생성되고 세션정보가 저장이 된다.
-    // 같은 컴퓨터로 접속할 경우 정보가 변하지 않는다.
     req.session.myname = '홍길동';
     req.session.myid = 'hong'
     req.session.save(function () {
@@ -102,25 +100,11 @@ app.post('/signup', (req, res) => {
 
     hasher({
         password: req.body.password
-        // pass = 내가 패스워드 값으로 넘겨준 값
-        // salt = 패스워드를 암호화를 할 때 복잡도를 늘리기 위해 시스템이 자릿 수를 늘려줌
-        // hash = 그 결과인 hash값
     }, (err, pass, salt, hash) => {
-        // 에러 발생시 사인업 폼으로 다시 돌아가게
         if (err) {
             console.log('ERR: ', err);
             res.redirect('/signup_form');
         }
-        // 자바 스크립트 안에서만 사용한다하면 키들을 ''로 감싸주지 않아도 된다.
-        // JSON 형식으로 나타낸다 하면 키를 ''로 감싸주고 value값들을 형식에 맞게 표현해주어야 한다."" {} []
-        // JSON.stringify(객체); ← 자바스크립트의 객체값을 JSON 문자열로 변환한다.
-        // console.log(JSON.stringify({ x: 5, y: 6 }));
-        // expected output: "{"x":5,"y":6}"
-        // JSON.parse() 메서드는 JSON 문자열의 구문을 분석하고, 그 결과에서 JavaScript 값이나 객체를 생성합니다.
-        // var json = '{"result":true, "count":42}';
-        // obj = JSON.parse(json);
-        // console.log(obj.count);
-        // expected output: 42
         let user = {
             userid: userid,
             password: hash,
@@ -175,6 +159,20 @@ app.post('/login', (req, res) => {
  
     res.redirect('/login_form');
  }); 
+
+app.get('/carlist2',(req,res)=>{
+    // if의 ()와 같은 조건문에서는 변수값이 들어가는게 아닌 true false로 들어간다.
+    if(req.session.user){
+        console.log('로그인된 사용자');
+        res.render('carlist2.html', {
+            list: sampleCarList,
+            user: req.session.user
+        });
+    } else {
+        console.log('로그인 안됨. 로그인 페이지로 이동');
+        res.redirect('/login_form');
+    }
+})
 
 app.listen(port, () => {
     console.log('Server is listening to the port number', port);

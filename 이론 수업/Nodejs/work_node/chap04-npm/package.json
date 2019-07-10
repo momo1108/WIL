@@ -9,9 +9,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "express-flash-messages": "^0.1.1",
     "express-session": "^1.16.2",
     "morgan": "^1.9.1",
     "pbkdf2-password": "^1.2.1",

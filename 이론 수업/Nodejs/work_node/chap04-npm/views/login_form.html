@@ -47,9 +47,6 @@
             background-color: rgb(212, 50, 1);
             border: 1px solid rgb(212, 50, 1);
         }
-        .flashmsg {
-            text-align: center;
-        }
     </style>
 </head>
 
@@ -65,8 +62,8 @@
     <div class="container loginbox">
         <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
         <form action="/login" method="POST" style="padding: 0 25px;" id="loginput">
-            <% if (fmsg) { %>
-                <div class="flashmsg"><%= fmsg %></div>
+            <% if (fmsg && fmsg.length>0) { %>
+                <%= fmsg %>
             <%}%>
             <span class="whattoinput">이메일</span><br>
             <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>

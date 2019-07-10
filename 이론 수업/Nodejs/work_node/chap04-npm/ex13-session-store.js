@@ -61,20 +61,6 @@ app.get('/userlist',(req,res)=>{
 app.get('/api/userlist', (yochung, baneung) => {
     baneung.json(Userlist);
 })
-
-app.get('/test/setCookie', (req,res)=>{
-    console.log('/test/setCookie');
-    res.cookie('user', {'name': '홍길동'});
-    res.redirect('/test/getCookie');
-});
-
-app.get('/test/getCookie', (req,res)=>{
-    console.log(req.cookies);
-    res.render('test/getcookie.html', {cookie: req.cookies}, {
-        maxAge: 10*1000,
-        httpOnly: true
-    });
-});
 app.get('/test/setsession', (req, res) => {
     console.log('/test/setsession');
     // 이제 setsession에 접속을 하면 sessions 디렉터리가 생성되고 세션정보가 저장이 된다.
