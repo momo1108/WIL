@@ -24,7 +24,7 @@ app.get('/query', (req,res) => {
     console.log(req.query);
 });
 
-app.get('/sementic/:book/:page', (req,res) => {
+app.get('/whichcar/:book/:page', (req,res) => {
     var book = req.params.book;
     var page = req.params.page;
     console.log(req.params);

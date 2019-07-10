@@ -196,56 +196,53 @@ app.post('/carimg', (req, res) => {
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '소형') {
-        imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+        imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '준중형') {
         for (let i = 2; i < 16; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '중형') {
         for (let i = 16; i < 29; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '준대형') {
         for (let i = 51; i < 56; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '대형') {
         for (let i = 29; i < 43; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '스포츠카') {
         for (let i = 43; i < 51; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠') {
         for (let i = 1; i < 56; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><form action="/carinfo" class="lokup"><input type="submit" value="정보 조회"></form>│<form action="/carhistory" class="lokup"><input type="submit" value="이력 조회"></form></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
-
 })
-
-
 
 app.listen(port, function () {
     console.log('server listen at ...' + port);
