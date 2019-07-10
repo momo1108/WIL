@@ -13,6 +13,7 @@ const port = 3000;
 
 let imagelist = [];
 let sampleUserList = {};
+let cardscr = {'1': {logo: '<img src="image/benzmark.png" width="100%">'}};
 
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
 app.set('views', path.join(__dirname, 'views'));
@@ -196,52 +197,64 @@ app.post('/carimg', (req, res) => {
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '소형') {
-        imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+        imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '준중형') {
         for (let i = 2; i < 16; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '중형') {
         for (let i = 16; i < 29; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '준대형') {
         for (let i = 51; i < 56; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '대형') {
         for (let i = 29; i < 43; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠' && req.body.size == '스포츠카') {
         for (let i = 43; i < 51; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠') {
         for (let i = 1; i < 56; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/wcarinfo/${i}"></a>│<a href="/wcarhistory/${i}"></a></div></div>`);
+            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
+})
+// 클라이언트로부터 구분 인자를 받아오기 위해서는 semantic url을 사용하자.
+app.get('/cinfo/:model', (req,res)=>{
+    let carnum = req.params.model;
+    console.log(carnum);
+    console.log(typeof carnum);
+    // 변수를 키로 설정할때는 []를 쓰자 제발 . 말고 제발
+    res.render('carinfo.html',{cardetail: cardscr[carnum]});
+})
+
+app.get('/chistory/:model', (req,res)=>{
+    
 })
 
 app.listen(port, function () {
