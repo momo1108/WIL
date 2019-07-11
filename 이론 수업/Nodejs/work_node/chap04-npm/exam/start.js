@@ -13,8 +13,7 @@ const port = 3000;
 
 let imagelist = [];
 let sampleUserList = {};
-let cardscr = {'1': {logo: '<img src="image/benzmark.png" width="100%">'}};
-
+let cardscr = [];
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -52,10 +51,13 @@ app.use((req,res,next)=>{
 // 저장 한 후에 저장된 내용을 불러와 변수에 저장하자.
 // 만약 userlist 파일이 존재하면 불러오고 아니면 지나간다.
 if (fs.existsSync('data/userlist.json')) {
-    let rawdata = fs.readFileSync('data/userlist.json');
+    let rawdata1 = fs.readFileSync('data/userlist.json');
+    let rawdata2 = fs.readFileSync('data/carlist.json');
     //     그 후 JSON.parse를 통해 다시 json 포맷을 자바스크립트 포맷으로 변경 후 Userlist에 저장해주자.
-    sampleUserList = JSON.parse(rawdata);
+    sampleUserList = JSON.parse(rawdata1);
+    cardscr = JSON.parse(rawdata2);
     console.log(sampleUserList);
+    console.log(cardscr);
     //     지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
     //     뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
 }
@@ -65,7 +67,7 @@ if (fs.existsSync('data/userlist.json')) {
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/', (req, res) => {
-    res.render('tmpindex.html');
+    res.render('index.html');
 })
 
 app.get('/signin_form', (req, res) => {
@@ -122,7 +124,7 @@ app.post('/login', (req, res) => {
     let user = sampleUserList[userid];
     if (user) {
         console.log('[found] userid = ', userid);
-        return hasher({
+        hasher({
             password: password,
             salt: user.salt
         }, function (err, pass, salt, hash) {
@@ -153,9 +155,8 @@ app.post('/login', (req, res) => {
 
 app.get('/logout', (req, res) => {
     req.session.destroy(function () {
-        req.session;
+        res.redirect('/');
     });
-    res.redirect('/');
 })
 
 app.get('/carlist', (req, res) => {
@@ -196,11 +197,13 @@ app.post('/carimg', (req, res) => {
         res.json(imagelist);
         return;
     }
+    // 소형 1개
     if (req.body.company == '벤츠' && req.body.size == '소형') {
         imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         res.json(imagelist);
         return;
     }
+    // 준중형 14개 5
     if (req.body.company == '벤츠' && req.body.size == '준중형') {
         for (let i = 2; i < 16; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
@@ -208,6 +211,7 @@ app.post('/carimg', (req, res) => {
         res.json(imagelist);
         return;
     }
+    // 중형 13개 6
     if (req.body.company == '벤츠' && req.body.size == '중형') {
         for (let i = 16; i < 29; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
@@ -215,6 +219,7 @@ app.post('/carimg', (req, res) => {
         res.json(imagelist);
         return;
     }
+    // 준대형 5개
     if (req.body.company == '벤츠' && req.body.size == '준대형') {
         for (let i = 51; i < 56; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
@@ -222,6 +227,7 @@ app.post('/carimg', (req, res) => {
         res.json(imagelist);
         return;
     }
+    // 대형 14개 6
     if (req.body.company == '벤츠' && req.body.size == '대형') {
         for (let i = 29; i < 43; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
@@ -229,6 +235,7 @@ app.post('/carimg', (req, res) => {
         res.json(imagelist);
         return;
     }
+    // 스포츠카 8개 5
     if (req.body.company == '벤츠' && req.body.size == '스포츠카') {
         for (let i = 43; i < 51; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
@@ -244,6 +251,7 @@ app.post('/carimg', (req, res) => {
         return;
     }
 })
+// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
 // 클라이언트로부터 구분 인자를 받아오기 위해서는 semantic url을 사용하자.
 app.get('/cinfo/:model', (req,res)=>{
     let carnum = req.params.model;

@@ -10,9 +10,14 @@
     <% include ./ejs/headermenu.ejs %>
     <% include ./ejs/serializeObject.ejs %>
     <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
         .carousel {
-            width: 50%;
+            width: 70%;
             margin: 0 auto;
+            margin-top: 20px;
+            margin-bottom: 20px;
         }
 
         /* Make the image fully responsive */
@@ -21,8 +26,9 @@
         }
 
         .carousel-inner img {
-            width: 60%;
-            height: 60%;
+            width: 71.4%;
+            height: 71.4%;
+            border-radius: 20px;
         }
 
         .carousel-control-prev-icon,
@@ -49,7 +55,6 @@
 <body>
     <% include ./ejs/bodymenu.ejs %>
     <div id="demo" class="carousel slide" data-ride="carousel">
-
         <!-- Indicators -->
         <ul class="carousel-indicators">
             <li data-target="#demo" data-slide-to="0" class="active"></li>
@@ -60,13 +65,13 @@
         <!-- The slideshow -->
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="image/m1.png" width="300px">
+                <img src="<%= cardetail.slide1 %>">
             </div>
             <div class="carousel-item">
-                <img src="image/m2.png" width="300px">
+                <img src="<%= cardetail.slide2 %>">
             </div>
             <div class="carousel-item">
-                <img src="image/m3.png" width="300px">
+                <img src="<%= cardetail.slide3 %>">
             </div>
         </div>
 
@@ -80,11 +85,67 @@
     </div>
     <div class="row">
         <div class="col-1"></div>
-        <div class="col-3">
-            <%= cardetail.logo %>
+        <div class="col-3" style="padding: 0; margin-right: 10px;">
+            <div class="row" style="line-height: 50px;">
+                <div class="col">
+                    <img src="<%= cardetail.logo %>">
+                    <span
+                        style="font-weight: bold; font-size: 17px;">&nbsp;&nbsp;<%= cardetail.brand %>&nbsp;&nbsp;&nbsp;</span>
+                    <span style="font-size: 13px; color: rgb(114, 114, 114);"><%= cardetail.size %></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <span style="font-size: 30px; font-weight: bold;"><%= cardetail.model %></span>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col">
+                    <span
+                        style="font-size: 20px;font-weight: bold;color: rgb(141, 141, 141);"><%= cardetail.price %></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2" style="font-size: 13px; line-height: 25px; color: grey;">
+                    <br>
+                    연비<br>
+                    연료<br>
+                    출력<br>
+                    판매
+                </div>
+                <div class="col-9" style="line-height: 25px;">
+                    <br>
+                    <%= cardetail.mileage %><br>
+                    <%= cardetail.fuel %><br>
+                    <%= cardetail.output %><br>
+                    <%= cardetail.sale %>
+                </div>
+            </div>
         </div>
-        <div class="col-7">
-
+        <div class="col-7" style="font-size: 25px; font-weight: bold;">
+            제원/가격
+            <div class="row cartable" style="font-size: 15px; border-top: 1px solid black; padding: 5px 0; margin-top: 15px; color: grey; font-weight: bold;">
+                <div class="col-3">
+                    모델명
+                </div>
+                <div class="col-9">
+                    <div class="row">
+                        <div class="col-3">
+                            배기량
+                        </div>
+                        <div class="col-3">
+                            최대출력
+                        </div>
+                        <div class="col-3">
+                            연비
+                        </div>
+                        <div class="col-3">
+                            출시가
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="col-1"></div>
     </div>

@@ -34,7 +34,7 @@ app.use(session({
 
 app.use(express.json());
 
-var Userlist = [
+var sampleUserList = [
     {
         number: 1,
         name: '방혜찬',
@@ -64,7 +64,7 @@ app.get('/userlist', (req, res) => {
 })
 
 app.get('/api/userlist', (yochung, baneung) => {
-    baneung.json(Userlist);
+    baneung.json(sampleUserList);
 })
 
 app.get('/test/setsession', (req, res) => {
@@ -88,17 +88,18 @@ app.get('/test/getsession', (req, res) => {
     });
 })
 
-app.post('/signup', (req, res) => {
+app.get('/signin_form', (req, res) => {
+    console.log('회원가입신청');
+    res.render('signin_form.html');
+})
+
+app.post('/signin', (req, res) => {
     console.log(req.body);
     // 회원가입
-    let userid = req.body.userid;
+    let userid = req.body.id;
     let password = req.body.password;
-    let name = req.body.name;
-    let email = req.body.email;
     console.log('userid = ', userid);
     console.log('password = ', password);
-    console.log('name = ', name);
-    console.log('email = ', email);
 
     hasher({
         password: req.body.password
@@ -124,15 +125,17 @@ app.post('/signup', (req, res) => {
         let user = {
             userid: userid,
             password: hash,
-            salt: salt,
-            name: name,
-            email: email
+            salt: salt
         }
         sampleUserList.push(user);
         console.log('user added : ', user);
         res.redirect('/login_form');
     });
 });
+
+app.get('/login_form', (req, res) => {
+    res.render('login_form.html');
+})
 
 app.post('/login', (req, res) => {
     console.log(req.body);

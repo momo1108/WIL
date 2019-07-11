@@ -7,15 +7,76 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        function searchByCarNum() {
+            let searchText = $('#searchtext1').val();
+            // 변수 앞에 $는 관습 상 jquery 변수라 알려줄려고 쓰기도 함(안써도될듯)
+            // 변수명이 길 경우 이렇게 짧게 따로 지정해줘서 편하게 사용할 수 있다.
+            let $target = $('#list');
+            $.ajax({
+                type: 'POST',
+                url: '/api/search',
+                dataType: 'json',
+                data: {"searchText": searchText},
+                success: function(item) {
+                    console.log('success');
+                    console.log(item);
+
+                    $target.empty();
+                    $target.append(`
+                        <tr>
+                            <td>1</td>
+                            <td>${item.carNumber}</td>
+                            <td>${item.owner}</td>
+                            <td>${item.model}</td>
+                            <td>${item.company}</td>
+                            <td>${item.numOfAccident}</td>
+                            <td>${item.numOfOwnerChange}</td>
+                        </tr>
+                        `);
+                }
+            })
+        }
+        function searchByCompany() {
+            let searchText = $('#searchtext2').val();
+            let $target = $('#list');
+            $.ajax({
+                type: 'POST',
+                url: '/api/filter',
+                dataType: 'json',
+                data: {"searchText": searchText},
+                success: function(list) {
+                    console.log('success');
+                    console.log(list);
+                    $target.empty();
+                    $.each(list, (i, item) => {
+                        $target.append(`
+                        <tr>
+                            <td>${i + 1}</td>
+                            <td>${item.carNumber}</td>
+                            <td>${item.owner}</td>
+                            <td>${item.model}</td>
+                            <td>${item.company}</td>
+                            <td>${item.numOfAccident}</td>
+                            <td>${item.numOfOwnerChange}</td>
+                        </tr>
+                        `);
+                    })
+                }
+            })
+        }
+    </script>
 </head>
 
 <body>
+    <a href="/logout">로그아웃</a>
     <form action="/submit" method="POST">
-        <input type="text" value="이건1" name="one">
-        <input type="text" value="이건2" name="two">
-        <input type="text" value="이건3" name="three">
-        <input type="text" value="이건4" name="four">
-        <input type="text" value="이건5" name="five">
+        <input type="text" value="이건1" name="carNumber">
+        <input type="text" value="이건2" name="owner">
+        <input type="text" value="이건3" name="model">
+        <input type="text" value="이건4" name="company">
+        <input type="number" name="numOfAccident">
+        <input type="number" name="numOfOwnerChange">
         <input type="submit" value="제출" id="gogo">
     </form>
     <table>
@@ -34,13 +95,20 @@
 
         </tbody>
     </table>
+    <button id="printbtn">출력</button>
+    <div>
+        <input type="text" id="searchtext1" placeholder="차량번호">
+        <button class="btn btn-primary" id="btn_search1" onclick="searchByCarNum();">검색</button>
+    </div>
+    <div>
+        <input type="text" id="searchtext2" placeholder="차량번호">
+        <button class="btn btn-primary" id="btn_search2" onclick="searchByCompany();">검색</button>
+    </div>
     <script>
-        $(function () {
-            // ajax 가 지원하는 function사용 $.ajax() 형식
-            // 안에 객체를 넣어줘야하니까 {} 쓰자
+        $('#printbtn').click(function(){
             $.ajax({
-                type: 'POST',
-                url: '/submit',
+                type: 'GET',
+                url: '/print',
                 success: (data) => {
                     console.log('success');
                     console.log(data);
@@ -48,7 +116,7 @@
                     $.each(data, (i, item) => {
                         $('#list').append(`
                         <tr>
-                            <td>${i+1}</td>
+                            <td>${i + 1}</td>
                             <td>${item.carNumber}</td>
                             <td>${item.owner}</td>
                             <td>${item.model}</td>
@@ -58,14 +126,11 @@
                         </tr>
                         `);
                     })
-                        
+
                 },
                 error: (err) => {
                     console.log('err');
                 }
-            })
-            $.each(data, (i, item) => {
-
             })
         })
     </script>

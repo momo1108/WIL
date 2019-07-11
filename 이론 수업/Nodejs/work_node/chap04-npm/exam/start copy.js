@@ -72,7 +72,7 @@ app.post('/signin', (req, res) => {
             password: hash,
             salt: salt
         }
-        sampleUserList[userid] = user;
+        sampleUserList.push(user);
         console.log('user added : ', user.userid);
         res.redirect('/login_form');
     });
@@ -101,17 +101,16 @@ app.post('/login', (req, res) => {
             // hasher는 비동기이기 때문에 break문이 어떤것을 break할건지 모른다.
             // hasher를 비동기로 실행시키고 다 되면 뒤에 이어지는 함수를 실행시켜달라함.
             // https://dev.eyegood.co.kr/entry/Javascript-%ED%95%A8%EC%88%98%EC%97%90%EC%84%9C-return%EA%B3%BC-break%EC%9D%98-%EC%B0%A8%EC%9D%B4
-            return hasher({
+            hasher({
                 password: password,
                 salt: user.salt
             }, function (err, pass, salt, hash) {
                 if (err) {
                     console.log('ERR : ', err);
-                    //req.flash('fmsg', '오류가 발생했습니다.');
 
                 }
                 if (hash === user.password) {
-                    console.log('INFO : ', userid, ' 로그인 성공')
+                    console.log('INFO : ', userid, ' logged in successfully')
 
                     req.session.user = sampleUserList[i];
                     req.session.save(function () {
@@ -119,25 +118,20 @@ app.post('/login', (req, res) => {
                     })
                     return;
                 } else {
-                    // req.flash('fmsg', '패스워드가 맞지 않습니다.');
-                    console.log('비밀번호가 틀렸습니다.');
+                    console.log('Wrong passwd.');
                     res.redirect('/login_form');
                     return;
                 }
             });
         }
-        // if (bFound) break;
+        if (bFound) break;
     }
 
-    //req.flash.msg('')
     if (!bFound) {
-        console.log('아이디가 없습니다.');
+        console.log('Theres no such ID.');
+        res.redirect('/login_form');
     }
-
-    //req.flash('fmsg', '사용자가 없습니다.');
-    res.redirect('/login_form');
-
-
+    
 });
 
 app.get('/carlist', (req, res) => {

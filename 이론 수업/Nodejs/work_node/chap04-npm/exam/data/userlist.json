@@ -34,5 +34,11 @@
         "password": "U6g/W40s+HX0Zld107gsOb7KjN/vYALf1pmEnpbTNaW185I3Mp/KCSja12dAOFvAcZp++kGK+bAmQvl7/yERrMr6a9REEDTWpa5k6T8BZZpen7NfMyIy1mI7IVdTGErBXJlLy81dNxMY7T+2OGeH4vpgeG4hQJ5FA8LI7IcbgPQ=",
         "originpass": "231651",
         "salt": "xOBVlodVOt9U6eMlOeuBYfRAVE14130wh/LBUzqiklewtiHo6PEyQuKFvNIi34+Ja8hErOR0icUh6nhOoRB5jQ=="
+    },
+    "bangbang": {
+        "userid": "bangbang",
+        "password": "qeyWVEs9zjVlAAGo80AVazCGkX5aosb0gj0n/BGKvCeeRrFmptf9KfarLadDP95PTAZ0vH6BBOLHfIYeEYHIKTKtlBxWmhaewGaPSjWsAoDoSpnFUGPjZZAiOJof+2t95dHVh2asQMqHIf7YJwOq49j0Rbd2VlBaAuZkiYHb+L0=",
+        "originpass": "123",
+        "salt": "nuqptvULvRixzCiEoXkKwlxrgnaGiD4dC7GvkoovXbNDNnRmbw/7XmjSrgEO9q7P4Remk5701LQiEHANaH4WQQ=="
     }
 }
