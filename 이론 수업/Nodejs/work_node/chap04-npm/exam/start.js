@@ -197,54 +197,54 @@ app.post('/carimg', (req, res) => {
         res.json(imagelist);
         return;
     }
-    // 소형 1개
+    // 소형 1개 1
     if (req.body.company == '벤츠' && req.body.size == '소형') {
         imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         res.json(imagelist);
         return;
     }
-    // 준중형 14개 5
+    // 준중형 14개 5 2~6
     if (req.body.company == '벤츠' && req.body.size == '준중형') {
-        for (let i = 2; i < 16; i++) {
+        for (let i = 2; i < 7; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
-    // 중형 13개 6
+    // 중형 13개 6 7~12
     if (req.body.company == '벤츠' && req.body.size == '중형') {
-        for (let i = 16; i < 29; i++) {
+        for (let i = 7; i < 12; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
-    // 준대형 5개
+    // 준대형 5개 24~28
     if (req.body.company == '벤츠' && req.body.size == '준대형') {
-        for (let i = 51; i < 56; i++) {
+        for (let i = 24; i < 29; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
-    // 대형 14개 6
+    // 대형 14개 6 13~18
     if (req.body.company == '벤츠' && req.body.size == '대형') {
-        for (let i = 29; i < 43; i++) {
+        for (let i = 13; i < 19; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
-    // 스포츠카 8개 5
+    // 스포츠카 8개 5 19~23
     if (req.body.company == '벤츠' && req.body.size == '스포츠카') {
-        for (let i = 43; i < 51; i++) {
+        for (let i = 19; i < 24; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);
         return;
     }
     if (req.body.company == '벤츠') {
-        for (let i = 1; i < 56; i++) {
+        for (let i = 1; i < 29; i++) {
             imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
         }
         res.json(imagelist);

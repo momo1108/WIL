@@ -1,39 +1,20 @@
 const express = require('express');
-const path = require('path');
-const cookieparser = require('cookie-parser');
-const session = require('express-session');
-const FileStore = require('session-file-store')(session);
 const app = express();
 // const flash = require('connect-flash');
+const session = require('express-session');
+const FileStore = require('session-file-store')(session);
+const path = require('path');
 const port = 3000;
 // pbkdf2 는 모두 암호화해주는 모듈. pbkdf2-password는 암호를 암호화해줄 때 사용하는 모듈.
-const hasher = require('pbkdf2-password')();
-const fs = require('fs');
 
-// 패스워드 암호화
-// 회원 가입 시 입력한 패스워드를 암호화 해서 저장
-// 로그인 시 인증 처리
-
-// 모듈을 사용할 수 있다.
-var part1 = require('./part.js');
-console.log(part1.part);
-console.log(part1.a);
-console.log(part1.b);
-part1.func.funca('this');
-
-app.set(path.join(__dirname, 'views'));
+app.set(path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
+app.use(express.static(path.join(__dirname, '/public')));
 app.use(express.urlencoded({
     extended: false
 }))
-
-app.use(express.static(path.join(__dirname, 'public')));
-
-app.use(cookieparser());
-
-// app.use(flash());
 
 app.use(session({
     secret: '1q2w3e4r',
@@ -47,45 +28,34 @@ app.use((req,res,next)=>{
     res.locals.user = req.session.user;
     next();
 });
+// 패스워드 암호화
+// 회원 가입 시 입력한 패스워드를 암호화 해서 저장
+// 로그인 시 인증 처리
+
+// 모듈을 사용할 수 있다.
+var part1 = require('./router/part.js');
+var part2 = require('./router/module.js');
+var router1 = require('./router/testrouter.js');
+var router2 = require('./router/rootrouter.js');
+// 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
+// https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
+app.use('/test',router1);
+app.use(router2);
+console.log(part1.c);
+part2.funca();
+
+
+
+// app.use(flash());
+
+
+
+
 
 app.use(express.json());
 // 배열을 하나씩 전부다 읽는 건 비효율적이다.
 // 배열 구조가 아닌 하나의 객체로 만들어보자.
-var sampleUserList = {};
-var sampleCarList = [
-    {
-        carNumber: '22주2222',
-        owner: '손오공',
-        model: 'Morning',
-        company: 'KIA',
-        numOfAccident: 1,
-        numOfOwnerChange: 3
-    },
-    {
-        carNumber: '11주1111',
-        owner: '홍길동',
-        model: 'SONATA',
-        company: 'HYUNDAI',
-        numOfAccident: 2,
-        numOfOwnerChange: 1
-    },
-    {
-        carNumber: '33주3333',
-        owner: '김의중',
-        model: 'I30',
-        company: 'HYUNDAI',
-        numOfAccident: 4,
-        numOfOwnerChange: 2
-    },
-    {
-        carNumber: '44주4444',
-        owner: '전용준',
-        model: 'K5',
-        company: 'HYUNDAI',
-        numOfAccident: 5,
-        numOfOwnerChange: 6
-    }
-]
+
 
 // fs.writeFile - 파일을 생성해라 라는 비동기함수
 // fs.writeFileSync - 뒤에 Sync를 붙어있는 동기함수를 사용
@@ -94,14 +64,7 @@ var sampleCarList = [
 // fs.writeFileSync('data/userlist.json', JSON.stringify(Userlist, null, 4));
 // 저장 한 후에 저장된 내용을 불러와 변수에 저장하자.
 // 만약 userlist 파일이 존재하면 불러오고 아니면 지나간다.
-if (fs.existsSync('data/userlist.json')) {
-    let rawdata1 = fs.readFileSync('data/userlist.json');
-    // 그 후 JSON.parse를 통해 다시 json 포맷을 자바스크립트 포맷으로 변경 후 Userlist에 저장해주자.
-    sampleUserList = JSON.parse(rawdata1);
-    console.log(sampleUserList);
-    // 지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
-    // 뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
-}
+
 
 // if (fs.existsSync('data/userlist.json')) {
 //     let rawdata2 = fs.readFileSync('data/userlist.json');
@@ -109,155 +72,7 @@ if (fs.existsSync('data/userlist.json')) {
 //     console.log(sampleCarList);
 // }
 
-app.get('/', (req, res) => {
-    res.render('tmpindex.html');
-})
 
-app.get('/signin_form', (req, res) => {
-    console.log('회원가입신청');
-    res.render('signin_form.html');
-})
-
-app.post('/signin', (req, res) => {
-    console.log(req.body);
-    // 회원가입
-    let userid = req.body.id;
-    let password = req.body.password;
-    console.log('userid = ', userid);
-    console.log('password = ', password);
-
-    hasher({
-        password: req.body.password
-    }, (err, pass, salt, hash) => {
-        if (err) {
-            console.log('ERR: ', err);
-            res.redirect('/signup_form');
-        }
-        let user = {
-            userid: userid,
-            originpass: pass,
-            password: hash,
-            salt: salt
-        }
-        sampleUserList[userid] = user;
-        fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 4));
-        console.log('user added : ', user);
-        res.redirect('/login_form');
-    });
-});
-
-app.get('/login_form', (req, res) => {
-    res.render('login_form.html');
-})
-
-app.post('/login', (req, res) => {
-    console.log(req.body);
-    let userid = req.body.id;
-    let password = req.body.password;
-    console.log('userid = ', userid);
-    console.log('password = ', password);
-    console.log('userlist = ', sampleUserList);
-    let user = sampleUserList[userid];
-    if (user) {
-        return hasher({
-            password: password,
-            salt: user.salt
-        }, function (err, pass, salt, hash) {
-            if (err) {
-                console.log('ERR : ', err);
-                // req.flash('fmsg','에러 발생.');
-                res.redirect('login_form');
-            }
-            if (hash === user.password) {
-                console.log('INFO : ', userid, ' 로그인 성공')
-                req.session.user = user.userid;
-                req.session.save(function () {
-                    res.redirect('/carlist');
-                })
-            } else {
-                console.log('아이디가 없습니다.');
-                // req.flash('fmsg','비밀번호가 틀렸습니다.');
-                res.redirect('login_form');
-            }
-        });
-    } else {
-        // req.flash('fmsg','아이디가 존재하지 않습니다.');
-        res.redirect('login_form');        
-    }
-
-    //req.flash.msg('')
-    console.log('not found');
-
-    res.redirect('/login_form');
-});
-
-app.get('/carlist', (req, res) => {
-    // if의 ()와 같은 조건문에서는 변수값이 들어가는게 아닌 true false로 들어간다.
-    if (req.session.user) {
-        console.log('로그인된 사용자');
-        // session 정보를 다른 url에도 쓰고 싶으면 이렇게 객체형태로 렌더할 때 보내줘야 했다.
-        res.render('carlist.html');
-    } else {
-        console.log('로그인 안됨. 로그인 페이지로 이동');
-        res.redirect('/login_form');
-    }
-})
-
-// 
-app.get('/test/setlocals',(req,res)=>{
-    res.locals.test2 = 'test2';
-    res.render('test/locals.html',{test1: 'test1'});
-})
-
-app.get('/logout', (req, res) => {
-    req.session.destroy(() => {
-        res.redirect('/');
-    });
- 
-    // if(req.session.user) {
-    //     delete req.session.user;
-    // }
- });
- 
-app.get('/print',(req,res)=>{
-    res.json(sampleCarList);
-})
-
-app.post('/api/search',(req,res)=>{
-    console.log(req.body);
-    console.log(req.body.searchText);
-
-    let carNum = req.body.searchText;
-    // let carNum = '22주2222';
-    // find 함수는 하나만 찾아준다. 여러개 찾아주는것은 filter
-    let found = sampleCarList.find(function(element) {
-        console.log('element = ', element);
-        if (element.carNumber === carNum) {
-            console.log('found');
-            return element;
-        }
-    });
-
-    console.log('found = ', found);
-    res.json(found);
-})
-
-app.post('/api/filter',(req,res)=>{
-    console.log(req.body);
-    console.log(req.body.searchText);
-
-    let company = req.body.searchText;
-    let found = sampleCarList.filter(function(element) {
-        console.log('element = ', element);
-        if (element.company === company) {
-            console.log('found');
-            return element;
-        }
-    });
-
-    console.log('found = ', found);
-    res.json(found);
-})
 
 app.listen(port, () => {
     console.log('Server is listening to the port number', port);
