@@ -126,7 +126,10 @@ module.exports = function (fs, imagelist, cardscr) {
                     return element;
                 }
             });
-            if(!found) res.redirect('/');
+            if(!found) {
+                res.redirect('/');
+                a++;
+            }
             res.render('carinfo.html', {cardetail: found});
         } else {
             console.log('로그인 안됨. 로그인 페이지로 이동');

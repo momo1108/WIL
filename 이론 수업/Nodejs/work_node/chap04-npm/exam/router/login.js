@@ -15,6 +15,7 @@ module.exports = function (hasher, fs, sampleUserList) {
 
     router.get('/', (req, res) => {
         res.render('index.html');
+        a=0;
     })
 
     router.get('/signin_form', (req, res) => {

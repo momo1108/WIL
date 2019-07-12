@@ -9,6 +9,27 @@
     <% include ./ejs/header.ejs %>
     <% include ./ejs/headermenu.ejs %>
     <% include ./ejs/headermain.ejs %>
+    <script>
+        // $(()=>{
+        //     $('.infosearch').click(()=>{
+        //         $.ajax({
+        //             type: 'POST',
+        //             url: '/cinfo',
+        //             dataType: 'json',
+        //             data: {
+        //                 'model': $('.infoinput').val()
+        //             },
+        //             success: (data)=>{
+        //                 alert(data);
+        //             },
+        //             error: (err)=>{
+        //                 console.log('ajax에서 에러발생');
+        //             }
+        //         })
+        //     })
+        // })
+        
+    </script>
 </head>
 
 <body>
@@ -40,8 +61,8 @@
         </div>
         <div class="container carhistorybox">
             <form action="" method="POST">
-                <input class="infoinput" type="text" placeholder="띄어쓰기 없이 차량번호를 입력하세요. (ex. 12가1234)">
-                <input class="infosearch" type="submit" value="조회하기">
+                <input class="historyinput" type="text" placeholder="띄어쓰기 없이 차량번호를 입력하세요. (ex. 12가1234)">
+                <input class="historysearch" type="button" value="조회하기">
             </form>
             <div class="cardes">
                 <span class="help"
@@ -55,8 +76,8 @@
         </div>
         <div class="container carlistbox">
             <form action="" method="POST">
-                <input class="infoinput" type="text" placeholder="보고싶은 자동차의 회사를 입력해주세요.">
-                <input class="infosearch" type="submit" value="조회하기">
+                <input class="listinput" type="text" placeholder="보고싶은 자동차의 회사를 입력해주세요.">
+                <input class="listsearch" type="button" value="조회하기">
             </form>
             <div class="cardes">
                 <span class="help" title="출시가와 주요제원, 엔진, 성능, 치수, 섀시 등을 알 수 있습니다.">제원/가격</span>
@@ -77,6 +98,9 @@
             </div>
         </div>
     </div>
+    <% if(a==1) {%>
+        <script>alert('모델명이 잘못됐습니다.');</script>
+    <% } %>
 </body>
 
 </html>

@@ -13,7 +13,7 @@ const port = 3000;
 let sampleUserList = {};
 let imagelist = [];
 let cardscr = [];
-
+global.a = 0;
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
