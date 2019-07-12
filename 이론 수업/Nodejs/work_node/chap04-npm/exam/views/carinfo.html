@@ -12,12 +12,14 @@
     <style>
         body {
             font-family: 'Nanum Gothic', sans-serif;
+            padding-bottom: 70px;
         }
+
         .carousel {
             width: 70%;
             margin: 0 auto;
             margin-top: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 50px;
         }
 
         /* Make the image fully responsive */
@@ -40,14 +42,18 @@
 
         .carousel-control-next-icon:after {
             content: '>';
-            font-size: 55px;
+            font-size: 4.29vw;
             color: red;
         }
 
         .carousel-control-prev-icon:after {
             content: '<';
-            font-size: 55px;
+            font-size: 4.29vw;
             color: red;
+        }
+
+        .margincol .submargincol {
+            padding: 10px 0;
         }
     </style>
 </head>
@@ -90,24 +96,29 @@
                 <div class="col">
                     <img src="<%= cardetail.logo %>">
                     <span
-                        style="font-weight: bold; font-size: 17px;">&nbsp;&nbsp;<%= cardetail.brand %>&nbsp;&nbsp;&nbsp;</span>
-                    <span style="font-size: 13px; color: rgb(114, 114, 114);"><%= cardetail.size %></span>
+                        style="font-weight: bold; font-size: 1.326vw;">&nbsp;&nbsp;<%= cardetail.brand %>&nbsp;&nbsp;&nbsp;</span>
+                    <span style="font-size: 1.014vw; color: rgb(114, 114, 114);"><%= cardetail.size %></span>
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    <span style="font-size: 30px; font-weight: bold;"><%= cardetail.model %></span>
+                    <span style="font-size: 2.34vw; font-weight: bold;"><%= cardetail.model %></span>
                 </div>
             </div>
             <hr>
             <div class="row">
                 <div class="col">
+                    <% if (cardetail.price == '가격정보없음') { %>
                     <span
-                        style="font-size: 20px;font-weight: bold;color: rgb(141, 141, 141);"><%= cardetail.price %></span>
+                        style="font-size: 1.56vw;font-weight: bold; color: rgb(141, 141, 141);"><%= cardetail.price %></span>
+
+                    <%} else { %>
+                    <span style="font-size: 1.56vw;font-weight: bold; color: green;"><%= cardetail.price %></span>
+                    <%}%>
                 </div>
             </div>
             <div class="row">
-                <div class="col-2" style="font-size: 13px; line-height: 25px; color: grey;">
+                <div class="col-2" style="font-size: 1.014vw; line-height: 25px; color: grey;">
                     <br>
                     연비<br>
                     연료<br>
@@ -123,14 +134,27 @@
                 </div>
             </div>
         </div>
-        <div class="col-7" style="font-size: 25px; font-weight: bold;">
+        <div class="col-7" style="font-size: 1.95vw; font-weight: bold;">
             제원/가격
-            <div class="row cartable" style="font-size: 15px; border-top: 1px solid black; padding: 5px 0; margin-top: 15px; color: grey; font-weight: bold;">
-                <div class="col-3">
-                    모델명
-                </div>
-                <div class="col-9">
+            <div class="row cartable"
+                style="font-size: 1.17vw; border-top: 1px solid black; padding: 5px 0; margin: 15px 0 0 0; color: grey; font-weight: bold;">
+                <div class="col-3 margincol">
+                    <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
+                        <div class="col">
+                            모델명
+                        </div>
+                    </div>
+                    <% for (let i=0; cardetail.downmodel[i]; i++) { %>
                     <div class="row">
+                        <div class="col submargincol" style="color: black; border-top: 1px solid rgb(207, 207, 207); padding-left: 15px;">
+                            <%= cardetail.downmodel[i].name %>
+                        </div>
+                    </div>
+                    <% if (!cardetail.downmodel[i]) break; %>
+                    <%}%>
+                </div>
+                <div class="col-9 margincol">
+                    <div class="row" style="padding-bottom: 5px; padding-top: 5px;">
                         <div class="col-3">
                             배기량
                         </div>
@@ -144,11 +168,34 @@
                             출시가
                         </div>
                     </div>
+                    <% for (let j=0; cardetail.downmodel[j]; j++) { %>
+                    <% if (!cardetail.downmodel[j]) break; %>
+                    <div class="row submargincol" style="border-top: 1px solid rgb(207, 207, 207);">
+                        <div class="col-3" style="color: black; font-weight: normal;">
+                            <%= cardetail.downmodel[j].displacement %>
+                        </div>
+                        <div class="col-3" style="color: black; font-weight: normal;">
+                            <%= cardetail.downmodel[j].maxoutput %>
+                        </div>
+                        <div class="col-3" style="color: black; font-weight: normal;">
+                            <%= cardetail.downmodel[j].mileage %>
+                        </div>
+                        <% if (cardetail.downmodel[j].price == '가격정보없음') {%>
+                        <div class="col-3" style="color: grey; font-weight: normal;">
+                            <%= cardetail.downmodel[j].price %>
+                        </div>
+                        <%} else {%>
+                        <div class="col-3" style="color: green; font-weight: normal;">
+                            <%= cardetail.downmodel[j].price %>
+                        </div>
+                        <%}%>
+                    </div>
+                    <%}%>
+                    </div>
                 </div>
             </div>
+            <div class="col-1"></div>
         </div>
-        <div class="col-1"></div>
-    </div>
 </body>
 
 </html>

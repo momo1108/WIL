@@ -41,7 +41,7 @@ var part2 = require('./router/module2.js');
 var part3 = require('./router/module3.js')(100,200);
 // module3, module4는 함수를 require하기 때문에 뒤에 파라미터를 정해주거나 아래에서 사용할 때 파라미터를 정해줘야한다.
 var part4 = require('./router/module4.js')();
-var router1 = require('./router/testrouter.js');
+var router1 = require('./router/testrouter.js')();
 var router2 = require('./router/rootrouter.js');
 // node 자체에서 사용할 수 있는 global 변수를 선언해줄 수 있다.
 

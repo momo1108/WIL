@@ -7,7 +7,8 @@ var storage = multer.diskStorage({
     },
     // 서버에 저장할 파일명
     filename: function (req, file, cb) {
-        cb(null, file.originalname);
+        file.uploadfilename = file.originalname.substring(0, file.originalname.lastIndexOf('.'));
+        cb(null, new Date().valueOf() + '_' + file.originalname);
     }
 })
 var upload = multer({
