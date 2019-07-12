@@ -15,10 +15,10 @@ const fs = require('fs');
 // 로그인 시 인증 처리
 
 // 모듈을 사용할 수 있다.
-var part1 = require('./router/part.js');
-var part2 = require('./router/module.js');
-var router1 = require('./router/testrouter.js');
-var router2 = require('./router/rootrouter.js');
+var part1 = require('../router/part.js');
+var part2 = require('../router/module.js');
+var router1 = require('../router/testrouter.js');
+var router2 = require('../router/rootrouter.js');
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
 app.use('/test',router1);
