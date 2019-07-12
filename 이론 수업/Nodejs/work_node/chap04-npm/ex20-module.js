@@ -28,31 +28,43 @@ app.use((req,res,next)=>{
     res.locals.user = req.session.user;
     next();
 });
+
+app.use(express.json());
 // 패스워드 암호화
 // 회원 가입 시 입력한 패스워드를 암호화 해서 저장
 // 로그인 시 인증 처리
-
+global.myval = 1000;
 // 모듈을 사용할 수 있다.
-var part1 = require('./router/part.js');
-var part2 = require('./router/module.js');
+// require로 불러올 때 js파일은 확장자 생략 가능
+var part1 = require('./router/module1.js');
+var part2 = require('./router/module2.js');
+var part3 = require('./router/module3.js')(100,200);
+// module3, module4는 함수를 require하기 때문에 뒤에 파라미터를 정해주거나 아래에서 사용할 때 파라미터를 정해줘야한다.
+var part4 = require('./router/module4.js')();
 var router1 = require('./router/testrouter.js');
 var router2 = require('./router/rootrouter.js');
+// node 자체에서 사용할 수 있는 global 변수를 선언해줄 수 있다.
+
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
 app.use('/test',router1);
 app.use(router2);
-console.log(part1.c);
 part2.funca();
-
+part1.b();
+console.log(part3.a);
+console.log(part3.b);
+part3.funca(10);
+// 자바스크립트같은 경우는 함수의 다른 parameter를 지정해주지 않아도 undefined로 자동 지정(친절)
+// 자바같이 엄격한 언어는 함수의 parameter를 빈칸으로 비워두면 에러가 난다.
+console.log(part4.a);
+console.log(part4.b);
+console.log(part4.c);
 
 
 // app.use(flash());
 
 
 
-
-
-app.use(express.json());
 // 배열을 하나씩 전부다 읽는 건 비효율적이다.
 // 배열 구조가 아닌 하나의 객체로 만들어보자.
 

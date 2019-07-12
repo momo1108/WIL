@@ -1,5 +1,4 @@
 var express = require('express');
-const app = express();
 const hasher = require('pbkdf2-password')();
 const fs = require('fs');
 var sampleUserList = {};
