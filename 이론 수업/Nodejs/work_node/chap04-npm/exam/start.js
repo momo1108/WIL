@@ -5,15 +5,10 @@ const app = express();
 const cookieparser = require('cookie-parser');
 const session = require('express-session');
 const FileStore = require('session-file-store')(session);
-const hasher = require('pbkdf2-password')();
 // const flash = require('connect-messages');
 const morgan = require('morgan');
-const fs = require('fs');
 const port = 3000;
 
-let imagelist = [];
-let sampleUserList = {};
-let cardscr = [];
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -50,220 +45,30 @@ app.use((req,res,next)=>{
 // fs.writeFileSync('data/userlist.json', JSON.stringify(Userlist, null, 4));
 // 저장 한 후에 저장된 내용을 불러와 변수에 저장하자.
 // 만약 userlist 파일이 존재하면 불러오고 아니면 지나간다.
-if (fs.existsSync('data/userlist.json')) {
-    let rawdata1 = fs.readFileSync('data/userlist.json');
-    let rawdata2 = fs.readFileSync('data/carlist.json');
+// if (fs.existsSync('data/userlist.json')) {
+//     let rawdata1 = fs.readFileSync('data/userlist.json');
+//     let rawdata2 = fs.readFileSync('data/carlist.json');
     //     그 후 JSON.parse를 통해 다시 json 포맷을 자바스크립트 포맷으로 변경 후 Userlist에 저장해주자.
-    sampleUserList = JSON.parse(rawdata1);
-    cardscr = JSON.parse(rawdata2);
-    console.log(sampleUserList);
-    console.log(cardscr);
+    // sampleUserList = JSON.parse(rawdata1);
+    // cardscr = JSON.parse(rawdata2);
+    // console.log(sampleUserList);
+    // console.log(cardscr);
     //     지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
     //     뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
-}
+// }
 // 클라이언트가 기능을 호출하면 서버에서 기능의 경로를 확인하고 불러온 뒤 그 안에서 필요한
 // static한 소스 파일(ex 이미지)들이 있을 때 다시 서버로 불러와달라고 요청을 한다.
 // 서버는 static한 소스파일을 달라는 요청을 받으면 static 경로를 찾아간다.
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.get('/', (req, res) => {
-    res.render('index.html');
-})
 
-app.get('/signin_form', (req, res) => {
-    console.log('회원가입신청');
-    res.render('signin_form.html');
-})
+var router1 = require('./router/login.js');
+var router2 = require('./router/cars.js');
+// 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
+// https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
+app.use(router1);
+app.use(router2);
 
-app.post('/signin', (req, res) => {
-    // console.log(req.body);
-    // 회원가입
-    let userid = req.body.id;
-    if (sampleUserList[userid]) {
-        console.log('같은 아이디로 회원가입 요청 : 거부');
-        res.redirect('/signin_form');
-        return;
-    }
-    let password = req.body.password;
-    console.log('userid = ', userid);
-    console.log('password = ', password);
-
-    hasher({
-        // salt는 임의로 지정해주고 나중에 로그인 할 때 user 변수에 저장된 salt값을 불러온다.
-        password: req.body.password
-    }, (err, pass, salt, hash) => {
-        if (err) {
-            console.log('ERR: ', err);
-            res.redirect('/signup_form');
-        }
-        let user = {
-            userid: userid,
-            password: hash,
-            originpass: pass,
-            salt: salt
-        }
-        sampleUserList[userid] = user;
-        fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 4));
-        console.log('user added : ', user.userid);
-        res.redirect('/login_form');
-    });
-});
-
-app.get('/login_form', (req, res) => {
-    res.render('login_form.html');
-})
-
-app.post('/login', (req, res) => {
-    console.log(req.body);
-    let userid = req.body.id;
-    let password = req.body.password;
-    console.log('userid = ', userid);
-    console.log('password = ', password);
-    console.log('userlist = ', sampleUserList);
-
-    let user = sampleUserList[userid];
-    if (user) {
-        console.log('[found] userid = ', userid);
-        hasher({
-            password: password,
-            salt: user.salt
-        }, function (err, pass, salt, hash) {
-            if (err) {
-                console.log('ERR : ', err);
-                // req.flash('fmsg', '오류가 발생했습니다.');
-                res.redirect('/login_form');
-            }
-            if (hash === user.password) {
-                console.log('INFO : ', userid, ' 로그인 성공')
-                req.session.user = sampleUserList[userid];
-                // 세션 정보가 한번 저장이 되면 세션 정보가 변경되지 않는 이상 
-                // 다시 req.session.save 를 해줄 필요가 없다.
-                req.session.save(function () {
-                    res.redirect('/carlist');
-                })
-            } else {
-                // req.flash('fmsg', '패스워드가 맞지 않습니다.');
-                console.log('비밀번호가 틀렸습니다.');
-                res.redirect('/login_form');
-            }
-        });
-    } else {
-        // req.flash('fmsg', '아이디가 없습니다.');
-        res.redirect('/login_form');
-    }
-})
-
-app.get('/logout', (req, res) => {
-    req.session.destroy(function () {
-        res.redirect('/');
-    });
-})
-
-app.get('/carlist', (req, res) => {
-    // cookie의 user 정보 가져와서 carlist.html 에 뿌려주기
-    if (req.session.user) {
-        console.log('로그인된 사용자');
-        res.render('carlist.html');
-    } else {
-        console.log('로그인 안됨. 로그인 페이지로 이동');
-        res.redirect('/login_form');
-    }
-})
-
-app.get('/carinfo', (req, res) => {
-    if (req.session.user) {
-        console.log('차 정보 확인');
-        res.render('carinfo.html')
-    } else {
-        console.log('로그인 안됨. 로그인 페이지로 이동');
-        res.redirect('/login_form');
-    }
-})
-
-app.get('/carhistory', (req, res) => {
-    if (req.session.user) {
-        console.log('차 정보 확인');
-        res.render('carhistory.html')
-    } else {
-        console.log('로그인 안됨. 로그인 페이지로 이동');
-        res.redirect('/login_form');
-    }
-})
-
-app.post('/carimg', (req, res) => {
-    console.log(req.body);
-    imagelist = [];
-    if (req.body.company == '벤츠' && req.body.size == '경형') {
-        res.json(imagelist);
-        return;
-    }
-    // 소형 1개 1
-    if (req.body.company == '벤츠' && req.body.size == '소형') {
-        imagelist.push(`<div class='mercedes'><img src='image/m1.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        res.json(imagelist);
-        return;
-    }
-    // 준중형 14개 5 2~6
-    if (req.body.company == '벤츠' && req.body.size == '준중형') {
-        for (let i = 2; i < 7; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        }
-        res.json(imagelist);
-        return;
-    }
-    // 중형 13개 6 7~12
-    if (req.body.company == '벤츠' && req.body.size == '중형') {
-        for (let i = 7; i < 12; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        }
-        res.json(imagelist);
-        return;
-    }
-    // 준대형 5개 24~28
-    if (req.body.company == '벤츠' && req.body.size == '준대형') {
-        for (let i = 24; i < 29; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        }
-        res.json(imagelist);
-        return;
-    }
-    // 대형 14개 6 13~18
-    if (req.body.company == '벤츠' && req.body.size == '대형') {
-        for (let i = 13; i < 19; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        }
-        res.json(imagelist);
-        return;
-    }
-    // 스포츠카 8개 5 19~23
-    if (req.body.company == '벤츠' && req.body.size == '스포츠카') {
-        for (let i = 19; i < 24; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        }
-        res.json(imagelist);
-        return;
-    }
-    if (req.body.company == '벤츠') {
-        for (let i = 1; i < 29; i++) {
-            imagelist.push(`<div class='mercedes'><img src='image/m${i}.png' width='100%'><div class="overlay"><a href="/cinfo/${i}">정보 조회</a>│<a href="/chistory/${i}">이력 조회</a></div></div>`);
-        }
-        res.json(imagelist);
-        return;
-    }
-})
-// https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
-// 클라이언트로부터 구분 인자를 받아오기 위해서는 semantic url을 사용하자.
-app.get('/cinfo/:model', (req,res)=>{
-    let carnum = req.params.model;
-    console.log(carnum);
-    console.log(typeof carnum);
-    // 변수를 키로 설정할때는 []를 쓰자 제발 . 말고 제발
-    res.render('carinfo.html',{cardetail: cardscr[carnum]});
-})
-
-app.get('/chistory/:model', (req,res)=>{
-    
-})
 
 app.listen(port, function () {
     console.log('server listen at ...' + port);
