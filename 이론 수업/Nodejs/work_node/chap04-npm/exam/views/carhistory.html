@@ -9,169 +9,94 @@
     <% include ./ejs/header.ejs %>
     <% include ./ejs/headermenu.ejs %>
     <% include ./ejs/serializeObject.ejs %>
-    <script>
-        $(() => {
-            $('.listsearchbtn').click(() => {
-
-                let newData = serializeObject($('.carspec'));
-                if (newData == {}) alert('옵션들을 선택하세요');
-                console.log(newData);
-                $.ajax({
-                    type: 'POST',
-                    url: '/carimg',
-                    dataType: 'json',
-                    data: newData,
-                    success: (data) => {
-                        console.log('성공!');
-                        console.log(data);
-                        $('.imgbox').empty();
-                        $.each(data, (i, part) => {
-                            $('.imgbox').append(part);
-                        });
-                    },
-                    error: (err) => {
-                        console.log(err);
-                    }
-                });
-            })
-        })
-    </script>
+    <% include ./ejs/slideshow.ejs %>
     <style>
-        .listsearchbox {
-            background-image: url('/image/parking.jpg');
-            background-size: cover;
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .whiteback {
-            padding-top: 20px;
-            background-color: rgba(255, 255, 255, 0.5);
+        body {
             font-family: 'Nanum Gothic', sans-serif;
-            text-align: center;
-            font-size: 50px;
-            font-weight: bold;
-        }
-
-        .listtext {
-            padding: 50px 0 50px 0;
-            color: rgba(21, 23, 134, 0.808);
-        }
-
-        .sel-box {
-            width: 60%;
-            margin: 0 auto;
-            text-align: left;
-        }
-
-        .form-control {
-            display: inline-block;
-            width: 35%;
-        }
-
-        .listsearchbtn {
-            width: 20%;
-            height: 36px;
-            display: inline-block;
-            font-family: 'Nanum Gothic', sans-serif;
-            text-align: center;
-            font-size: 20px;
-            background-color: rgb(15, 15, 165);
-            border: 1px solid rgb(15, 15, 165);
-            border-radius: 7px;
-            color: white;
-        }
-
-        /* 차 이미지와 정보, 이력 조회 */
-        .mercedes {
-            position: relative;
-            display: inline-block;
-            width: 300px;
-            border: 1px solid grey;
-            margin: 2px;
-        }
-
-        .overlay {
-            position: absolute;
-            bottom: 0;
-            background: rgb(0, 0, 0);
-            background: rgba(0, 0, 0, 0.5);
-            /* Black see-through */
-            color: #f1f1f1;
-            width: 100%;
-            transition: .5s ease;
-            opacity: 0;
-            color: white;
-            font-size: 20px;
-            padding: 20px;
-            text-align: center;
-            box-sizing: border-box;
-        }
-
-        .mercedes:hover .overlay {
-            opacity: 1;
-        }
-
-        .lokup, .lokup input {
-            display: inline-block;
-            background-color: transparent;
-            border: none;
-            color: white;
-        }
-
-        .imgbox {
-            text-align: center;
         }
     </style>
 </head>
 
 <body>
-    <% include ./ejs/bodymenu1.ejs %>
-    <div class="listsearchbox">
-        <div class="whiteback">
-            <p class="listtext">자동차 리스트 검색</p>
-            <div class="sel-box">
-                <form class="carspec">
-                    <select class="form-control" name="company">
-                        <option value="" selected disabled hidden>브랜드</option>
-                        <option>벤츠</option>
-                        <option>BMW</option>
-                        <option>혼다</option>
-                        <option>렉서스</option>
-                        <option>랜드로버</option>
-                        <option>아우디</option>
-                        <option>폭스바겐</option>
-                        <option>포드</option>
-                    </select>
-                    <!-- <select class="form-control" name="outlook">
-                        <option value="" selected disabled hidden>외형</option>
-                        <option>전체</option>
-                        <option>세단</option>
-                        <option>해치백</option>
-                        <option>컨버터블</option>
-                        <option>쿠페</option>
-                        <option>왜건</option>
-                        <option>SUV</option>
-                        <option>RV</option>
-                        <option>밴</option>
-                        <option>트럭</option>
-                    </select> -->
-                    <select class="form-control" name="size">
-                        <option value="" selected disabled hidden>차종</option>
-                        <option>경형</option>
-                        <option>소형</option>
-                        <option>준중형</option>
-                        <option>중형</option>
-                        <option>준대형</option>
-                        <option>대형</option>
-                        <option>스포츠카</option>
-                    </select>
-                    <input type="button" value="검색" class="listsearchbtn">
-                </form>
-            </div><br>
-        </div>
+    <% include ./ejs/bodymenu.ejs %>
+    <div class="container">
+        <h4 style="font-weight: bold; margin-top: 25px;"><%= cardetail.model %></h4
+            style="font-weight: bold; margin-top: 25px;">
+        <%= cardetail.size %>
     </div>
-    <div class="imgbox">
+    <div class="container">
+        <div class="row">
+            <div class="col-7" style="margin: 0 20px 0 0;">
+                <div class="container">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 6</div>
+                        <img src="img_woods_wide.jpg" style="width:100%">
+                    </div>
 
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 6</div>
+                        <img src="img_5terre_wide.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 6</div>
+                        <img src="img_mountains_wide.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 6</div>
+                        <img src="img_lights_wide.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">5 / 6</div>
+                        <img src="img_nature_wide.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">6 / 6</div>
+                        <img src="img_snow_wide.jpg" style="width:100%">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+
+                    <div class="row">
+                        <div class="column">
+                            <img class="demo cursor" src="img_woods.jpg" style="width:100%" onclick="currentSlide(1)"
+                                alt="The Woods">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="img_5terre.jpg" style="width:100%" onclick="currentSlide(2)"
+                                alt="Cinque Terre">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="img_mountains.jpg" style="width:100%"
+                                onclick="currentSlide(3)" alt="Mountains and fjords">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="img_lights.jpg" style="width:100%" onclick="currentSlide(4)"
+                                alt="Northern Lights">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="img_nature.jpg" style="width:100%" onclick="currentSlide(5)"
+                                alt="Nature and sunrise">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="img_snow.jpg" style="width:100%" onclick="currentSlide(6)"
+                                alt="Snowy Mountains">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5" style="flex-basis: 38%;">
+                조회
+            </div>
+        </div>
     </div>
 </body>
 

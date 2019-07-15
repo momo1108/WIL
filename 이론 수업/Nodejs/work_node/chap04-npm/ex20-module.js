@@ -11,7 +11,11 @@ app.set(path.join(__dirname, '/views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
 
+// path.join은 두 경로를 이어주는 역할 - string으로 붙여줘도 되지 않나?
+// path.join 은 윈도우, 리눅스 등 OS에 맞춰서 자동으로 이어주기 때문에 편하다.
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/files', express.static(path.join(__dirname, '/uploads')))
+// extended: false → querystring library 사용, true → qs library 사용
 app.use(express.urlencoded({
     extended: false
 }))
@@ -41,7 +45,7 @@ var part2 = require('./router/module2.js');
 var part3 = require('./router/module3.js')(100,200);
 // module3, module4는 함수를 require하기 때문에 뒤에 파라미터를 정해주거나 아래에서 사용할 때 파라미터를 정해줘야한다.
 var part4 = require('./router/module4.js')();
-var router1 = require('./router/testrouter.js')();
+var router1 = require('./router/testrouter.js')(path);
 var router2 = require('./router/rootrouter.js');
 // node 자체에서 사용할 수 있는 global 변수를 선언해줄 수 있다.
 

@@ -138,7 +138,15 @@ module.exports = function (fs, imagelist, cardscr) {
     })
 
     router.get('/chistory/:model', (req, res) => {
-
+        let carModel = req.params.model;
+        console.log(carModel);
+        let found = cardscr.find(function(element) {
+            if (element.model === carModel) {
+                return element;
+            }
+        });
+        // 변수를 키로 설정할때는 []를 쓰자 제발 . 말고 제발
+        res.render('carhistory.html', {cardetail: found});
     })
 
     return router;
