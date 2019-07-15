@@ -1,6 +1,6 @@
 const express = require('express');
 
-module.exports = function (fs, imagelist, cardscr) {
+module.exports = function (fs, imagelist, cardscr, sampleUserList) {
     const router = express.Router();
     
     if (fs.existsSync('data/carlist.json')) {
@@ -146,7 +146,7 @@ module.exports = function (fs, imagelist, cardscr) {
             }
         });
         // 변수를 키로 설정할때는 []를 쓰자 제발 . 말고 제발
-        res.render('carhistory.html', {cardetail: found});
+        res.render('carhistory.html', {cardetail: found, userdetail: sampleUserList});
     })
 
     return router;

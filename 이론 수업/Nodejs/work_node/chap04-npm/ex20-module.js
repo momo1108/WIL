@@ -1,3 +1,6 @@
+// 터미널에서 express --view=ejs 프로젝트명 으로 프로젝트 생성 가능
+// 터미널에서 express --view=pug 프로젝트명 으로 프로젝트 생성 가능
+// 터미널에서 express --view=hbs 프로젝트명 으로 프로젝트 생성 가능
 const express = require('express');
 const app = express();
 // const flash = require('connect-flash');

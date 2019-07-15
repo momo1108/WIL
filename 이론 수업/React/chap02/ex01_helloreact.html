@@ -1,0 +1,54 @@
+<!-- 리액트를 사용해보자. cdn - content delivery network 사용 -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 리액트 라이브러리 참조(CDN) 추가 -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- 바벨(자바스크립트 컴파일러) 참조 추가 - 
+        JSX(완전히 자바스크립트와 호환되면서 HTML과 닮은 문법)를 자바스크립트로 변환하는 기능
+        자바스크립트의 최신버전을 브라우저들이 따라오지 못함. 버전을 다운그레이드시켜서 변환해줌 -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        div h1 {
+            font-size: 50px;
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>리액트 테스트</h1>
+    <hr>
+    <div class="react-target"></div>
+    <hr>
+    <div class="second-target"></div>
+    <!-- text/javascript가 아닌 text-babel -->
+    <script type="text/babel">
+        function $(select) {
+            return document.querySelector(select)
+        }
+        // 가장 많이 쓰일 태그 ReactDOM.render - 두개의 인자가 필요 
+        ReactDOM.render(
+            // 1. 화면에 출력할 HTML(즉, JSX. 순수 HTML이 아니다.)
+            // ※※※※ 최상위 태그는 하나만 있어야 함(트리 형태)
+            // 원래 있던 트리를 새로운 트리로 교체하는 형태 SPA(Single Page App)
+            <div>
+                <h1>Hello React</h1>
+                <h2>Title2</h2>
+                <span>문자열</span>
+                <p>문단</p>
+            </div>,
+            // 2. 그 JSX를 렌더링 해 보여줄 DOM 안의 위치
+            $('.second-target')
+            // $('.target) 를 순수 자바스크립트로 구현한것
+        );
+    </script>
+</body>
+
+</html>

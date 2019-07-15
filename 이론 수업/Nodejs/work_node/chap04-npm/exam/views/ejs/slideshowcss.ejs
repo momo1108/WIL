@@ -1,9 +1,4 @@
 <style>
-    body {
-        font-family: Arial;
-        margin: 0;
-    }
-
     * {
         box-sizing: border-box;
     }
@@ -13,7 +8,7 @@
     }
 
     /* Position the image container (needed to position the left and right arrows) */
-    .container {
+    .slidecontainer {
         position: relative;
     }
 
@@ -46,7 +41,7 @@
 
     /* Position the "next button" to the right */
     .next {
-        right: 0;
+        right: 15px;
         border-radius: 3px 0 0 3px;
     }
 
@@ -95,34 +90,3 @@
         opacity: 1;
     }
 </style>
-
-<script>
-    var slideIndex = 1;
-    showSlides(slideIndex);
-
-    function plusSlides(n) {
-        showSlides(slideIndex += n);
-    }
-
-    function currentSlide(n) {
-        showSlides(slideIndex = n);
-    }
-
-    function showSlides(n) {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("demo");
-        var captionText = document.getElementById("caption");
-        if (n > slides.length) { slideIndex = 1 }
-        if (n < 1) { slideIndex = slides.length }
-        for (i = 0; i < slides.length; i++) {
-            slides[i].style.display = "none";
-        }
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex - 1].style.display = "block";
-        dots[slideIndex - 1].className += " active";
-        captionText.innerHTML = dots[slideIndex - 1].alt;
-    }
-</script>

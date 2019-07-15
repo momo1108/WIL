@@ -68,7 +68,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 var router1 = require('./router/login.js')(hasher, fs, sampleUserList);
-var router2 = require('./router/cars.js')(fs,imagelist,cardscr);
+var router2 = require('./router/cars.js')(fs,imagelist,cardscr,sampleUserList);
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
 app.use(router1);

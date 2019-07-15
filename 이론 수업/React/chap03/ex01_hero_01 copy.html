@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script>
+        // querySelector 간편 함수
+    function $(select) {
+            return document.querySelector(select)
+        };
+    </script>
+    <style>
+        .target {
+            border: 1px solid blue;
+        }
+        .target h1 {
+            background-color: tomato;
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>컴포넌트 사용 전</h1>
+    <!-- 렌더에 덮어쓰기된다. -->
+    <div class="target"><h1>원래내용</h1></div>
+
+    <script type="text/babel">
+        // React.Component의 내용을 상속 받아서 HelloHero라는 컴포넌트를 생성(정의)하겠다.
+        class HelloHero extends React.Component {
+            render() {
+                return(
+                <div>
+                    <h1>{this.props.heroname}</h1>
+                    <h2>------</h2>
+                </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <div>
+                <HelloHero heroname="Batman" />
+                <HelloHero heroname="Ironman" />
+                <HelloHero heroname="Superman" />
+                <h1>Ironman</h1>
+                <h1>Superman</h1>
+            </div>,
+            $('.target')
+        )
+    </script>
+</body>
+</html>
