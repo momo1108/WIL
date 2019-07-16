@@ -97,22 +97,22 @@
         <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput" enctype="multipart/form-data">
             <span class="whattoinput">사용할 이메일</span><br>
             <input type="text" placeholder="ex) abcdefg@naver.com" name="id"
-                style="border: 1px solid rgb(216, 216, 216);"><br>
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
             <span class="whattoinput">이름</span><br>
-            <input type="text" placeholder="ex) 방혜찬" name="name" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <input type="text" placeholder="ex) 방혜찬" name="name" style="border: 1px solid rgb(216, 216, 216);" required><br>
             <span class="whattoinput">회사</span><br>
             <input type="text" placeholder="ex) Google" name="company"
-                style="border: 1px solid rgb(216, 216, 216);"><br>
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
             <span class="whattoinput">주소</span><br>
             <input type="text" placeholder="ex) 인천광역시 부평구" name="address"
-                style="border: 1px solid rgb(216, 216, 216);"><br>
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
             <span class="whattoinput">사용할 비밀번호</span><br>
             <input type="password" placeholder="password" name="password"
-                style="border: 1px solid rgb(216, 216, 216);"><br>
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
             <span class="whattoinput">프로필 사진</span><br>
             <label for="profileimg" id="imglabel">프사찾기</label><br>
             <img id="imgpreview" width="30%" style="border-radius: 15px;">
-            <input type="file" name="profileimg" id="profileimg" accept="image/*" onchange="loadFile(event)">
+            <input type="file" name="profileimg" id="profileimg" accept="image/*" onchange="loadFile(event)" required>
             <input type="submit" value="회원가입 신청">
         </form>
     </div>

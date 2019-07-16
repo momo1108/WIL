@@ -66,9 +66,9 @@ app.use((req,res,next)=>{
 // static한 소스 파일(ex 이미지)들이 있을 때 다시 서버로 불러와달라고 요청을 한다.
 // 서버는 static한 소스파일을 달라는 요청을 받으면 static 경로를 찾아간다.
 app.use(express.static(path.join(__dirname, 'public')));
+app.use('/files', express.static(path.join(__dirname, '/uploads')))
 
-
-var router1 = require('./router/login.js')(hasher, fs, sampleUserList, multer);
+var router1 = require('./router/login.js')(hasher, fs, sampleUserList, multer, path);
 var router2 = require('./router/cars.js')(fs,imagelist,cardscr,sampleUserList);
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get

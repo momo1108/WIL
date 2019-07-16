@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/javascript" src="../querysel.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+        // 상태관리변수 state를 살펴보자.
+        // this.props 는 부모가 나에게 준 값을 의미하고
+        // this.state 는 자신이 가진 값을 의미한다. this.state(상태변수)값이 변하면
+        // React가 알아서 브라우저에 업데이트를 해준다.
+        class LightningCounter extends React.Component {
+            // props값을 초기화시켜주는 두 줄 state를 쓰기위해 props를 초기화시켜준다.
+            constructor(props){
+                super(props);
+
+                this.state = {
+                    strikes: 100
+                }
+            }
+            // 리액트가 이 컴포넌트가 다 그려졌을 때 componentDidMount를 실행한다.
+            componentDidMount() {
+                setInterval(() => {
+                    this.setState({
+                        strikes: this.state.strikes+100
+                    })
+                }, 1000);
+            }
+
+            // 리액트가 컴포넌트가 호출됐을 때 render를 실행한다.
+            render(){
+                return(
+                    <div>
+                        <h1>{this.state.strikes}</h1>
+                    </div>
+                )
+            }
+        }
+    
+        class LightningCounterDisplay extends React.Component {
+            render(){
+                var divStyle = {
+                    width: '250px',
+                    textAlign: 'center',
+                    backgroundColor: 'black',
+                    padding: '40px',
+                    fontFamily: 'sans-serif',
+                    color: '#999',
+                    borderRadius: 10
+                }
+                return(
+                <div style={divStyle}>
+                    <LightningCounter />
+                </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(
+            <div>
+                <LightningCounterDisplay />
+            </div>,
+            document.body
+        )
+    </script>
+</body>
+</html>

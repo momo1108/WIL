@@ -1,7 +1,7 @@
 const express = require('express');
 // express.Router() 가 req, res를 땡겨와줘서 라우터 모듈에서도 사용할 수 있게 해주는 역할을 시켜준다.
 // const app = express(); 같은 역할을 해주기 때문에 router.get을 사용할 경우 req, res를 땡겨쓸수있다.
-module.exports = function (hasher, fs, sampleUserList, multer) {
+module.exports = function (hasher, fs, sampleUserList, multer, path) {
     const router = express.Router();
     if (fs.existsSync('data/userlist.json')) {
         let rawdata1 = fs.readFileSync('data/userlist.json');
@@ -11,6 +11,17 @@ module.exports = function (hasher, fs, sampleUserList, multer) {
         //     지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
         //     뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
     }
+    var profilestorage = multer.diskStorage({
+        // 서버에 저장할 폴더
+        destination: function (req, file, cb) {
+            cb(null, 'uploads/profile/');
+        },
+        // 서버에 저장할 파일명
+        filename: function (req, file, cb) {
+            let ext = file.originalname.substring(file.originalname.lastIndexOf('.')+1);
+            cb(null, `${req.body.name}.${ext}`);
+        }
+    })
     var imgFileFilter = function (req, file, callback) {
         var ext = path.extname(file.originalname);
         if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
@@ -18,8 +29,8 @@ module.exports = function (hasher, fs, sampleUserList, multer) {
         }
         callback(null, true);
     }
-    var upload = multer({
-        storage: storage,
+    var profileupload = multer({
+        storage: profilestorage,
         fileFilter: imgFileFilter,
         limits: {
             files: 10,
@@ -36,10 +47,12 @@ module.exports = function (hasher, fs, sampleUserList, multer) {
         res.render('signin_form.html');
     })
 
-    router.post('/signin', (req, res) => {
+    router.post('/signin', profileupload.single('profileimg'), (req, res) => {
         // console.log(req.body);
         // 회원가입
         let userid = req.body.id;
+        let ext = req.file.originalname.split('.');
+
         if (sampleUserList[userid]) {
             console.log('같은 아이디로 회원가입 요청 : 거부');
             res.redirect('/signin_form');
@@ -65,7 +78,7 @@ module.exports = function (hasher, fs, sampleUserList, multer) {
                 name: req.body.name,
                 company: req.body.company,
                 address: req.body.address,
-                profileimg: `/profile/${req.body.name}`
+                profileimg: `/files/profile/${req.body.name}.${ext[1]}`,
             }
             sampleUserList[userid] = user;
             fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 4));
