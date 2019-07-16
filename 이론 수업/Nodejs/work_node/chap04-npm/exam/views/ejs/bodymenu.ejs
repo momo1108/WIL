@@ -8,8 +8,8 @@
         </a>
         <div class="menuset">
             <% if (user) {%>
-            <img src="<%= user.profileimg %>" width="100px" style="margin-right: 1vw; border-radius: 50%;">
-            <%= user.userid %>님 환영합니다.
+            <img src="<%= user.profileimg %>" style="width: 6vw; margin-right: 1vw; border-radius: 50%;">
+            <%= user.name %>님 환영합니다.
             <a href="/logout">로그아웃</a>
             <%} else {%>
             <a href="/login_form" style="margin-right: 50px;">로그인</a>

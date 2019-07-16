@@ -13,32 +13,21 @@
         $(() => {
             $('.listsearchbtn').click(() => {
 
-                let brand = $('#brand').val();
-                let size = $('#size').val();
-                let $target = $('.imgbox');
+                let newData = serializeObject($('.carspec'));
+                if (newData == {}) alert('옵션들을 선택하세요');
+                console.log(newData);
                 $.ajax({
                     type: 'POST',
                     url: '/carimg',
                     dataType: 'json',
-                    data: {
-                        'brand': brand,
-                        'size': size
-                    },
-                    success: function (list) {
-                        console.log(list);
-
-                        //target upadate
-                        $target.empty();
-                        $.each(list, function (i, item) {
-                            $target.append(`
-                            <div class='mercedes'>
-	                            <img src='${item.mainimg}' width='100%'>
-	                            <div class="overlay">
-		                            <a href="/cinfo/${item.model}">정보 조회</a>│<a href="/chistory/${item.model}">이력 조회</a>
-	                            </div>
-                            </div>
-                            `);
-                        })
+                    data: newData,
+                    success: (data) => {
+                        console.log('성공!');
+                        console.log(data);
+                        $('.imgbox').empty();
+                        $.each(data, (i, part) => {
+                            $('.imgbox').append(part);
+                        });
                     },
                     error: (err) => {
                         console.log(err);
@@ -148,9 +137,9 @@
             <p class="listtext">자동차 리스트 검색</p>
             <div class="sel-box">
                 <form class="carspec">
-                    <select class="form-control" name="company" id="brand">
+                    <select class="form-control" name="company">
                         <option value="" selected disabled hidden>브랜드</option>
-                        <option>메르세데스-벤츠</option>
+                        <option>벤츠</option>
                         <option>BMW</option>
                         <option>혼다</option>
                         <option>렉서스</option>
@@ -172,7 +161,7 @@
                         <option>밴</option>
                         <option>트럭</option>
                     </select> -->
-                    <select class="form-control" name="size" id="size">
+                    <select class="form-control" name="size">
                         <option value="" selected disabled hidden>차종</option>
                         <option>경형</option>
                         <option>소형</option>
