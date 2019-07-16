@@ -59,6 +59,9 @@
             border: 1px solid rgb(214, 214, 214);
         }
     </style>
+    <script>
+        console.log(<%= userdetail %>);
+    </script>
 </head>
 
 <body>
@@ -164,11 +167,11 @@
                 </div>
                 <div class="row hismenu2">
                     <div class="col">
-                        <div class="profilebox" style="margin: 0 auto; background-image: url('<%= userdetail.img %>'); background-size: cover;">
+                        <div class="profilebox" style="margin: 0 auto; background-image: url('<%= userdetail.profileimg %>'); background-size: cover;">
                         </div>
-                        <p style="margin-top: 15px;"><%= userdetail.company %>ㅣ<%= userdetail.name %></p>
-                        <p>판매중 <%= userdetail.company %>건ㅣ판매완료 <%= userdetail.name %>건</p>
-                        <p><%= userdetail.address %></p>
+                        <p style="margin-top: 15px;"><%= userdetail.company %>ㅣ<strong><%= userdetail.name %></strong></p>
+                        <p>판매중 <span style="color: rgb(206, 66, 48); font-weight: bold;"><%= userdetail.carsell %></span>건ㅣ판매완료 <span style="color: rgb(206, 66, 48); font-weight: bold;"><%= userdetail.carsellc %></span>건</p>
+                        <p style="color: grey;"><%= userdetail.address %></p>
                     </div>
                 </div>
                 <div class="row hismenu3">

@@ -1,6 +1,6 @@
 const express = require('express');
 
-module.exports = function (fs, imagelist, cardscr, sampleUserList) {
+module.exports = function (fs, cardscr, sampleUserList) {
     const router = express.Router();
 
     if (fs.existsSync('data/carlist.json')) {
@@ -14,6 +14,7 @@ module.exports = function (fs, imagelist, cardscr, sampleUserList) {
 
     router.get('/carlist', (req, res) => {
         // cookie의 user 정보 가져와서 carlist.html 에 뿌려주기
+        console.log(sampleUserList);
         if (req.session.user) {
             console.log('로그인된 사용자');
             res.render('carlist.html');
@@ -73,6 +74,7 @@ module.exports = function (fs, imagelist, cardscr, sampleUserList) {
     router.post('/cinfo', (req, res) => {
         if (req.session.user) {
             let carModel = req.body.modelsearch;
+            console.log(cardscr);
             let found = cardscr.find(function (element) {
                 if (element.model === carModel) {
                     return element;
@@ -97,13 +99,10 @@ module.exports = function (fs, imagelist, cardscr, sampleUserList) {
                 return element;
             }
         });
-        let found2 = sampleUserList.find(function (element) {
-            if (element.name === found1.seller) {
-                return element;
-            }
-        });
+        console.log(found1.seller);
+        let found2 = sampleUserList[found1.seller];
         // 변수를 키로 설정할때는 []를 쓰자 제발 . 말고 제발
-        res.render('carhistory.html', { cardetail: found1, userdetail: found2 });
+        res.render('carhistory.html', {cardetail: found1, userdetail: found2});
     })
 
     return router;

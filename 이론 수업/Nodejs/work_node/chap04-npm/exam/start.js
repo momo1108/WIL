@@ -12,7 +12,6 @@ var multer = require('multer');
 const morgan = require('morgan');
 const port = 3000;
 let sampleUserList = {};
-let imagelist = [];
 let cardscr = [];
 global.a = 0;
 // 기능을 호출한다는 개념이다. ejs에게 렌더링을 해달라 요청하기 때문에 랜더링을 할 기능들의 경로를 설정해준다.
@@ -67,9 +66,17 @@ app.use((req,res,next)=>{
 // 서버는 static한 소스파일을 달라는 요청을 받으면 static 경로를 찾아간다.
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/files', express.static(path.join(__dirname, '/uploads')))
+if (fs.existsSync('data/userlist.json')) {
+    let rawdata1 = fs.readFileSync('data/userlist.json');
+    //     그 후 JSON.parse를 통해 다시 json 포맷을 자바스크립트 포맷으로 변경 후 Userlist에 저장해주자.
+    sampleUserList = JSON.parse(rawdata1);
+    console.log(sampleUserList);
+    //     지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
+    //     뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
+}
 
 var router1 = require('./router/login.js')(hasher, fs, sampleUserList, multer, path);
-var router2 = require('./router/cars.js')(fs,imagelist,cardscr,sampleUserList);
+var router2 = require('./router/cars.js')(fs,cardscr,sampleUserList);
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
 app.use(router1);

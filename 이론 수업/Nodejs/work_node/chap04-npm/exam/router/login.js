@@ -3,14 +3,6 @@ const express = require('express');
 // const app = express(); 같은 역할을 해주기 때문에 router.get을 사용할 경우 req, res를 땡겨쓸수있다.
 module.exports = function (hasher, fs, sampleUserList, multer, path) {
     const router = express.Router();
-    if (fs.existsSync('data/userlist.json')) {
-        let rawdata1 = fs.readFileSync('data/userlist.json');
-        //     그 후 JSON.parse를 통해 다시 json 포맷을 자바스크립트 포맷으로 변경 후 Userlist에 저장해주자.
-        sampleUserList = JSON.parse(rawdata1);
-        console.log(sampleUserList);
-        //     지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
-        //     뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
-    }
     var profilestorage = multer.diskStorage({
         // 서버에 저장할 폴더
         destination: function (req, file, cb) {
@@ -78,6 +70,8 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
                 name: req.body.name,
                 company: req.body.company,
                 address: req.body.address,
+                seizure: req.body.seizure,
+                mortgage: req.body.mortgage,
                 carsell: 0,
                 carsellc: 0,
                 profileimg: `/files/profile/${req.body.name}.${ext[1]}`,
