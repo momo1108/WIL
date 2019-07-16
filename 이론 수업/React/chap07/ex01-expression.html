@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/javascript" src="../querysel.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+        // 여러 기능을 사용할 수 있다.
+        /* class Label extends React.Component {
+            render(){
+                return(
+                    <div>
+                        <h1>난수 : {Math.floor(Math.random()*100)}</h1>
+                    </div>
+                )
+            }
+        } */
+
+        // 상위 태그를 써주기 싫으면 배열로 묶어준다.(잘 사용하진 않음)
+        /* class Label extends React.Component {
+            render(){
+                return(
+                    [
+                        <h1>아이템1</h1>,
+                        <h1>아이템2</h1>
+                    ]
+                )
+            }
+        }
+        ReactDOM.render(
+            <Label />,
+            document.body
+        ) */
+
+        // 배열 대신 React 자체의 기능을 사용해보자.
+        /* class Label extends React.Component {
+            render(){
+                return(
+                    <div>
+                        <h1>아이템1</h1>
+                        <h1>아이템2</h1>
+                    </div>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Label />,
+            document.body
+        ) */
+
+        // 이것도 귀찮으면 새로나온 태그인 빈 태그를 사용하자. (babel v7.0.0-beta.31 이상 요구)
+        /* class Label extends React.Component {
+            render(){
+                return(
+                    <>
+                        <h1>아이템1</h1>
+                        <h1>아이템2</h1>
+                    </>
+                )
+            }
+        }
+        ReactDOM.render(
+            <Label />,
+            document.body
+        ) */
+
+        // JSX에서의 주석과 변수활용
+        class Stuff extends React.Component {
+            render(){
+                var jsxTest = <h1>{this.props.hero}</h1>;
+                return(
+                    <div>
+                        {/* <h1>아이템1</h1> */}
+                        <h1>아이템2</h1>
+                        {jsxTest}
+                    </div>
+                )
+            }
+        }
+
+        var jsxVar = <Stuff hero='Spiderman' />;
+        ReactDOM.render(
+            jsxVar,
+            document.body
+        )
+
+        // if문대신 condition?이 쓰임
+    </script>
+</body>
+</html>

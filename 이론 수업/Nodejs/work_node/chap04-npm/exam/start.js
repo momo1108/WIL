@@ -7,6 +7,7 @@ const session = require('express-session');
 const FileStore = require('session-file-store')(session);
 const hasher = require('pbkdf2-password')();
 const fs = require('fs');
+var multer = require('multer');
 // const flash = require('connect-messages');
 const morgan = require('morgan');
 const port = 3000;
@@ -67,7 +68,7 @@ app.use((req,res,next)=>{
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-var router1 = require('./router/login.js')(hasher, fs, sampleUserList);
+var router1 = require('./router/login.js')(hasher, fs, sampleUserList, multer);
 var router2 = require('./router/cars.js')(fs,imagelist,cardscr,sampleUserList);
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get

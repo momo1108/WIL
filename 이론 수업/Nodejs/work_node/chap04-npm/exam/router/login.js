@@ -1,8 +1,7 @@
 const express = require('express');
 // express.Router() 가 req, res를 땡겨와줘서 라우터 모듈에서도 사용할 수 있게 해주는 역할을 시켜준다.
 // const app = express(); 같은 역할을 해주기 때문에 router.get을 사용할 경우 req, res를 땡겨쓸수있다.
-module.exports = function (hasher, fs, sampleUserList) {
-
+module.exports = function (hasher, fs, sampleUserList, multer) {
     const router = express.Router();
     if (fs.existsSync('data/userlist.json')) {
         let rawdata1 = fs.readFileSync('data/userlist.json');
@@ -12,7 +11,21 @@ module.exports = function (hasher, fs, sampleUserList) {
         //     지금 상태의 정보들은 비밀번호 암호화가 진행되지 않은 정보들이기 때문에 사용 불가능하다.
         //     뒤에서 푸쉬를 하고 난 후 다시 fs.writeFileSync를 해주자.
     }
-
+    var imgFileFilter = function (req, file, callback) {
+        var ext = path.extname(file.originalname);
+        if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+            return callback(new Error('Only images are allowed'))
+        }
+        callback(null, true);
+    }
+    var upload = multer({
+        storage: storage,
+        fileFilter: imgFileFilter,
+        limits: {
+            files: 10,
+            fileSize: 3 * 1024 * 1024
+        }
+    });
     router.get('/', (req, res) => {
         res.render('index.html');
         a=0;
@@ -48,7 +61,11 @@ module.exports = function (hasher, fs, sampleUserList) {
                 userid: userid,
                 password: hash,
                 originpass: pass,
-                salt: salt
+                salt: salt,
+                name: req.body.name,
+                company: req.body.company,
+                address: req.body.address,
+                profileimg: `/profile/${req.body.name}`
             }
             sampleUserList[userid] = user;
             fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 4));

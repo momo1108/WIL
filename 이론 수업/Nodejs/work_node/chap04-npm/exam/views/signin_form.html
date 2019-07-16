@@ -21,16 +21,18 @@
         }
 
         .loginbox {
-            width: 31%;
+            width: 31vw;
             border-radius: 5px;
             border: 1px solid rgb(216, 216, 216);
             padding: 10px 0;
         }
+
         .whattoinput {
             font-family: 'Nanum Gothic', sans-serif;
             color: rgb(173, 77, 13);
             font-size: 15px;
         }
+
         .loginbox form input[type='text'],
         .loginbox form input[type='password'],
         input[type='submit'] {
@@ -41,15 +43,42 @@
             padding: 10px;
             margin-top: 5px;
         }
+
         .loginbox form input:focus {
-            box-shadow: -2px 0px 2px #ffb67b, 2px 0px 2px #ffb67b, 0px 2px 2px #ffb67b, 0px -2px 2px #ffb67b;
+            box-shadow: 0px 0px 5px #ffb67b;
         }
+
         input[type='submit'] {
             color: white;
             margin-top: 35px;
             font-family: 'Nanum Gothic', sans-serif;
             background-color: rgb(212, 50, 1);
             border: 1px solid rgb(212, 50, 1);
+        }
+
+        input[type='file'] input {
+            background-color: rgb(212, 50, 1);
+        }
+
+        label {
+            cursor: pointer;
+            margin: 8px 0 8px 0;
+            width: 30%;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgb(233, 93, 50);
+            border-radius: 6px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #profileimg {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
         }
     </style>
 </head>
@@ -65,20 +94,35 @@
     </div>
     <div class="container loginbox">
         <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
-        <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput">
+        <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput" enctype="multipart/form-data">
             <span class="whattoinput">사용할 이메일</span><br>
-            <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <input type="text" placeholder="ex) abcdefg@naver.com" name="id"
+                style="border: 1px solid rgb(216, 216, 216);"><br>
             <span class="whattoinput">이름</span><br>
             <input type="text" placeholder="ex) 방혜찬" name="name" style="border: 1px solid rgb(216, 216, 216);"><br>
             <span class="whattoinput">회사</span><br>
-            <input type="text" placeholder="ex) Google" name="company" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <input type="text" placeholder="ex) Google" name="company"
+                style="border: 1px solid rgb(216, 216, 216);"><br>
             <span class="whattoinput">주소</span><br>
-            <input type="text" placeholder="ex) 인천광역시 부평구" name="address" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <input type="text" placeholder="ex) 인천광역시 부평구" name="address"
+                style="border: 1px solid rgb(216, 216, 216);"><br>
             <span class="whattoinput">사용할 비밀번호</span><br>
-            <input type="password" placeholder="password" name="password" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <input type="password" placeholder="password" name="password"
+                style="border: 1px solid rgb(216, 216, 216);"><br>
+            <span class="whattoinput">프로필 사진</span><br>
+            <label for="profileimg" id="imglabel">프사찾기</label><br>
+            <img id="imgpreview" width="30%" style="border-radius: 15px;">
+            <input type="file" name="profileimg" id="profileimg" accept="image/*" onchange="loadFile(event)">
             <input type="submit" value="회원가입 신청">
         </form>
     </div>
+    <script>
+        var loadFile = function (event) {
+            $('#imglabel').text($('#profileimg')[0].files[0].name);
+            var imgpreview = document.getElementById('imgpreview');
+            imgpreview.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 </body>
 
 </html>
