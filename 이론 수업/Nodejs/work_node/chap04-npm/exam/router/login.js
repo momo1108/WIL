@@ -70,8 +70,6 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
                 name: req.body.name,
                 company: req.body.company,
                 address: req.body.address,
-                seizure: req.body.seizure,
-                mortgage: req.body.mortgage,
                 carsell: 0,
                 carsellc: 0,
                 profileimg: `/files/profile/${req.body.name}.${ext[1]}`,
