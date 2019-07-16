@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>로그인</title>
+    <title>회원가입</title>
     <% include ./ejs/header.ejs %>
     <% include ./ejs/headermenu.ejs %>
     <% include ./ejs/serializeObject.ejs %>
@@ -24,7 +24,7 @@
             width: 31%;
             border-radius: 5px;
             border: 1px solid rgb(216, 216, 216);
-            padding: 30px 0;
+            padding: 10px 0;
         }
         .whattoinput {
             font-family: 'Nanum Gothic', sans-serif;
@@ -35,10 +35,14 @@
         .loginbox form input[type='password'],
         input[type='submit'] {
             border-radius: 5px;
+            margin-bottom: 15px;
             outline: none;
             width: 100%;
             padding: 10px;
             margin-top: 5px;
+        }
+        .loginbox form input:focus {
+            box-shadow: -2px 0px 2px #ffb67b, 2px 0px 2px #ffb67b, 0px 2px 2px #ffb67b, 0px -2px 2px #ffb67b;
         }
         input[type='submit'] {
             color: white;
@@ -63,7 +67,13 @@
         <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
         <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput">
             <span class="whattoinput">사용할 이메일</span><br>
-            <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>
+            <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <span class="whattoinput">이름</span><br>
+            <input type="text" placeholder="ex) 방혜찬" name="name" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <span class="whattoinput">회사</span><br>
+            <input type="text" placeholder="ex) Google" name="company" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <span class="whattoinput">주소</span><br>
+            <input type="text" placeholder="ex) 인천광역시 부평구" name="address" style="border: 1px solid rgb(216, 216, 216);"><br>
             <span class="whattoinput">사용할 비밀번호</span><br>
             <input type="password" placeholder="password" name="password" style="border: 1px solid rgb(216, 216, 216);"><br>
             <input type="submit" value="회원가입 신청">
