@@ -25,8 +25,6 @@
         $('.carreg').click(() => {
             $('.carreg').siblings().css({ 'background-color': 'rgb(197, 184, 0)' }, { 'border-color': 'rgb(197, 184, 0)' });
             $('.carreg').css({ 'background-color': 'rgb(197, 135, 0)' }, { 'border-color': 'rgb(197, 135, 0)' });
-            $('.maincon .container').css({ 'display': 'none' });
-            $('.carregbox').fadeIn(300);
         });
     });
 </script>
@@ -101,7 +99,7 @@
         visibility: hidden;
     }
 
-    .infoinput {
+    .infoinput, .historyinput, .listinput {
         padding: 15px 0 15px 30px;
         width: 70%;
         font-family: 'Nanum Gothic', sans-serif;
@@ -111,7 +109,7 @@
         margin-left: 30px;
     }
 
-    .infosearch {
+    .infosearch, .historysearch, .listsearch {
         background-color: rgb(197, 135, 0);
         border-color: rgb(197, 135, 0);
         border-style: solid;

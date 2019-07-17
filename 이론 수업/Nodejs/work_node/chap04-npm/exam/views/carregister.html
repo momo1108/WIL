@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <% include ./ejs/header.ejs %>
+    <% include ./ejs/headermenu.ejs %>
+    <% include ./ejs/serializeObject.ejs %>
+    <% include ./ejs/slideshowcss.ejs %>
+    <style>
+        body {
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+
+        hr {
+            margin: 10px 0;
+        }
+
+        .hismenu1 {
+            font-size: 1.248vw;
+            padding-bottom: 15px;
+        }
+
+        .hismenu2, .hismenu3 {
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .hischeck {
+            border-radius: 50%;
+            background: transparent;
+            width: 7.02vw;
+            height: 7.02vw;
+            border: 1px solid rgb(204, 127, 117);
+            outline: none;
+            color: rgb(201, 75, 53);
+        }
+
+        .hischeck:hover {
+            border: 2px solid rgb(206, 66, 48);
+            color: rgb(206, 39, 9);
+        }
+
+        .hischeck:focus {
+            outline: none;
+        }
+
+        .hischeck i {
+            font-size: 3.744vw;
+        }
+
+        .profilebox {
+            width: 8vw;
+            height: 8vw;
+            border-radius: 50%;
+            border: 1px solid rgb(214, 214, 214);
+        }
+    </style>
+</head>
+
+<body>
+    <% include ./ejs/bodymenu.ejs %>
+    <div class="container" style="margin-bottom: 20px;">
+    </div>
+    <div class="slidecontainer">
+        <div class="row">
+            <div class="col-7" style="margin: 0 20px 0 30px;">
+                <div class="container" style="padding: 0;">
+                    <div class="mySlides">
+                        <div class="numbertext">1 / 6</div>
+                        <img src="image/m1.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">2 / 6</div>
+                        <img src="image/m2.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">3 / 6</div>
+                        <img src="image/m3.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">4 / 6</div>
+                        <img src="image/m4.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">5 / 6</div>
+                        <img src="image/m5.png" style="width:100%">
+                    </div>
+
+                    <div class="mySlides">
+                        <div class="numbertext">6 / 6</div>
+                        <img src="image/m6.png" style="width:100%">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">❮</a>
+                    <a class="next" onclick="plusSlides(1)">❯</a>
+
+                    <div class="caption-container">
+                        <p id="caption"></p>
+                    </div>
+
+                    <div class="row" style="width: 100%; margin: 0;">
+                        <div class="column">
+                            <img class="demo cursor" src="image/m1.png" style="width:100%"
+                                onclick="currentSlide(1)">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="image/m2.png" style="width:100%"
+                                onclick="currentSlide(2)">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="image/m3.png" style="width:100%"
+                                onclick="currentSlide(3)">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="image/m4.png" style="width:100%"
+                                onclick="currentSlide(4)">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="image/m5.png" style="width:100%"
+                                onclick="currentSlide(5)">
+                        </div>
+                        <div class="column">
+                            <img class="demo cursor" src="image/m6.png" style="width:100%"
+                                onclick="currentSlide(6)">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-5"
+                style="flex-basis: 35%; border: 1px solid rgb(230, 230, 230); padding-top: 15px; border-radius: 5px;">
+                
+            </div>
+        </div>
+    </div>
+    <% include ./ejs/slideshowscript.ejs %>
+</body>
+
+</html>

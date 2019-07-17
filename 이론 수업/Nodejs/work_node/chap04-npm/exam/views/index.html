@@ -44,7 +44,7 @@
             <button type="button" class="btn btn-primary carinfo">자동차 정보 조회</button>
             <button type="button" class="btn btn-primary carhistory">자동차 이력 조회</button>
             <button type="button" class="btn btn-primary carlist">자동차 리스트 조회</button>
-            <button type="button" class="btn btn-primary carreg">자동차 등록</button>
+            <button type="button" class="btn btn-primary carreg" onclick="location.href='/carreg'">자동차 등록</button>
         </div>
         <div class="container carinfobox">
             <!-- 동적인 '기능'을 요청 -->
@@ -78,17 +78,6 @@
             <form action="" method="POST">
                 <input class="listinput" type="text" placeholder="보고싶은 자동차의 회사를 입력해주세요.">
                 <input class="listsearch" type="button" value="조회하기">
-            </form>
-            <div class="cardes">
-                <span class="help" title="출시가와 주요제원, 엔진, 성능, 치수, 섀시 등을 알 수 있습니다.">제원/가격</span>
-                <span class="help" title="차의 사진은 미리 볼 수 있습니다.">이미지</span>
-                <span class="help" title="회원들의 의견을 볼 수 있습니다.">자동차 토크</span><br><br><br>
-                <span class="warning">모든 서비스는 회원가입 후 사용 가능합니다.</span>
-            </div>
-        </div>
-        <div class="container carregbox">
-            <form action="" method="POST">
-                <input class="infosearch" type="submit" value="조회하기" style="width: 50%; float: none; margin: 0;">
             </form>
             <div class="cardes">
                 <span class="help" title="출시가와 주요제원, 엔진, 성능, 치수, 섀시 등을 알 수 있습니다.">제원/가격</span>

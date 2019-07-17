@@ -119,8 +119,7 @@
     <script>
         var loadFile = function (event) {
             $('#imglabel').text($('#profileimg')[0].files[0].name);
-            var imgpreview = document.getElementById('imgpreview');
-            imgpreview.src = URL.createObjectURL(event.target.files[0]);
+            document.getElementById('imgpreview').src = URL.createObjectURL(event.target.files[0]);
         };
     </script>
 </body>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/javascript" src="../querysel.js"></script>
+</head>
+<body>
+    <script type="text/babel">
+        class Circle extends React.Component {
+            render(){
+                var circlestyle = {
+                    padding: '10px',
+                    margin: '20px',
+                    display: 'inline-block',
+                    backgroundColor: this.props.bgcolor,
+                    borderRadius: '50%',
+                    width: '100px',
+                    height: '100px'
+                }
+                return(
+                    <div style={circlestyle}></div>
+                )
+            }
+        }
+        var circleColor = <Circle bgcolor='tomato' />;
+
+        var renderData = [];
+        function showColor() {
+            var colors = ['#148937', '#742893', '#123469', '#234789'];
+            var ran = Math.floor(Math.random()*colors.length);
+            renderData.push(<Circle bgcolor={colors[ran]} />);
+            return <Circle bgcolor={colors[ran]} />;
+        }
+        showColor();
+        showColor();
+        showColor();
+        function selectColor(color) {
+            return <Circle bgcolor={color} />;
+        }
+        // JSX에서 자바스크립트 기능들 사용 가능
+        ReactDOM.render(
+            <div>
+                {circleColor}
+                {renderData}
+                {selectColor('tomato')}
+                <Circle bgcolor='red' />
+                <Circle bgcolor='yellow' />
+                <Circle bgcolor='lime' />
+            </div>,
+            document.body
+        )
+    </script>
+</body>
+</html>

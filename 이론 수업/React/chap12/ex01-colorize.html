@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <!-- 실제론 cdn을 사용해서 클라이언트쪽에서 렌더링을 하지않고(너무 느려서) 서버사이드 렌더링을 
+    같이 사용한다. -->
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script type="text/javascript" src="../querysel.js"></script>
+</head>
+<body>
+    <h1 id="colorHeading">Colorizer</h1>
+    <div id="container"></div>
+    <!-- 돔의 엘레멘트에 접근하는 법을 알아보자. -->
+    <script type="text/babel">
+        var heading = document.querySelector('#colorHeading')
+        class ColorLabel extends React.Component {
+            render() {
+                return ReactDOM.createPortal(
+                    ' : '+this.props.bgColor,
+                heading
+                )
+            }
+        }
+
+        class Colorize extends React.Component {
+            constructor(props){
+                super(props)
+
+                this.state = {
+                    color: '',
+                    bgColor: 'blue'
+                }
+            }
+            setNewColor = (evt) => {
+                this.setState({
+                    bgColor: this.colorinput.value
+                })
+                this.colorinput.value = '';
+                this.colorinput.focus();
+                // form의 submit에 있는 default event를 막아준다.
+                evt.preventDefault();
+            }
+
+            render(){
+                var boxStyle = {
+                    width: '200px',
+                    margin: '100px'
+                }
+                var squareStyle = {
+                    width: '100%',
+                    height: '250px',
+                    backgroundColor: this.state.bgColor,
+                    boxShadow: '0 0 10px'
+                }
+                var inputStyle = {
+                    margin: '5px',
+                    width: '67%',
+                    padding: '5px'
+                }
+                var inputStyle2 = {
+                    margin: '5px',
+                    width: '16%',
+                    padding: '5px',
+                    backgroundColor: '#444',
+                    border: '2px solid #444',
+                    color: 'white',
+                    fontWeight: 'bold'
+                }
+                // class나 id대신 ref를 써야한다.
+                return(
+                    <div style={boxStyle}>
+                        <div className='colorSquare' style={squareStyle}></div>
+                        <form onSubmit={this.setNewColor}>
+                            <input placeholder="Enter color code" style={inputStyle} ref={(el)=>{this.colorinput = el}} />
+                            <button type='submit' style={inputStyle2}>go</button>
+                        </form>
+                        <ColorLabel bgColor={this.state.bgColor}/>
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(
+            <div>
+                <Colorize />
+            </div>,
+            document.querySelector('#container')
+        )
+    </script>
+</body>
+</html>

@@ -24,26 +24,6 @@ module.exports = function (fs, cardscr, sampleUserList) {
         }
     })
 
-    router.get('/carinfo', (req, res) => {
-        if (req.session.user) {
-            console.log('차 정보 확인');
-            res.render('carinfo.html')
-        } else {
-            console.log('로그인 안됨. 로그인 페이지로 이동');
-            res.redirect('/login_form');
-        }
-    })
-
-    router.get('/carhistory', (req, res) => {
-        if (req.session.user) {
-            console.log('차 정보 확인');
-            res.render('carhistory.html')
-        } else {
-            console.log('로그인 안됨. 로그인 페이지로 이동');
-            res.redirect('/login_form');
-        }
-    })
-
     router.post('/carimg', (req, res) => {
         let brand = req.body.brand;
         let size = req.body.size;
@@ -105,6 +85,9 @@ module.exports = function (fs, cardscr, sampleUserList) {
         res.render('carhistory.html', {cardetail: found1, userdetail: found2});
     })
 
+    router.get('/carreg',(req,res)=>{
+        res.render('carregister.html');
+    })
     return router;
 }
 
