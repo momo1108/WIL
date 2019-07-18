@@ -1,1 +1,2 @@
-chap13/
+chap13/*/node_modules
+chap14/node_modules

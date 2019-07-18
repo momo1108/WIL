@@ -1,0 +1,11 @@
+.login-form {
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 100px !important;
+    padding: 15px;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 20px;
+}
+Label {
+    font-weight: bold;
+}
