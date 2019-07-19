@@ -1,0 +1,27 @@
+.stuff-form {
+    animation: bobble 2s infinite;
+    width: 400px;
+    margin: 50px auto !important;
+    padding: 15px;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 20px;
+    
+    Label {
+        font-weight: bold;
+    }
+    
+    h3 {
+        font-size: 20px;
+    }
+}
+@keyframes bobble {
+    0% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    100% {
+        transform: translateX(-5px);
+    }
+}

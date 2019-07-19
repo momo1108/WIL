@@ -1,11 +1,9 @@
 import React,{Component} from 'react';
 import {Table} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import axios from 'axios'
 import Car from './Car'
 import './Carlist.css';
-class Car extends Component {
-    
-}
 
 class Carlist extends Component {
     constructor(props){
@@ -72,14 +70,7 @@ class Carlist extends Component {
                 // let newArr = arr.map(num=>num*2);
                 let newList = res.data.map(c=>{
                     return (
-                        <tr key={c.carNumber}>
-                            <td>{c.carNumber}</td>
-                            <td>{c.owner}</td>
-                            <td>{c.model}</td>
-                            <td>{c.company}</td>
-                            <td>{c.numOfAccident}</td>
-                            <td>{c.numOfOwnerChange}</td>
-                        </tr>
+                        <Car carinfo={c} />
                     );
                 })
                 this.setState({
@@ -107,7 +98,7 @@ class Carlist extends Component {
                         </tr>
                     </thead>
                     <tbody>
-                        <Car list= />
+                        <Car />
                     </tbody>
                 </Table>
             </div>

@@ -88,6 +88,10 @@ module.exports = function (fs, cardscr, sampleUserList) {
     router.get('/carreg',(req,res)=>{
         res.render('carregister.html');
     })
+
+    router.get('/api/carlist',(req,res)=>{
+        res.json(cardscr);
+    })
     return router;
 }
 
