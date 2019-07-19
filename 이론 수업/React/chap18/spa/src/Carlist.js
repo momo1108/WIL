@@ -15,7 +15,7 @@ class Carlist extends Component {
     }
     componentDidMount(){
         axios({
-            url: 'http://localhost:3001/api/carlist',
+            url: 'http://localhost:3002/api/carlist',
             method: 'get'
         })
             .then(res=>{
