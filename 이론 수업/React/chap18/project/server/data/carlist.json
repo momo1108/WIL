@@ -1,0 +1,1435 @@
+[
+    {
+        "model": "2020 벤츠 GLB 클래스",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m1.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "소형",
+        "price": "가격정보없음",
+        "mileage": "5.0~7.4ℓ/100km",
+        "fuel": "디젤, 가솔린",
+        "output": "150~224hp",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "2019 벤츠 GLA 클래스 AMG",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m2.png",
+        "slide1": "/image/m2-1.jpg",
+        "slide2": "/image/m2-2.jpg",
+        "slide3": "/image/m2-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준중형",
+        "price": "출시가 7,340만원",
+        "mileage": "9.4km/ℓ",
+        "fuel": "가솔린",
+        "output": "381hp",
+        "sale": "국내출시",
+        "downmodel": {
+            "0": {
+                "name": "GLA 45 AMG 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "381 hp",
+                "mileage": "9.4km/ℓ",
+                "price": "7,340만원"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m3.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m4.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m5.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m6.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "2019 벤츠 C클래스 에스테이트 AMG 43",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m7.png",
+        "slide1": "/image/m7-1.jpg",
+        "slide2": "/image/m7-2.jpg",
+        "slide3": "/image/m7-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "중형",
+        "price": "가격정보없음",
+        "mileage": "9.6ℓ/100km",
+        "fuel": "가솔린",
+        "output": "390hp",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "3.0 가솔린",
+                "displacement": "2,996 cc",
+                "maxoutput": "390 hp",
+                "mileage": "9.6ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m8.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m9.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m10.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m11.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m12.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "중형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "2019 벤츠 S클래스 65 AMG 파이널 에디션",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m13.png",
+        "slide1": "/image/m13-1.jpg",
+        "slide2": "/image/m13-2.jpg",
+        "slide3": "/image/m13-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "대형",
+        "price": "가격정보없음",
+        "mileage": "14.2ℓ/100km",
+        "fuel": "가솔린",
+        "output": "630hp",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "V12 6.0",
+                "displacement": "5,980 cc",
+                "maxoutput": "630 hp",
+                "mileage": "14.2ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m14.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m15.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m16.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m17.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m18.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "2019 벤츠 SL클래스 그랜드 에디션",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m19.png",
+        "slide1": "/image/m19-1.jpg",
+        "slide2": "/image/m19-2.jpg",
+        "slide3": "/image/m19-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "스포츠카",
+        "price": "114,811~135,993 유로",
+        "mileage": "8.4~9.8ℓ/100km",
+        "fuel": "가솔린",
+        "output": "367~455hp",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "SL 400",
+                "displacement": "2,996 cc",
+                "maxoutput": "367 hp",
+                "mileage": "8.4ℓ/100km",
+                "price": "114,811 유로"
+            },
+            "1": {
+                "name": "SL 500",
+                "displacement": "4,663 cc",
+                "maxoutput": "455 hp",
+                "mileage": "9.8ℓ/100km",
+                "price": "135,993 유로"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m20.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "스포츠카",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m21.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "스포츠카",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m22.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "스포츠카",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m23.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "스포츠카",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "2019 벤츠 E클래스 53 AMG 쿠페",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m24.png",
+        "slide1": "/image/m24-1.jpg",
+        "slide2": "/image/m24-2.jpg",
+        "slide3": "/image/m24-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준대형",
+        "price": "81,592 유로",
+        "mileage": "8.4ℓ/100km",
+        "fuel": "가솔린",
+        "output": "435hp",
+        "sale": "해외출시",
+        "downmodel": {
+            "0": {
+                "name": "E53",
+                "displacement": "2,999 cc",
+                "maxoutput": "435 hp",
+                "mileage": "8.4ℓ/100km",
+                "price": "81,592 유로"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m25.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m26.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m27.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    },
+    {
+        "model": "無",
+        "logo": "/image/benzmark.png",
+        "mainimg": "/image/m28.png",
+        "slide1": "/image/m1-1.jpg",
+        "slide2": "/image/m1-2.jpg",
+        "slide3": "/image/m1-3.jpg",
+        "brand": "메르세데스-벤츠",
+        "seizure": 0,
+        "mortgage": 0,
+        "origin": "수입",
+        "size": "준대형",
+        "price": "가격정보없음",
+        "mileage": "無",
+        "fuel": "無",
+        "output": "無",
+        "sale": "해외출시예정",
+        "seller": "momo1108",
+        "downmodel": {
+            "0": {
+                "name": "GLB 200",
+                "displacement": "1,322 cc",
+                "maxoutput": "163 hp",
+                "mileage": "6.2ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "1": {
+                "name": "GLB 200d",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.0ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "2": {
+                "name": "GLB 200d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "150 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "3": {
+                "name": "GLB 220d 4MATIC",
+                "displacement": "1,951 cc",
+                "maxoutput": "190 hp",
+                "mileage": "5.5ℓ/100km",
+                "price": "가격정보없음"
+            },
+            "4": {
+                "name": "GLB 250 4MATIC",
+                "displacement": "1,991 cc",
+                "maxoutput": "224 hp",
+                "mileage": "7.4ℓ/100km",
+                "price": "가격정보없음"
+            }
+        }
+    }
+]

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <% include ./ejs/header.ejs %>
+    <% include ./ejs/headermenu.ejs %>
+    <% include ./ejs/serializeObject.ejs %>
+    <script>
+        $(() => {
+            $('.listsearchbtn').click(() => {
+
+                let newData = serializeObject($('.carspec'));
+                if (newData == {}) alert('옵션들을 선택하세요');
+                console.log(newData);
+                $.ajax({
+                    type: 'POST',
+                    url: '/carimg',
+                    dataType: 'json',
+                    data: newData,
+                    success: (data) => {
+                        console.log('성공!');
+                        console.log(data);
+                        $('.imgbox').empty();
+                        $.each(data, (i, part) => {
+                            $('.imgbox').append(part);
+                        });
+                    },
+                    error: (err) => {
+                        console.log(err);
+                    }
+                });
+            })
+        })
+    </script>
+    <style>
+        .listsearchbox {
+            background-image: url('/image/parking.jpg');
+            background-size: cover;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .whiteback {
+            padding-top: 20px;
+            background-color: rgba(255, 255, 255, 0.5);
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            font-size: 50px;
+            font-weight: bold;
+        }
+
+        .listtext {
+            padding: 50px 0 50px 0;
+            color: rgba(21, 23, 134, 0.808);
+        }
+
+        .sel-box {
+            width: 60%;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .form-control {
+            display: inline-block;
+            width: 35%;
+        }
+
+        .listsearchbtn {
+            width: 20%;
+            height: 36px;
+            display: inline-block;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            font-size: 20px;
+            background-color: rgb(15, 15, 165);
+            border: 1px solid rgb(15, 15, 165);
+            border-radius: 7px;
+            color: white;
+        }
+
+        /* 차 이미지와 정보, 이력 조회 */
+        .mercedes {
+            position: relative;
+            display: inline-block;
+            width: 300px;
+            border: 1px solid grey;
+            margin: 2px;
+        }
+
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.5);
+            /* Black see-through */
+            color: #f1f1f1;
+            width: 100%;
+            transition: .5s ease;
+            opacity: 0;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .overlay a {
+            color: white;
+            text-decoration-line: none;
+        }
+
+        .mercedes:hover .overlay {
+            opacity: 1;
+        }
+
+        .lokup,
+        .lokup input {
+            display: inline-block;
+            background-color: transparent;
+            border: none;
+            color: white;
+        }
+
+        .imgbox {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <% include ./ejs/bodymenu.ejs %>
+    <div class="listsearchbox">
+        <div class="whiteback">
+            <p class="listtext">자동차 리스트 검색</p>
+            <div class="sel-box">
+                <form class="carspec">
+                    <select class="form-control" name="company">
+                        <option value="" selected disabled hidden>브랜드</option>
+                        <option>벤츠</option>
+                        <option>BMW</option>
+                        <option>혼다</option>
+                        <option>렉서스</option>
+                        <option>랜드로버</option>
+                        <option>아우디</option>
+                        <option>폭스바겐</option>
+                        <option>포드</option>
+                    </select>
+                    <!-- <select class="form-control" name="outlook">
+                        <option value="" selected disabled hidden>외형</option>
+                        <option>전체</option>
+                        <option>세단</option>
+                        <option>해치백</option>
+                        <option>컨버터블</option>
+                        <option>쿠페</option>
+                        <option>왜건</option>
+                        <option>SUV</option>
+                        <option>RV</option>
+                        <option>밴</option>
+                        <option>트럭</option>
+                    </select> -->
+                    <select class="form-control" name="size">
+                        <option value="" selected disabled hidden>차종</option>
+                        <option>경형</option>
+                        <option>소형</option>
+                        <option>준중형</option>
+                        <option>중형</option>
+                        <option>준대형</option>
+                        <option>대형</option>
+                        <option>스포츠카</option>
+                    </select>
+                    <input type="button" value="검색" class="listsearchbtn">
+                </form>
+            </div><br>
+        </div>
+    </div>
+    <div class="imgbox">
+
+    </div>
+</body>
+
+</html>

@@ -99,44 +99,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -155,44 +118,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -211,44 +137,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -267,44 +156,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2019 벤츠 C클래스 에스테이트 AMG 43",
@@ -351,44 +203,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -407,44 +222,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -463,44 +241,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -519,44 +260,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -575,44 +279,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2019 벤츠 S클래스 65 AMG 파이널 에디션",
@@ -659,44 +326,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -715,44 +345,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -771,44 +364,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -827,44 +383,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -883,44 +402,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2019 벤츠 SL클래스 그랜드 에디션",
@@ -974,44 +456,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -1030,44 +475,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -1086,44 +494,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -1142,44 +513,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2019 벤츠 E클래스 53 AMG 쿠페",
@@ -1225,44 +559,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -1281,44 +578,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -1337,44 +597,7 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     },
     {
         "model": "2020 벤츠 GLB 클래스",
@@ -1393,43 +616,6 @@
         "fuel": "디젤, 가솔린",
         "output": "150~224hp",
         "sale": "해외출시예정",
-        "seller": "momo1108",
-        "downmodel": {
-            "0": {
-                "name": "GLB 200",
-                "displacement": "1,322 cc",
-                "maxoutput": "163 hp",
-                "mileage": "6.2ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "1": {
-                "name": "GLB 200d",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.0ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "2": {
-                "name": "GLB 200d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "150 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "3": {
-                "name": "GLB 220d 4MATIC",
-                "displacement": "1,951 cc",
-                "maxoutput": "190 hp",
-                "mileage": "5.5ℓ/100km",
-                "price": "가격정보없음"
-            },
-            "4": {
-                "name": "GLB 250 4MATIC",
-                "displacement": "1,991 cc",
-                "maxoutput": "224 hp",
-                "mileage": "7.4ℓ/100km",
-                "price": "가격정보없음"
-            }
-        }
+        "seller": "momo1108"
     }
 ]

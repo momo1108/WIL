@@ -10,9 +10,6 @@
     <% include ./ejs/headermenu.ejs %>
     <% include ./ejs/serializeObject.ejs %>
     <% include ./ejs/slideshowcss.ejs %>
-    <script>
-        console.log(res);
-    </script>
     <style>
         body {
             font-family: 'Nanum Gothic', sans-serif;
@@ -67,9 +64,6 @@
 <body>
     <% include ./ejs/bodymenu.ejs %>
     <div class="container" style="margin-bottom: 20px;">
-        <h4 style="font-weight: bold; margin-top: 25px;"><%= cardetail.model %></h4
-            style="font-weight: bold; margin-top: 25px;">
-        <%= cardetail.size %>
     </div>
     <div class="slidecontainer">
         <div class="row">
@@ -77,32 +71,32 @@
                 <div class="container" style="padding: 0;">
                     <div class="mySlides">
                         <div class="numbertext">1 / 6</div>
-                        <img src="<%= cardetail.slide1 %>" style="width:100%">
+                        <img src="image/m1.png" style="width:100%">
                     </div>
 
                     <div class="mySlides">
                         <div class="numbertext">2 / 6</div>
-                        <img src="<%= cardetail.slide2 %>" style="width:100%">
+                        <img src="image/m2.png" style="width:100%">
                     </div>
 
                     <div class="mySlides">
                         <div class="numbertext">3 / 6</div>
-                        <img src="<%= cardetail.slide3 %>" style="width:100%">
+                        <img src="image/m3.png" style="width:100%">
                     </div>
 
                     <div class="mySlides">
                         <div class="numbertext">4 / 6</div>
-                        <img src="<%= cardetail.slide1 %>" style="width:100%">
+                        <img src="image/m4.png" style="width:100%">
                     </div>
 
                     <div class="mySlides">
                         <div class="numbertext">5 / 6</div>
-                        <img src="<%= cardetail.slide2 %>" style="width:100%">
+                        <img src="image/m5.png" style="width:100%">
                     </div>
 
                     <div class="mySlides">
                         <div class="numbertext">6 / 6</div>
-                        <img src="<%= cardetail.slide3 %>" style="width:100%">
+                        <img src="image/m6.png" style="width:100%">
                     </div>
 
                     <a class="prev" onclick="plusSlides(-1)">❮</a>
@@ -114,27 +108,27 @@
 
                     <div class="row" style="width: 100%; margin: 0;">
                         <div class="column">
-                            <img class="demo cursor" src="<%= cardetail.slide1 %>" style="width:100%"
+                            <img class="demo cursor" src="image/m1.png" style="width:100%"
                                 onclick="currentSlide(1)">
                         </div>
                         <div class="column">
-                            <img class="demo cursor" src="<%= cardetail.slide2 %>" style="width:100%"
+                            <img class="demo cursor" src="image/m2.png" style="width:100%"
                                 onclick="currentSlide(2)">
                         </div>
                         <div class="column">
-                            <img class="demo cursor" src="<%= cardetail.slide3 %>" style="width:100%"
+                            <img class="demo cursor" src="image/m3.png" style="width:100%"
                                 onclick="currentSlide(3)">
                         </div>
                         <div class="column">
-                            <img class="demo cursor" src="<%= cardetail.slide1 %>" style="width:100%"
+                            <img class="demo cursor" src="image/m4.png" style="width:100%"
                                 onclick="currentSlide(4)">
                         </div>
                         <div class="column">
-                            <img class="demo cursor" src="<%= cardetail.slide2 %>" style="width:100%"
+                            <img class="demo cursor" src="image/m5.png" style="width:100%"
                                 onclick="currentSlide(5)">
                         </div>
                         <div class="column">
-                            <img class="demo cursor" src="<%= cardetail.slide3 %>" style="width:100%"
+                            <img class="demo cursor" src="image/m6.png" style="width:100%"
                                 onclick="currentSlide(6)">
                         </div>
                     </div>
@@ -142,46 +136,7 @@
             </div>
             <div class="col-5"
                 style="flex-basis: 35%; border: 1px solid rgb(230, 230, 230); padding-top: 15px; border-radius: 5px;">
-                <div class="row hismenu1"
-                    style="text-align: center; color: rgb(206, 39, 9); border-bottom: 1px solid rgb(230, 230, 230);">
-                    <div class="col-3">
-                        <button class="hischeck pcheck"><i class="fas fa-car"></i></button>
-                        <hr>
-                        성능점검
-                    </div>
-                    <div class="col-3">
-                        <button class="hischeck icheck"><i class="fas fa-car-crash"></i></button>
-                        <hr>
-                        보험이력
-                    </div>
-                    <div class="col-3">
-                        <button class="hischeck acheck"><%= cardetail.seizure %>건ㅣ<%= cardetail.mortgage %>건</button>
-                        <hr>
-                        압류ㅣ저당
-                    </div>
-                    <div class="col-3">
-                        <button class="hischeck fcheck"><i class="fas fa-calculator"></i></button>
-                        <hr>
-                        총비용
-                    </div>
-                </div>
-                <div class="row hismenu2">
-                    <div class="col">
-                        <div class="profilebox" style="margin: 0 auto; background-image: url('<%= userdetail.profileimg %>'); background-size: cover;">
-                        </div>
-                        <p style="margin-top: 15px;"><%= userdetail.company %>ㅣ<strong><%= userdetail.name %></strong></p>
-                        <p>판매중 <span style="color: rgb(206, 66, 48); font-weight: bold;"><%= userdetail.carsell %></span>건ㅣ판매완료 <span style="color: rgb(206, 66, 48); font-weight: bold;"><%= userdetail.carsellc %></span>건</p>
-                        <p style="color: grey;"><%= userdetail.address %></p>
-                    </div>
-                </div>
-                <div class="row hismenu3">
-                    <div class="col">
-                        <p>판매자에게 할 질문이 있으신가요?</p>
-                        <div>
-                            <input type="text" placeholder="질문을 입력해주세요." style="padding: 5px; margin: 0; border-radius: 5px 0 0 5px; font-size: 15px; border: 1px solid rgb(206, 39, 9)"><input type="button" value="등록" style="padding: 5px; margin: 0; border-radius: 0 5px 5px 0; font-size: 15px; border: 1px solid rgb(206, 39, 9); background-color: rgb(206, 39, 9); color: white;">
-                        </div>
-                    </div>
-                </div>
+                
             </div>
         </div>
     </div>

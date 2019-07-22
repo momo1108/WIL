@@ -1,0 +1,21 @@
+<!-- 맨위 메뉴 -->
+<div class="jumbotron jumbotron-fluid">
+    <div class="menucon">
+        <a href="/">
+            <div class="carlogo">
+                <img src="/image/carlogo.png" alt="" width="145px"><br>Carset
+            </div>
+        </a>
+        <div class="menuset">
+            <% if (user) {%>
+            <img src="<%= user.profileimg %>" style="width: 6vw; margin-right: 1vw; border-radius: 50%;">
+            <%= user.name %>님 환영합니다.
+            <a href="/carlist" style="margin-right: 10px;">자동차리스트</a>
+            <a href="/logout">로그아웃</a>
+            <%} else {%>
+            <a href="/login_form" style="margin-right: 50px;">로그인</a>
+            <a href="/signin_form">회원가입</a>
+            <%}%>
+        </div>
+    </div>
+</div>

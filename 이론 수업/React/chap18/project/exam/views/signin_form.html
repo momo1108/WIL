@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>회원가입</title>
+    <% include ./ejs/header.ejs %>
+    <% include ./ejs/headermenu.ejs %>
+    <% include ./ejs/serializeObject.ejs %>
+    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Yeon+Sung&display=swap" rel="stylesheet">
+    <style>
+        .welcome {
+            margin: 35px 0;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        .loginbox {
+            width: 31vw;
+            border-radius: 5px;
+            border: 1px solid rgb(216, 216, 216);
+            padding: 10px 0;
+        }
+
+        .whattoinput {
+            font-family: 'Nanum Gothic', sans-serif;
+            color: rgb(173, 77, 13);
+            font-size: 15px;
+        }
+
+        .loginbox form input[type='text'],
+        .loginbox form input[type='password'],
+        input[type='submit'] {
+            border-radius: 5px;
+            margin-bottom: 15px;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+
+        .loginbox form input:focus {
+            box-shadow: 0px 0px 5px #ffb67b;
+        }
+
+        input[type='submit'] {
+            color: white;
+            margin-top: 35px;
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: rgb(212, 50, 1);
+            border: 1px solid rgb(212, 50, 1);
+        }
+
+        input[type='file'] input {
+            background-color: rgb(212, 50, 1);
+        }
+
+        label {
+            cursor: pointer;
+            margin: 8px 0 8px 0;
+            width: 30%;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgb(233, 93, 50);
+            border-radius: 6px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #profileimg {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
+        }
+    </style>
+</head>
+
+<body>
+    <% include ./ejs/bodymenu.ejs %>
+    <!-- form action에 http://localhost:3000을 넣어준 이유는 한 컴퓨터에서 서버, 클라이언트
+    역할을 둘다 수행했기 때문이다. 실제 상황을 가정하면 서버의 페이지를 받아왔을 때 로컬 호스트가
+    아니라 서버의 주소를 그대로 사용해야 하므로 앞부분은 날려주고 /login만 남겨준다.
+    form으로 post나 get을 할 경우 페이지가 리프레쉬 되기때문에 ajax를 사용한다.-->
+    <div class="welcome">
+        <p>새로운 회원님을 진심으로 환영합니다!</p>
+    </div>
+    <div class="container loginbox">
+        <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
+        <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput" enctype="multipart/form-data">
+            <span class="whattoinput">사용할 이메일</span><br>
+            <input type="text" placeholder="ex) abcdefg@naver.com" name="id"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">이름</span><br>
+            <input type="text" placeholder="ex) 방혜찬" name="name" style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">회사</span><br>
+            <input type="text" placeholder="ex) Google" name="company"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">주소</span><br>
+            <input type="text" placeholder="ex) 인천광역시 부평구" name="address"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">사용할 비밀번호</span><br>
+            <input type="password" placeholder="password" name="password"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">프로필 사진</span><br>
+            <label for="profileimg" id="imglabel">프사찾기</label><br>
+            <img id="imgpreview" width="30%" style="border-radius: 15px;">
+            <input type="file" name="profileimg" id="profileimg" accept="image/*" onchange="loadFile(event)" required>
+            <input type="submit" value="회원가입 신청">
+        </form>
+    </div>
+    <script>
+        var loadFile = function (event) {
+            $('#imglabel').text($('#profileimg')[0].files[0].name);
+            document.getElementById('imgpreview').src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+</body>
+
+</html>

@@ -14,16 +14,17 @@ class Carlist extends Component {
         }
     }
     componentDidMount(){
-        axios({
-            // 외부서버의 url도 내부 서버에서 실행하는 것처럼 간단하게 하고싶다.
-            // 이럴 때 proxy를 설정해준다. 모듈을 설정해주고 사용하는데 두가지 방법이있다.
-            // 1. 소스에 설정해주기 
-            // 2. 설정 파일을 만들어주기(이 경우 미들웨어를 사용하지 않으므로 모듈이 내부적으로 setupProxy.js파일을
-            // 찾는다. 따라서 서버 경로에 setupProxy.js 파일을 만들어주자.).
-            // url: 'http://localhost:3002/api/carlist',
-            url: '/api/carlist',
-            method: 'get'
-        })
+        // axios({
+        //     // 외부서버의 url도 내부 서버에서 실행하는 것처럼 간단하게 하고싶다.
+        //     // 이럴 때 proxy를 설정해준다. 모듈을 설정해주고 사용하는데 두가지 방법이있다.
+        //     // 1. 소스에 설정해주기 
+        //     // 2. 설정 파일을 만들어주기(이 경우 미들웨어를 사용하지 않으므로 모듈이 내부적으로 setupProxy.js파일을
+        //     // 찾는다. 따라서 서버 경로에 setupProxy.js 파일을 만들어주자.).
+        //     // url: 'http://localhost:3002/api/carlist',
+        //     url: '/api/carlist',
+        //     method: 'get'
+        // })
+        axios.get('/api/carlist')
             .then(res=>{
                 console.log('Response : ',res);
                 // let arr = [1,2,3,4,5];

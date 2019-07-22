@@ -1,0 +1,156 @@
+<script>
+    $(() => {
+        $('.carhistorybox').css({ 'display': 'none' });
+        $('.carlistbox').css({ 'display': 'none' });
+        $('.carregbox').css({ 'display': 'none' });
+        $('.carinfo').click(() => {
+            $('.carinfo').siblings().css({ 'background-color': 'rgb(197, 184, 0)' }, { 'border-color': 'rgb(197, 184, 0)' });
+            $('.carinfo').css({ 'background-color': 'rgb(197, 135, 0)' }, { 'border-color': 'rgb(197, 135, 0)' });
+            $('.maincon .container').css({ 'display': 'none' });
+            $('.carinfobox').css({ 'visibility': 'visible' }).fadeIn(300);
+
+        });
+        $('.carhistory').click(() => {
+            $('.carhistory').siblings().css({ 'background-color': 'rgb(197, 184, 0)' }, { 'border-color': 'rgb(197, 184, 0)' });
+            $('.carhistory').css({ 'background-color': 'rgb(197, 135, 0)' }, { 'border-color': 'rgb(197, 135, 0)' });
+            $('.maincon .container').css({ 'display': 'none' });
+            $('.carhistorybox').fadeIn(300);
+        });
+        $('.carlist').click(() => {
+            $('.carlist').siblings().css({ 'background-color': 'rgb(197, 184, 0)' }, { 'border-color': 'rgb(197, 184, 0)' });
+            $('.carlist').css({ 'background-color': 'rgb(197, 135, 0)' }, { 'border-color': 'rgb(197, 135, 0)' });
+            $('.maincon .container').css({ 'display': 'none' });
+            $('.carlistbox').fadeIn(300);
+        });
+        $('.carreg').click(() => {
+            $('.carreg').siblings().css({ 'background-color': 'rgb(197, 184, 0)' }, { 'border-color': 'rgb(197, 184, 0)' });
+            $('.carreg').css({ 'background-color': 'rgb(197, 135, 0)' }, { 'border-color': 'rgb(197, 135, 0)' });
+        });
+    });
+</script>
+<style>
+    /* 본문 css */
+    .maincon {
+        background-image: url('/image/car1.jpg');
+        width: 100%;
+        margin: 0;
+        background-size: cover;
+        text-align: center;
+        padding-bottom: 50px;
+    }
+
+    .mainexpln {
+        padding: 150px 0;
+        text-align: center;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 70px;
+        /* font-weight: bold; */
+        color: orange;
+    }
+
+    /* 본문 메뉴버튼 */
+    .carmenu {
+        width: 60%;
+        padding-bottom: 25px;
+    }
+
+    .btn-primary {
+        padding: 17px 0;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        background-color: rgb(197, 184, 0);
+        border-color: rgb(197, 184, 0);
+        color: rgb(255, 255, 255);
+    }
+
+    .btn-primary:hover {
+        background-color: rgb(197, 135, 0);
+        border-color: rgb(197, 135, 0);
+    }
+
+    .carinfo {
+        border-right-color: rgb(197, 135, 0);
+        border-radius: 30px 0 0 30px;
+    }
+
+    .carhistory {
+        border-color: rgb(197, 184, 0) rgb(197, 135, 0);
+    }
+
+    .carlist {
+        border-color: rgb(197, 184, 0) rgb(197, 135, 0);
+    }
+
+    .carreg {
+        border-left-color: rgb(197, 135, 0);
+        border-radius: 0 30px 30px 0;
+    }
+
+    /* 차 정보 검색 박스 */
+    .maincon .container {
+        width: 65%;
+        text-align: center;
+        padding: 25px 15px 25px 15px;
+        background-color: rgba(68, 68, 75, 0.3);
+    }
+
+    .carinfobox {
+        visibility: hidden;
+    }
+
+    .infoinput, .historyinput, .listinput {
+        padding: 15px 0 15px 30px;
+        width: 70%;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 15px;
+        line-height: 27px;
+        float: left;
+        margin-left: 30px;
+    }
+
+    .infosearch, .historysearch, .listsearch {
+        background-color: rgb(197, 135, 0);
+        border-color: rgb(197, 135, 0);
+        border-style: solid;
+        padding: 15px 0;
+        width: 15%;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        color: white;
+        float: right;
+        margin-right: 30px;
+    }
+
+    .cardes {
+        clear: both;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .cardes .help {
+        padding: 0 5px;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 14px;
+        color: white;
+        cursor: help;
+    }
+
+    .cardes li {
+        background-color: transparent;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 14px;
+        color: white;
+        border-width: 0 1px;
+        border-style: solid;
+        border-color: grey;
+        padding: 7px;
+    }
+
+    .warning {
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 25px;
+        color: white;
+    }
+</style>
