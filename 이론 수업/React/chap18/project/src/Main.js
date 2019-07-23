@@ -1,17 +1,19 @@
-import React,{Component} from 'react';
-import Indexbody from './indexbody';
-import Indexbodymenu from './indexbodymenu';
+import React, { Component } from 'react';
+import Indexpage from './indexpage';
+import Loginpage from './loginpage';
+import Signuppage from './signuppage';
 import { Route, NavLink, HashRouter } from 'react-router-dom';
 
 class Main extends Component {
-  render(){
+  render() {
     return (
-      <HashRouter>
       <div>
-        <Indexbodymenu />
-        <Indexbody />
+        <HashRouter>
+          <Indexpage />
+          <Loginpage />
+          <Signuppage />
+        </HashRouter>
       </div>
-      </HashRouter>
     )
   }
 }

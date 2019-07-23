@@ -92,6 +92,22 @@ module.exports = function (fs, cardscr, sampleUserList) {
     router.get('/api/carlist',(req,res)=>{
         res.json(cardscr);
     })
+
+    router.post('/carregister', docUpload.array('photos', 5), (req, res, next) => {
+        console.log(req.files);
+        let user = {
+            brand: req.body.brand,
+            model: req.body.model,
+            origin: req.body.origin,
+            size: req.body.size,
+            price: req.body.price,
+            mileage: req.body.mileage,
+            fuel: req.body.fuel,
+            output: req.body.output,
+            mainimg: `/files/carprofile/${req.body.name}.${ext[1]}`,
+        }
+        res.redirect('/carlist');
+    })
     return router;
 }
 

@@ -11,136 +11,119 @@
     <% include ./ejs/serializeObject.ejs %>
     <% include ./ejs/slideshowcss.ejs %>
     <style>
-        body {
-            font-family: 'Nanum Gothic', sans-serif;
-        }
-
-        hr {
-            margin: 10px 0;
-        }
-
-        .hismenu1 {
-            font-size: 1.248vw;
-            padding-bottom: 15px;
-        }
-
-        .hismenu2, .hismenu3 {
-            padding: 15px 0;
+        .welcome {
+            margin: 35px 0;
             text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 4px;
         }
 
-        .hischeck {
-            border-radius: 50%;
-            background: transparent;
-            width: 7.02vw;
-            height: 7.02vw;
-            border: 1px solid rgb(204, 127, 117);
+        .loginbox {
+            width: 31vw;
+            border-radius: 5px;
+            border: 1px solid rgb(216, 216, 216);
+            padding: 10px 0;
+        }
+
+        .whattoinput {
+            font-family: 'Nanum Gothic', sans-serif;
+            color: rgb(173, 77, 13);
+            font-size: 15px;
+        }
+
+        .loginbox form input[type='text'],
+        .loginbox form input[type='password'],
+        input[type='submit'] {
+            border-radius: 5px;
+            margin-bottom: 15px;
             outline: none;
-            color: rgb(201, 75, 53);
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
         }
 
-        .hischeck:hover {
-            border: 2px solid rgb(206, 66, 48);
-            color: rgb(206, 39, 9);
+        .loginbox form input:focus {
+            box-shadow: 0px 0px 5px #ffb67b;
         }
 
-        .hischeck:focus {
-            outline: none;
+        input[type='submit'] {
+            color: white;
+            margin-top: 35px;
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: rgb(212, 50, 1);
+            border: 1px solid rgb(212, 50, 1);
         }
 
-        .hischeck i {
-            font-size: 3.744vw;
+        input[type='file'] input {
+            background-color: rgb(212, 50, 1);
         }
 
-        .profilebox {
-            width: 8vw;
-            height: 8vw;
-            border-radius: 50%;
-            border: 1px solid rgb(214, 214, 214);
+        label {
+            cursor: pointer;
+            margin: 8px 0 8px 0;
+            width: 35%;
+            height: 30px;
+            line-height: 30px;
+            background-color: rgb(233, 93, 50);
+            border-radius: 6px;
+            font-family: 'Nanum Gothic', sans-serif;
+            text-align: center;
+            color: white;
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        #profileimg {
+            opacity: 0;
+            position: absolute;
+            z-index: -1;
         }
     </style>
 </head>
 
 <body>
-    <% include ./ejs/bodymenu.ejs %>
-    <div class="container" style="margin-bottom: 20px;">
+    <% include ./ejs/carregmenu.ejs %>
+    <div class="container loginbox" style="margin-top: 20px;">
+        <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
+        <form action="/signin" method="POST" style="padding: 0 25px;" id="loginput" enctype="multipart/form-data">
+            <span class="whattoinput">중고차 사진</span><br>
+            <label for="profileimg" id="imglabel">차 사진 등록</label><br>
+            <img id="imgpreview" width="50%" style="display: block; margin: 10px auto; border-radius: 15px;"><br>
+            <input type="file" name="carimg" id="profileimg" accept="image/*" onchange="loadFile(event)" required>
+            <span class="whattoinput">브랜드</span><br>
+            <input type="text" placeholder="ex) 메르세데스-벤츠" name="brand"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">모델명</span><br>
+            <input type="text" placeholder="ex) 2020 벤츠 GLB 클래스" name="model" style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">수입/국산</span><br>
+            <input type="text" placeholder="ex) 수입" name="origin"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">사이즈</span><br>
+            <input type="text" placeholder="ex) 소형/중형/준중형/대형..." name="size"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">가격 정보</span><br>
+            <input type="text" placeholder="ex) 출시가 7,340만원" name="price"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">연비</span><br>
+            <input type="text" placeholder="ex) 9.4km/ℓ" name="mileage"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">연료</span><br>
+            <input type="text" placeholder="ex) 디젤, 가솔린" name="fuel"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <span class="whattoinput">출력</span><br>
+            <input type="text" placeholder="150~224hp" name="output"
+                style="border: 1px solid rgb(216, 216, 216);" required><br>
+            <input type="submit" value="중고차 등록">
+        </form>
     </div>
-    <div class="slidecontainer">
-        <div class="row">
-            <div class="col-7" style="margin: 0 20px 0 30px;">
-                <div class="container" style="padding: 0;">
-                    <div class="mySlides">
-                        <div class="numbertext">1 / 6</div>
-                        <img src="image/m1.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">2 / 6</div>
-                        <img src="image/m2.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">3 / 6</div>
-                        <img src="image/m3.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">4 / 6</div>
-                        <img src="image/m4.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">5 / 6</div>
-                        <img src="image/m5.png" style="width:100%">
-                    </div>
-
-                    <div class="mySlides">
-                        <div class="numbertext">6 / 6</div>
-                        <img src="image/m6.png" style="width:100%">
-                    </div>
-
-                    <a class="prev" onclick="plusSlides(-1)">❮</a>
-                    <a class="next" onclick="plusSlides(1)">❯</a>
-
-                    <div class="caption-container">
-                        <p id="caption"></p>
-                    </div>
-
-                    <div class="row" style="width: 100%; margin: 0;">
-                        <div class="column">
-                            <img class="demo cursor" src="image/m1.png" style="width:100%"
-                                onclick="currentSlide(1)">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="image/m2.png" style="width:100%"
-                                onclick="currentSlide(2)">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="image/m3.png" style="width:100%"
-                                onclick="currentSlide(3)">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="image/m4.png" style="width:100%"
-                                onclick="currentSlide(4)">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="image/m5.png" style="width:100%"
-                                onclick="currentSlide(5)">
-                        </div>
-                        <div class="column">
-                            <img class="demo cursor" src="image/m6.png" style="width:100%"
-                                onclick="currentSlide(6)">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-5"
-                style="flex-basis: 35%; border: 1px solid rgb(230, 230, 230); padding-top: 15px; border-radius: 5px;">
-                
-            </div>
-        </div>
-    </div>
-    <% include ./ejs/slideshowscript.ejs %>
+    <script>
+        var loadFile = function (event) {
+            $('#imglabel').text($('#profileimg')[0].files[0].name);
+            document.getElementById('imgpreview').src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
 </body>
 
 </html>

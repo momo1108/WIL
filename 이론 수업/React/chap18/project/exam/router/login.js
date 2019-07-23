@@ -29,25 +29,17 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
             fileSize: 3 * 1024 * 1024
         }
     });
-    router.get('/', (req, res) => {
-        res.redirect('/react/');
-        a=0;
-    })
 
-    router.get('/signup_form', (req, res) => {
-        console.log('회원가입신청');
-        res.redirect('/react/signup');
-    })
-
-    router.post('/signup', profileupload.single('profileimg'), (req, res) => {
+    router.post('/api/signup', profileupload.single('profileimg'), (req, res) => {
         // console.log(req.body);
         // 회원가입
+        console.log(req.body);
         let userid = req.body.id;
-        let ext = req.file.originalname.split('.');
+        // let ext = req.file.originalname.split('.');
 
         if (sampleUserList[userid]) {
             console.log('같은 아이디로 회원가입 요청 : 거부');
-            res.redirect('/react/signup');
+            res.send({signupset: false, msg: '아이디가 중복되었습니다.'});
             return;
         }
         let password = req.body.password;
@@ -60,7 +52,7 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
         }, (err, pass, salt, hash) => {
             if (err) {
                 console.log('ERR: ', err);
-                res.redirect('/react/signup');
+                res.send({signupset: false, msg: '에러가 발생했습니다.'});
             }
             let user = {
                 userid: userid,
@@ -72,20 +64,16 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
                 address: req.body.address,
                 carsell: 0,
                 carsellc: 0,
-                profileimg: `/files/profile/${req.body.name}.${ext[1]}`,
+                // profileimg: `/files/profile/${req.body.name}.${ext[1]}`,
             }
             sampleUserList[userid] = user;
             fs.writeFileSync('data/userlist.json', JSON.stringify(sampleUserList, null, 4));
             console.log('user added : ', user.userid);
-            res.redirect('/react/login');
+            res.send({signupset: true});
         });
     });
 
-    router.get('/login_form', (req, res) => {
-        res.redirect('/react/login');
-    })
-
-    router.post('/login', (req, res) => {
+    router.post('/api/login', (req, res) => {
         console.log(req.body);
         let userid = req.body.id;
         let password = req.body.password;
@@ -103,7 +91,7 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
                 if (err) {
                     console.log('ERR : ', err);
                     // req.flash('fmsg', '오류가 발생했습니다.');
-                    res.redirect('/react/login');
+                    res.send({loginset: false, msg: '에러가 발생했습니다.'});
                 }
                 if (hash === user.password) {
                     console.log('INFO : ', userid, ' 로그인 성공')
@@ -111,23 +99,23 @@ module.exports = function (hasher, fs, sampleUserList, multer, path) {
                     // 세션 정보가 한번 저장이 되면 세션 정보가 변경되지 않는 이상 
                     // 다시 req.session.save 를 해줄 필요가 없다.
                     req.session.save(function () {
-                        res.redirect('/react/carlist');
+                        res.send({loginset: true});
                     })
                 } else {
                     // req.flash('fmsg', '패스워드가 맞지 않습니다.');
                     console.log('비밀번호가 틀렸습니다.');
-                    res.redirect('/react/login');
+                    res.send({loginset: false, msg: '비밀번호가 틀렸습니다.'});
                 }
             });
         } else {
             // req.flash('fmsg', '아이디가 없습니다.');
-            res.redirect('/react/login');
+            res.send({loginset: false, msg: '아이디가 없습니다.'});
         }
     })
 
-    router.get('/logout', (req, res) => {
+    router.get('/api/logout', (req, res) => {
         req.session.destroy(function () {
-            res.redirect('/react/');
+            res.send({loginset: false});
         });
     })
 

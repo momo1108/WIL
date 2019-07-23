@@ -9,6 +9,7 @@
     "ejs": "^2.6.2",
     "express": "^4.17.1",
     "express-session": "^1.16.2",
+    "form-serialize": "^0.7.2",
     "fs": "0.0.1-security",
     "http-proxy-middleware": "^0.19.1",
     "morgan": "^1.9.1",

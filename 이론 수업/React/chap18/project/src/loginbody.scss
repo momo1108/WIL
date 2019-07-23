@@ -1,0 +1,41 @@
+.loginpage {
+    .welcome {
+        margin: 35px 0;
+        text-align: center;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        letter-spacing: 4px;
+    }
+    
+    .loginbox {
+        width: 31%;
+        border-radius: 5px;
+        border: 1px solid rgb(216, 216, 216);
+        padding: 30px 0;
+    }
+    .whattoinput {
+        font-family: 'Nanum Gothic', sans-serif;
+        color: rgb(173, 77, 13);
+        font-size: 15px;
+    }
+    .loginbox form input[type='text'],
+    .loginbox form input[type='password'],
+    input[type='button'] {
+        border-radius: 5px;
+        outline: none;
+        width: 100%;
+        padding: 10px;
+        margin-top: 5px;
+    }
+    .loginbox form input:focus {
+        box-shadow: 0px 0px 5px #ffb67b;
+    }
+    input[type='button'] {
+        color: white;
+        margin-top: 35px;
+        font-family: 'Nanum Gothic', sans-serif;
+        background-color: rgb(212, 50, 1);
+        border: 1px solid rgb(212, 50, 1);
+    }
+}

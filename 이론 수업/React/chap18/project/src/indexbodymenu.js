@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Route, NavLink, HashRouter } from 'react-router-dom';
 import './indexbodymenu.scss';
 
 class Indexbodymenu extends Component {
 
     render() {
         var imgstyle = {
-            width: "6vw", 
+            width: "6vw",
             marginRight: "1vw",
             borderRadius: "50%"
         };
@@ -17,25 +18,24 @@ class Indexbodymenu extends Component {
             marginRight: "50px"
         };
         return (
-            <div className="jumbotron jumbotron-fluid">
-                <div className="menucon">
-                    <a href="/">
-                        <div className="carlogo">
-                            <img src="http://localhost:3001/image/carlogo.png" alt="" width="145px" /><br />Carset
+            <HashRouter>
+                <div className="jumbotron jumbotron-fluid">
+                    <div className="menucon">
+                        <NavLink to='/'>
+                            <div className="carlogo">
+                                <img src="http://70.12.50.174:3001/image/carlogo.png" alt="" width="145px" /><br />Carset
+                            </div>
+                        </NavLink>
+                        <div className="menuset">
+                            <NavLink to='/login' style={astyle2}>로그인</NavLink>
+                            <NavLink to='/signup' style={astyle1}>회원가입</NavLink>
                         </div>
-                    </a>
-                    <div className="menuset">
-                            <img src="<%= user.profileimg %>" style={imgstyle} />
-                            <a href="/carlist" style={astyle1}>자동차리스트</a>
-                            <a href="/logout">로그아웃</a>
-                            <a href="/login_form" style={astyle2}>로그인</a>
-                            <a href="/signin_form">회원가입</a>
                     </div>
                 </div>
-            </div>
+            </HashRouter>
         )
     }
 }
-                    
-                    
+
+
 export default Indexbodymenu;
