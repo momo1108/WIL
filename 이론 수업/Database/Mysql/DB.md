@@ -1,0 +1,281 @@
+# DB
+
+## MySQL
+
+- 다운로드
+
+  https://dev.mysql.com/ → Downloads → Community → [MySQL on Windows (Installer & Tools)](https://dev.mysql.com/downloads/windows/) → MySQL Installer →
+
+  - (mysql-installer-web-community-8.0.17.0.msi) - 설치 후 사용하면서 필요한것 설치
+  - (mysql-installer-community-8.0.17.0.msi) - 그냥 다 설치
+
+- 설치파일 실행
+
+  Custom → MySQL Server, Workbench만 설치 → Standalone, 
+
+- 동작 확인
+
+  PATH 연결을 해주자.
+
+  내 컴퓨터 우클릭 - 속성 - 고급 시스템 설정 - 환경변수 - Path 편집 - C:\Program Files\MySQL\MySQL Server 8.0\bin 추가 (사용하고 싶은 프로그램의 bin 경로를 Path에 등록해주면 어느경로에서든 사용할 수 있다.)
+
+  커맨드 창 - mysql -h localhost -u root -p
+
+- RDBMS - 관계형 데이터베이스
+
+- 관계형 데이터베이스가 불편해서 나온 NoSQL
+
+  
+
+- 테이블 형식으로 데이터베이스 생성됨
+
+| 날짜      | 이름   | 생년 | 주소 | 연락처    | 구매품목 | 구매량 | 단가 |
+| --------- | ------ | ---- | ---- | --------- | -------- | ------ | ---- |
+| 07월 24일 | 김민수 | 1923 | 서울 | 105648651 | 운동화   | 2      | 1000 |
+| 07월 25일 | 방혜찬 | 1924 | 서울 | 105648652 | 운동화   | 2      | 1000 |
+| 07월 26일 | 유인국 | 1925 | 서울 | 105648653 | 운동화   | 2      | 1000 |
+| 07월 27일 | 황상욱 | 1926 | 서울 | 105648654 | 운동화   | 2      | 1000 |
+| 07월 28일 | 나지용 | 1927 | 서울 | 105648655 | 운동화   | 2      | 1000 |
+| 07월 29일 | 안동원 | 1928 | 서울 | 105648656 | 운동화   | 2      | 1000 |
+| 07월 30일 | 김현우 | 1929 | 서울 | 105648657 | 운동화   | 2      | 1000 |
+
+- 주소나 번호 등등이 바뀌는 경우 찾기가 힘들다 - 테이블 분리
+
+| id   | 이름 | 생년 | 주소 | 연락처 |
+| ---- | ---- | ---- | ---- | ------ |
+|      |      |      |      |        |
+|      |      |      |      |        |
+
+| 날짜 | 이름 | 구매품목 | 구매량 | 단가 |
+| ---- | ---- | -------- | ------ | ---- |
+|      |      |          |        |      |
+
+| 제품번호 | 품목 | 단가 |
+| -------- | ---- | ---- |
+|          |      |      |
+
+
+
+- mysqld는 서버 명령어, mysql은 클라이언트 명령어.
+- mysql -h(접속할 서버주소선택) -u(유저의 id) -p(비밀번호 뒤에 붙여도 되고 안붙이면 로그인)
+
+#### 명령어
+
+- ```mysql
+  mysql> show databases; -- (DB 조회)
+  
+  mysql> CREATE DATABASE testdb; -- (testdb 데이터베이스 생성)
+  Query OK, 1 row affected (0.09 sec)
+  
+  mysql> use testdb; -- (데이터베이스를 사용하겠다 선언 - testdb로 접속됨.)
+  Database changed
+  
+  mysql> show tables; -- (DB안의 테이블 조회 - 아직 만들지 않아서 empty)
+  Empty set (0.02 sec)
+  
+  mysql> CREATE TABLE SAMPLE (USERID VARCHAR(45)); -- (SAMPLE이란 테이블 생성 후 USERID 컬럼과 USERID의 데이터타입 정의)
+  Query OK, 0 rows affected (0.45 sec)
+  
+  mysql> show tables;
+  +------------------+
+  | Tables_in_testdb |
+  +------------------+
+  | sample           |
+  +------------------+
+  1 row in set (0.00 sec)
+  
+  mysql> CREATE TABLE SAMPLE2 (USERID VARCHAR(45), NAME VARCHAR(45));
+  Query OK, 0 rows affected (0.37 sec)
+  
+  mysql> show tables;
+  +------------------+
+  | Tables_in_testdb |
+  +------------------+
+  | sample           |
+  | sample2          |
+  +------------------+
+  2 rows in set (0.00 sec)
+  
+  mysql> DESC SAMPLE; -- (다른사람의 DB 테이블의 구조는 show tables로 확인하기 힘들다.)
+  +--------+-------------+------+-----+---------+-------+
+  | Field  | Type        | Null | Key | Default | Extra |
+  +--------+-------------+------+-----+---------+-------+
+  | USERID | varchar(45) | YES  |     | NULL    |       |
+  +--------+-------------+------+-----+---------+-------+
+  1 row in set (0.00 sec)
+  
+  mysql> DESC SAMPLE2;
+  +--------+-------------+------+-----+---------+-------+
+  | Field  | Type        | Null | Key | Default | Extra |
+  +--------+-------------+------+-----+---------+-------+
+  | USERID | varchar(45) | YES  |     | NULL    |       |
+  | NAME   | varchar(45) | YES  |     | NULL    |       |
+  +--------+-------------+------+-----+---------+-------+
+  2 rows in set (0.00 sec)
+  
+  mysql> CREATE TABLE USER (NAME VARCHAR(45), BIRTHYEAR INT, ADDR VARCHAR(200), PHONE VARCHAR(20));
+  Query OK, 0 rows affected (0.40 sec)
+  
+  mysql> DESC USER
+      -> ;
+  +-----------+--------------+------+-----+---------+-------+
+  | Field     | Type         | Null | Key | Default | Extra |
+  +-----------+--------------+------+-----+---------+-------+
+  | NAME      | varchar(45)  | YES  |     | NULL    |       |
+  | BIRTHYEAR | int(11)      | YES  |     | NULL    |       |
+  | ADDR      | varchar(200) | YES  |     | NULL    |       |
+  | PHONE     | varchar(20)  | YES  |     | NULL    |       |
+  +-----------+--------------+------+-----+---------+-------+
+  4 rows in set (0.00 sec)
+  
+  mysql> INSERT INTO USER (NAME) VALUES ('JAMES'); (집어넣을 데이터와 대상 테이블, 컬럼을 지정)
+  Query OK, 1 row affected (0.05 sec)
+  
+  mysql> INSERT INTO USER (NAME, BIRTHYEAR, ADDR, PHONE) VALUES ('TOM', 1988, 'SEOUL', '010-2357-8437');
+  Query OK, 1 row affected (0.09 sec)
+  
+  mysql> SELECT * FROM USER; (데이터가 잘 들어갔나 확인해보자.)
+  +-------+-----------+-------+---------------+
+  | NAME  | BIRTHYEAR | ADDR  | PHONE         |
+  +-------+-----------+-------+---------------+
+  | JAMES |      NULL | NULL  | NULL          |
+  | TOM   |      1988 | SEOUL | 010-2357-8437 |
+  +-------+-----------+-------+---------------+
+  2 rows in set (0.00 sec)
+  
+  mysql> SELECT NAME, PHONE FROM USER;
+  +-------+---------------+
+  | NAME  | PHONE         |
+  +-------+---------------+
+  | JAMES | NULL          |
+  | TOM   | 010-2357-8437 |
+  +-------+---------------+
+  2 rows in set (0.00 sec)
+  
+  
+  ```
+
+#### Workbench
+
+- MySQL을 위한 GUI
+
+- Administration - Users and Privileges - root계정 - Limit to Hosts Matching을 %로 바꿔줌(연결허용)
+
+- Schemas - 우클릭 - Create schema (DB 생성) 
+
+- 생성된 DB에서 Tables 우클릭 - Create table
+
+- CRUD
+
+  - C - CREATE
+
+    - 각종 테이블 생성 명령어
+
+    ```mysql
+    숫자 관련
+    
+    use testdb;
+    
+    DROP TABLE SAMPLE5;
+    
+    CREATE TABLE SAMPLE3 (COL_INT INT);
+    
+    ALTER TABLE SAMPLE3 ADD COL_DECIMAL DECIMAL(7,2);
+    
+    ALTER TABLE SAMPLE3 ADD COL_FLOAT FLOAT(7,2);
+    
+    ALTER TABLE SAMPLE3 ADD COL_DOUBLE DOUBLE(10,6);
+    
+    INSERT INTO SAMPLE3 (COL_DECIMAL) VALUES (88410.12584684846518651);
+    INSERT INTO SAMPLE3 (COL_DECIMAL) VALUES (10.12);
+    INSERT INTO SAMPLE3 (COL_INT) VALUES (10);
+    INSERT INTO SAMPLE3 (COL_INT) VALUES (-10);
+    INSERT INTO SAMPLE3 (COL_INT) VALUES (68979981);
+    INSERT INTO SAMPLE3 (COL_INT) VALUES (10.54864644516616186185686541);
+    
+    SELECT * FROM SAMPLE3;
+    
+    문자 관련
+    
+    use testdb;
+    
+    DROP TABLE SAMPLE3;
+    
+    CREATE TABLE SAMPLE3 (COL_CHAR CHAR(5)); -- CHAR는 입력된 문자열이 정한길이보다 짧아도 문자열의 길이를 유지한다.
+    
+    ALTER TABLE SAMPLE3 ADD COL_VARCHAR VARCHAR(5); -- VARCHAR는 입력된 문자열이 정한 길이보다 짧으면 길이가 맞춰진다.
+    
+    ALTER TABLE SAMPLE3 ADD COL_TEXT TEXT; -- TEXT는 길이를 정해주지 않아도 된다. 긴 문자열을 저장하기 좋다.
+    
+    ALTER TABLE SAMPLE3 ADD COL_DATE DATE; -- 날짜를 저장해주는 데이터 타입
+    
+    ALTER TABLE SAMPLE3 ADD COL_DATETIME DATETIME; -- 날짜와 시간까지 저장해주는 데이터 타입
+    
+    ALTER TABLE SAMPLE3 ADD COL_TIMESTAMP TIMESTAMP; -- 1970년 1월 1일 이후로 몇 ms가 지났는지 타임스탬프형식으로 저장된다.
+    
+    INSERT INTO SAMPLE3 (COL_CHAR) VALUES ('AABBB');
+    INSERT INTO SAMPLE3 (COL_VARCHAR) VALUES ('ABC');
+    INSERT INTO SAMPLE3 (COL_TEXT) VALUES ('DEEPINTHEHEARTOFTEXAS');
+    INSERT INTO SAMPLE3 (COL_DATE) VALUES ('1999-09-09');
+    INSERT INTO SAMPLE3 (COL_DATETIME) VALUES ('1999-09-09 23:40:34');
+    INSERT INTO SAMPLE3 (COL_TIMESTAMP) VALUES (NOW());
+    
+    SELECT * FROM SAMPLE3;
+    ```
+
+  - R - READ
+
+    ```mysql
+    USE employees;
+    
+    SELECT * FROM departments;
+    SELECT * FROM employees;
+    SELECT first_name, last_name, gender FROM employees;
+    SELECT first_name, last_name, gender FROM employees WHERE gender='M'; -- 검색 조건을 정할 수 있다.
+    SELECT * FROM employees WHERE emp_no <= 10010 AND birth_date <= '1959-12-01'; -- 검색 조건을 여러개 정해줄 수 있다.
+    SELECT * FROM employees ORDER BY BIRTH_DATE; -- 정렬도 가능
+    SELECT * FROM employees ORDER BY FIRST_NAME DESC, LAST_NAME ASC; -- 정렬조건을 여러개써주면 앞의 조건부터 우선하고, 오름차순, 내림차순 정렬도 정할 수 있다.
+    SELECT * FROM employees LIMIT 10; -- 출력 개수 제한
+    SELECT * FROM employees LIMIT 10 OFFSET 10; -- OFFSET 의 숫자만큼 건너뛰고 그 다음부터 출력
+    SELECT DISTINCT FIRST_NAME FROM employees; -- DISTINCT 를 사용하면 중복 데이터들은 1건만 조회된다.
+    SELECT * FROM employees WHERE first_name LIKE 'KA%'; -- 검색에 부분조건을 정할 수 있다.
+    
+    ```
+
+  - U - UPDATE
+
+    ```mysql
+    USE employees;
+    
+    select * from employees WHERE birth_date='1953-12-03';
+    
+    UPDATE employees SET birth_date = '2011-11-11' WHERE first_name='Tomokazu' AND emp_no=11607;
+    
+    ALTER TABLE employees ADD del_yn CHAR(1);
+    
+    UPDATE employees SET del_yn = 'N';
+    
+    select * from employees WHERE emp_no=11607;
+    ```
+
+  - D - DELETE
+
+    ```mysql
+    USE employees;
+    
+    DELETE FROM employees WHERE emp_no = 10001;
+    
+    SELECT * FROM employees;
+    ```
+
+    
+
+  모두 만족하면 그 DB는 사용할 수 있다고 한다.
+
+  
+
+- NN(Not Null) - Null 인 데이터가 삽입될 수 없는 컬럼을 지정해준다. 필수입력 항목을 선택할 수 있다.(회원가입 등에서 사용 가능)
+
+- UQ(Unique Index) - 중복이 되는 데이터는 입력이 안되도록 설정해준다.
+
+- PK(Primary Key) - 테이블에서 각 행을 대표하는 키. 보통 NN과 UQ 속성을 같이 가지고 있는다. 이 PK 를 다른 테이블에서 참조해서 사용할 수 있다. 시퀀스 넘버를 PK로서 사용할 경우 AI(Auto Incremental) 속성도 같이 사용한다(순서대로 자동 부여).
