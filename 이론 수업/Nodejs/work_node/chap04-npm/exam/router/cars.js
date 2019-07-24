@@ -1,7 +1,34 @@
-const express = require('express');
+var express = require('express');
+var multer = require('multer');
 
 module.exports = function (fs, cardscr, sampleUserList) {
     const router = express.Router();
+    var storage = multer.diskStorage({
+        // 서버에 저장할 폴더
+        destination: function (req, file, cb) {
+            cb(null, 'uploads/carprofile/');
+        },
+        // 서버에 저장할 파일명
+        filename: function (req, file, cb) {
+            cb(null, file.originalname);
+        }
+    })
+    var imgFileFilter = function (req, file, callback) {
+        var ext = path.extname(file.originalname);
+        console.log('확장자 : ', ext)
+        if (ext !== '.png' && ext !== '.jpg' && ext !== '.gif' && ext !== '.jpeg') {
+            return callback(new Error('Only images are allowed'))
+        }
+        callback(null, true);
+    }
+    var Upload = multer({
+        storage: storage,
+        fileFilter: imgFileFilter,
+        limits: {
+            files: 7,
+            fileSize: 3 * 1024 * 1024
+        }
+    });
 
     if (fs.existsSync('data/carlist.json')) {
         let rawdata2 = fs.readFileSync('data/carlist.json');
@@ -86,16 +113,17 @@ module.exports = function (fs, cardscr, sampleUserList) {
     })
 
     router.get('/carreg',(req,res)=>{
-        res.render('carregister.html');
+        if (req.session.user) {
+            res.render('carregister.html');    
+        } else {
+            console.log('로그인 안됨. 로그인 페이지로 이동');
+            res.redirect('/login_form');
+        }
     })
 
-    router.get('/api/carlist',(req,res)=>{
-        res.json(cardscr);
-    })
-
-    router.post('/carregister', docUpload.array('photos', 5), (req, res, next) => {
+    router.post('/carregister', Upload.array('photos', 5), (req, res, next) => {
         console.log(req.files);
-        let user = {
+        let car = {
             brand: req.body.brand,
             model: req.body.model,
             origin: req.body.origin,
