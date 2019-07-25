@@ -79,7 +79,7 @@ app.use(cors());
 
 var router1 = require('./router/login.js')(hasher, fs, sampleUserList, multer, path);
 var router2 = require('./router/cars.js')(fs,cardscr,sampleUserList);
-var mysqlrouter = require('./router/mysql.js')(hasher);
+var mysqlrouter = require('./router/mysqlpool.js')(hasher);
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
 app.use(router1);

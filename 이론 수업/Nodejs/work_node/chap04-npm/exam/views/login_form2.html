@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>로그인</title>
+    <% include ./ejs/header.ejs %>
+    <% include ./ejs/headermenu.ejs %>
+    <% include ./ejs/serializeObject.ejs %>
+    <link href="https://fonts.googleapis.com/css?family=Cute+Font|Yeon+Sung&display=swap" rel="stylesheet">
+    <style>
+        .welcome {
+            margin: 35px 0;
+            text-align: center;
+            font-family: 'Nanum Gothic', sans-serif;
+            font-size: 30px;
+            font-weight: bold;
+            letter-spacing: 4px;
+        }
+
+        .loginbox {
+            width: 31%;
+            border-radius: 5px;
+            border: 1px solid rgb(216, 216, 216);
+            padding: 30px 0;
+        }
+        .whattoinput {
+            font-family: 'Nanum Gothic', sans-serif;
+            color: rgb(173, 77, 13);
+            font-size: 15px;
+        }
+        .loginbox form input[type='text'],
+        .loginbox form input[type='password'],
+        input[type='submit'] {
+            border-radius: 5px;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+        }
+        .loginbox form input:focus {
+            box-shadow: 0px 0px 5px #ffb67b;
+        }
+        input[type='submit'] {
+            color: white;
+            margin-top: 35px;
+            font-family: 'Nanum Gothic', sans-serif;
+            background-color: rgb(212, 50, 1);
+            border: 1px solid rgb(212, 50, 1);
+        }
+        .flashmsg {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <% include ./ejs/bodymenu.ejs %>
+    <!-- form action에 http://localhost:3000을 넣어준 이유는 한 컴퓨터에서 서버, 클라이언트
+    역할을 둘다 수행했기 때문이다. 실제 상황을 가정하면 서버의 페이지를 받아왔을 때 로컬 호스트가
+    아니라 서버의 주소를 그대로 사용해야 하므로 앞부분은 날려주고 /login만 남겨준다.
+    form으로 post나 get을 할 경우 페이지가 리프레쉬 되기때문에 ajax를 사용한다.-->
+    <div class="welcome">
+        <p>환영합니다 고객님!</p>
+    </div>
+    <div class="container loginbox">
+        <!-- 데이터 전송시 가장 깔끔한 순서 form POST >>> ajax POST -->
+        <form action="/mysql/login" method="POST" style="padding: 0 25px;" id="loginput">
+            <span class="whattoinput">이메일</span><br>
+            <input type="text" placeholder="ex) abcdefg@naver.com" name="id" style="border: 1px solid rgb(216, 216, 216);"><br><br>
+            <span class="whattoinput">비밀번호</span><br>
+            <input type="password" placeholder="password" name="password" style="border: 1px solid rgb(216, 216, 216);"><br>
+            <p style="margin-top: 15px; font-size: 15px; font-family: 'Nanum Gothic', sans-serif;"><a href="/findpw" style="text-decoration-line: none;">비밀번호 찾기</a></p>
+            <input type="checkbox"><span class="whattoinput"> 로그인 정보 기억하기</span>
+            <input type="submit" value="로그인">
+        </form>
+    </div>
+</body>
+
+</html>

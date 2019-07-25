@@ -113,3 +113,11 @@ CSS for activeLink:
 
 \* **react-router-dom: "^4.1.2"**
 
+# Mysql connection 대신 pool을 쓰는 이유
+
+- 매번 connect를 하는데 시간이 걸린다
+
+- connection관리가 어렵다. 더 안전한 방법이다.
+
+- 동시에 여러 query를 수행할 수 있다.
+

@@ -314,3 +314,90 @@ connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
 });
 ```
 
+내 임의코드
+
+```js
+var express = require('express');
+var mysql = require('mysql');
+const dbconfig = require('./dbconfig');
+var cc = (host, port, user, password, database)=>{
+    return (mysql.createConnection({
+        host: host,   // 서버 주소
+        port: port,
+        user: user,        // 접속할 계정
+        password: password,      // 접속할 계정 패스워드
+        database: database        // 접속할 db
+    }));
+};
+
+module.exports = function () {
+    var router = express.Router();
+
+    router.get('/test', (req, res) => {
+        let connection = cc('70.12.50.174', '3306', 'root', '123456', 'carhistory');
+        connection.connect();
+
+        connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+            if (error) throw error;
+            console.log('The solution is: ', results[0].solution);
+            res.json(results);
+
+            connection.end();
+        });
+    });
+
+    router.get('/getuser', (req, res) => {
+        let connection = cc('70.12.50.174', '3306', 'root', '123456', 'carhistory');
+        connection.connect();
+
+        connection.query('SELECT * FROM user', function (error, results, fields) {
+            if (error) throw error;
+            console.log('The solution is: ', results[0].solution);
+            res.json(results);
+
+            connection.end();
+        });
+    });
+
+    router.get('/adduser', (req, res) => {
+        let connection = cc('70.12.50.174', '3306', 'root', '123456', 'carhistory');
+        connection.connect();
+
+        connection.query("INSERT INTO user (userid, password, salt, name, email) values ('dktqornjs','123','fh293f','안동원','없음')", function (error, results, fields) {
+            if (error) throw error;
+            console.log('users : ', results);
+            res.json(results);
+
+            connection.end();
+        });
+    });
+
+    router.get('/router', (req, res) => {
+        console.log('/mysql/router');
+        res.send('<h1>/mysql/router</h1>');
+    });
+
+
+    return router;
+}
+```
+
+보안을 위해 dbconfig.js 파일을 만들어 모듈로 사용하자
+
+`dbconfig.js`
+
+```js
+module.exports = {
+    host: '70.12.50.174',   // 서버 주소
+    user: 'root',        // 접속할 계정
+    password: '123456',      // 접속할 계정 패스워드
+    database: 'carhistory'        // 접속할 db
+}
+```
+
+mysql 라우터에서 dbconfig를 사용해주자.
+
+`var connection = mysql.createConnection(dbconfig);`
+
+
+
