@@ -279,3 +279,38 @@
 - UQ(Unique Index) - 중복이 되는 데이터는 입력이 안되도록 설정해준다.
 
 - PK(Primary Key) - 테이블에서 각 행을 대표하는 키. 보통 NN과 UQ 속성을 같이 가지고 있는다. 이 PK 를 다른 테이블에서 참조해서 사용할 수 있다. 시퀀스 넘버를 PK로서 사용할 경우 AI(Auto Incremental) 속성도 같이 사용한다(순서대로 자동 부여).
+
+
+
+## DB 연동
+
+이제 서버에서 DB를 사용해보자.
+
+서버쪽에서 mysql 확장 모듈을 인스톨해주자.
+
+```cmd
+npm install --save mysql
+```
+
+npmjs 에서 mysql 모듈을 검색해 instruction을 따라가자
+
+```js
+var mysql = require('mysql');
+var connection = mysql.createConnection({
+    host: 'localhost',   // 서버 주소
+    user: 'root',        // 접속할 계정
+    password: '123456',      // 접속할 계정 패스워드
+    database: 'carhistory'        // 접속할 db
+});
+
+connection.connect();
+
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+    if (error) throw error;
+    console.log('The solution is: ', results[0].solution);
+    res.json(JSON.stringify(results, null, 2));
+
+    connection.end();
+});
+```
+
