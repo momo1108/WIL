@@ -201,7 +201,9 @@ const myStore = createStore(
 );
 
 ReactDOM.render(
-    <App />, 
+    <Provider store={myStore}>
+        <App />
+    </Provider>, 
     document.getElementById('root'));
 
 serviceWorker.unregister();
