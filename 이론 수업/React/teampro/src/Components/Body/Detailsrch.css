@@ -1,0 +1,37 @@
+.searchjumbo {
+    width: 60%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: white;
+}
+.searchjumbo p {
+    padding-left: 10px;
+}
+.searchjumbo ul {
+    list-style: none;
+    padding-left: 10px;
+}
+.searchjumbo ul li {
+    float: left;
+    color: black;
+    text-align: center;
+    width: 5.11%;
+    border: 1px solid grey;
+    padding: 6px 0;
+    margin: -1px -1px 0 0;
+}
+.searchjumbo ul li:hover {
+    background-color: rgb(227, 242, 255);
+    font-weight: bold;
+}
+.searchjumbo ul li a {
+    height: 35px;
+    text-decoration: none;
+}
+hr {
+    margin: 0 10px;
+    padding: 10px 0;
+    border: none;
+    border-bottom: 1px solid grey;
+    clear: both;
+}
