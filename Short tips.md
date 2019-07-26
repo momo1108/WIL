@@ -121,3 +121,43 @@ CSS for activeLink:
 
 - 동시에 여러 query를 수행할 수 있다.
 
+
+
+# json-server 확장모듈
+
+json-server 확장모듈을 이용해서 쉽게 restfule api를 사용하자.
+
+`npm install -g json-server`
+
+db.json 파일을 생성하고 그 경로를 지정해주면 자동으로 json파일을 fake restfule api로 response해주는 json server를 실행할 수 있다.
+
+`/public/db.json`
+
+```json
+{
+    "momo1108": {
+        "userid": "momo1108",
+        "password": "6xqDYbgu2lxbcAdc582CSno/jf6suDGZKiRU/wXIjzq8aHeyUuIRZceqNONbed0hah+uknFPgBEGVpTRbmNZphTUn2p3Nu3CQoeUflNA5qH+kvhgNLLp361b62sVDI4H3D48L0i0Ued/+8soFjkG18D8i8mlWaXXbD9wsJ0juwU=",
+        "originpass": "123",
+        "name": "방혜찬",
+        "company": "백수",
+        "address": "인천광역시 부평구",
+        "carsell": 0,
+        "carsellc": 0,
+        "profileimg": "/files/profile/방혜찬.png"
+    },
+    "qwer1234": {
+        "userid": "qwer1234",
+        "password": "qlnNT878eOpb9BmmE8t7L950H0yA05SilYPyol7XDPB1/3FZTcpOgt4VN/1du8tXRIiWNDToA52pXy9afCebGEF29rLyJfXVl/OC2zXiPEPU/tSqnd67qFn3Jo6s7i8vDIG9fX4b28lkcCT5dZXDddFGanSqUw6AIRRRJewxSBU=",
+        "originpass": "123",
+        "name": "momo1108",
+        "company": "백수",
+        "address": "인천광역시 부평구",
+        "carsell": 0,
+        "carsellc": 0,
+        "profileimg": "/files/profile/momo1108.png"
+    }
+}
+```
+
+`json-server public/db.json --port 8000`

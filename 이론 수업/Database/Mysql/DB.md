@@ -401,3 +401,86 @@ mysql 라우터에서 dbconfig를 사용해주자.
 
 
 
+## 테이블끼리 합쳐서 select를 해보자.
+
+```mysql
+use employees;
+
+SELECT * FROM employees;
+
+SELECT * FROM titles;
+
+SELECT * FROM employees LEFT JOIN titles ON employees.emp_no = titles.emp_no;
+
+SELECT e.emp_no, e.first_name, e.last_name, t.title, t.from_date, t.to_date 
+FROM employees as e
+LEFT JOIN titles as t
+ON e.emp_no = t.emp_no;
+
+SELECT * FROM employees.salaries;
+
+SELECT e.emp_no, e.first_name, e.last_name, s.salary, s.from_date, s.to_date 
+FROM employees as e
+LEFT JOIN salaries as s
+ON e.emp_no = s.emp_no;
+
+```
+
+1:n 관계면 그냥 위대로 하면 되고
+
+테이블 A, B가 서로 n:m 관계면 사이에 테이블 C 하나가 있어야한다.
+
+```mysql
+SELECT e.emp_no, e.first_name, e.last_name, de.dept_no, d.dept_name, de.from_date, de.to_date
+FROM employees as e
+LEFT JOIN dept_emp as de
+ON e.emp_no = de.emp_no
+LEFT JOIN departments as d
+ON de.dept_no = d.dept_no
+WHERE de.to_date > now();
+
+select * from dept_manager;
+
+select * from departments;
+
+SELECT e.emp_no, e.first_name, e.last_name, d.dept_no, d.dept_name, dm.from_date, dm.to_date
+FROM employees as e
+LEFT JOIN dept_manager as dm
+ON e.emp_no = dm.emp_no
+LEFT JOIN departments as d
+ON dm.dept_no = d.dept_no
+WHERE dm.to_date > now();
+
+SELECT * 
+FROM departments as d
+LEFT JOIN
+	( SELECT dm.dept_no, e.first_name, e.last_name 
+      FROM dept_manager as dm
+	  LEFT JOIN employees as e
+      ON dm.emp_no = e.emp_no
+      WHERE dm.to_date > now()) as dme
+ON d.dept_no = dme.dept_no;
+```
+
+```mysql
+SELECT e.emp_no, e.last_name, MIN(e.hire_date), s.salary 
+FROM employees as e
+LEFT JOIN salaries as s
+ON e.emp_no = s.emp_no;
+
+SELECT last_name, count(emp_no) as namecnt FROM employees
+GROUP BY last_name
+ORDER BY namecnt DESC
+LIMIT 3;
+
+SELECT YEAR(birth_date) as yb, COUNT(emp_no) FROM employees
+GROUP BY YEAR(birth_date)
+ORDER BY yb
+LIMIT 10;
+
+SELECT YEAR(hire_date) as hired_year, count(emp_no) as NumofWorker FROM employees
+GROUP BY hired_year
+ORDER BY hired_year ASC
+LIMIT 10;
+```
+
