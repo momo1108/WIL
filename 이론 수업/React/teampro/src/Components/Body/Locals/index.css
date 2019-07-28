@@ -1,0 +1,27 @@
+.localdiv {
+    margin: 0 10px;
+    padding: 10px 10px;
+    border: 1px solid rgb(48, 119, 254);
+    border-top: none;
+    box-sizing: content-box;
+    display: none;
+}
+.togglebtngrp {
+    width: 100%;
+    display: inline-block;
+}
+.togglebtn, .togglebtn0 {
+    margin: 5px !important;
+    border-radius: 10px !important;
+    display: inline-block;
+    width: 126px;
+    font-size: 13.3px;
+}
+.togglebtn:hover, .togglebtn0:hover {
+    background-color: transparent;
+    color: rgb(48, 119, 254);
+    font-weight: bold;
+}
+.togglebtn0:hover {
+    color: rgb(109, 117, 125);
+}
