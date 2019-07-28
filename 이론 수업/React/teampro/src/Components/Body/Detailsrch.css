@@ -6,32 +6,62 @@
 }
 .searchjumbo p {
     padding-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
 }
 .searchjumbo ul {
     list-style: none;
-    padding-left: 10px;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 0;
+    padding: 0;
 }
 .searchjumbo ul li {
-    float: left;
+    display: inline-block;
     color: black;
+    font-size: 0.845vw;
     text-align: center;
-    width: 5.11%;
-    border: 1px solid grey;
+    border-radius: 5px 5px 0 0;
+    width: 5.2631%;
+    box-sizing: border-box;
     padding: 6px 0;
-    margin: -1px -1px 0 0;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid rgb(100, 97, 255);
+    cursor: pointer;
 }
 .searchjumbo ul li:hover {
-    background-color: rgb(227, 242, 255);
-    font-weight: bold;
+    border-top: 1px solid rgb(140, 203, 255);
+    border-left: 1px solid rgb(140, 203, 255);
+    border-right: 1px solid rgb(140, 203, 255);
+    border-bottom: 1px solid transparent;
+    color: rgb(140, 203, 255);
 }
-.searchjumbo ul li a {
-    height: 35px;
-    text-decoration: none;
+.localtext {
+    display: inline-block;
+    width: 100%;
+}
+.localtext:hover {
+    font-weight: bold;
+    animation: shake 0.25s 1;
+}
+.localclick {
+    font-weight: bold;
+    border: 1px solid rgb(100, 97, 255) !important;
+    border-bottom: 1px solid transparent !important;
+    color: blue !important;
 }
 hr {
-    margin: 0 10px;
-    padding: 10px 0;
+    margin: 0 10px 10px 10px;
+    padding: 1px 0;
     border: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid rgb(216, 216, 216);
     clear: both;
 }
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(5deg); }
+    50% { transform: rotate(0deg); }
+    75% { transform:  rotate(-5deg); }
+    100% { transform:  rotate(0deg); }
+  }
