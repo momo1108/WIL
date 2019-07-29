@@ -3,55 +3,51 @@ import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap'
 import { useSelector, useDispatch } from 'react-redux';
 import { checked, notchecked } from '../../../actions';
 import './localbox.css';
-const dispatch = useDispatch();
 
 
-export class Seoul extends Component {
-    constructor(props){
-        super(props);
-    }
-    render() {
-        var btnclicked = (e) => {
-            let btnname = e.target.getAttribute('name');
-            if (e.target.children[0].checked = true) {
-                return () => dispatch(checked(btnname));
-            } else if (e.target.children[0].checked = false) {
-                return () => dispatch(notchecked(btnname));
-            };
+export const Seoul = () => {
+    const dispatch = useDispatch();
+    var btnclicked = (e) => {
+        let btnname = e.target.parentNode.getAttribute('id');
+        console.log(btnname);
+        if (e.target.checked = true) {
+            return () => dispatch(checked(btnname));
+        } else if (e.target.checked = false) {
+            return () => dispatch(notchecked(btnname));
         };
-        return (
-            <div className='localdiv localdiv1'>
-                <ToggleButtonGroup className='togglebtngrp' type="checkbox">
-                    <ToggleButton name="강남구" className='togglebtn0' variant="outline-secondary" value={0} >전체</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' onChange={btnclicked} variant="outline-primary" value={1}>강남구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={2}>강동구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={3}>강북구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={4}>강서구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={5}>관악구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={6}>광진구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={7}>구로구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={8}>금천구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={9}>노원구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={10}>도봉구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={11}>동대문구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={12}>동작구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={13}>마포구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={14}>서대문구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={15}>서초구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={16}>성동구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={17}>성북구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={18}>송파구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={19}>양천구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={20}>영등포구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={21}>용산구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={22}>은평구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={23}>종로구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={24}>중구</ToggleButton>
-                    <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={25}>중랑구</ToggleButton>
-                </ToggleButtonGroup>
-            </div>
-        )
-    }
+    };
+    return (
+        <div className='localdiv localdiv1'>
+            <ToggleButtonGroup className='togglebtngrp' type="checkbox">
+                <ToggleButton name="강남구" className='togglebtn0' variant="outline-secondary" value={0} >전체</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' id="강남구" onChange={btnclicked} variant="outline-primary" value={1}>강남구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={2}>강동구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={3}>강북구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={4}>강서구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={5}>관악구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={6}>광진구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={7}>구로구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={8}>금천구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={9}>노원구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={10}>도봉구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={11}>동대문구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={12}>동작구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={13}>마포구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={14}>서대문구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={15}>서초구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={16}>성동구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={17}>성북구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={18}>송파구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={19}>양천구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={20}>영등포구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={21}>용산구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={22}>은평구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={23}>종로구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={24}>중구</ToggleButton>
+                <ToggleButton name="강남구" className='togglebtn' variant="outline-primary" value={25}>중랑구</ToggleButton>
+            </ToggleButtonGroup>
+        </div>
+    )
 };
 export class Gyeongi extends Component {
     render() {
