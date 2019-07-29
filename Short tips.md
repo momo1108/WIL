@@ -161,3 +161,19 @@ db.json 파일을 생성하고 그 경로를 지정해주면 자동으로 json�
 ```
 
 `json-server public/db.json --port 8000`
+
+
+
+# 레퍼지토리의 바뀐 내용을 커맨드로 직접 받아올 때
+
+https://help.github.com/en/articles/getting-changes-from-a-remote-repository
+
+```shell
+$ git fetch remotename
+# Fetches updates made to a remote repository
+```
+
+```shell
+$ git pull remotename branchname
+# Grabs online updates and merges them with your local work
+```

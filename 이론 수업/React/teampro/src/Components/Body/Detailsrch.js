@@ -5,10 +5,11 @@ import { Seoul, Gyeongi, Incheon, Busan, Daegue, Daejeon, Sejong, Gwangju, Ulsan
 import './Detailsrch.css';
 
 class Detailsrch extends Component {
-
+    
     render() {
         var localselect = (e) => {
             // togglebtn[0].children[0].checked
+            console.log(e.target);
             let selector = document.getElementsByClassName('locals');
             let selector_local = document.getElementsByClassName('localdiv');
             let i = 0;
