@@ -7,9 +7,10 @@ import * as serviceWorker from './serviceWorker';
 import myStore from './store';
 import { Provider } from 'react-redux';
 
-
 ReactDOM.render(
-    <App />,
+    <Provider store={myStore}>
+        <App />
+    </Provider>,
     document.getElementById('root'));
 
 serviceWorker.unregister();

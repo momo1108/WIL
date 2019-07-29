@@ -173,7 +173,33 @@ $ git fetch remotename
 # Fetches updates made to a remote repository
 ```
 
-```shell
+``` shell
 $ git pull remotename branchname
 # Grabs online updates and merges them with your local work
 ```
+
+
+
+# event 의 properties and methods
+
+https://www.w3schools.com/jsref/obj_event.asp
+
+| Property/Method                                              | Description                                                  |
+| :----------------------------------------------------------- | :----------------------------------------------------------- |
+| [bubbles](https://www.w3schools.com/jsref/event_bubbles.asp) | Returns whether or not a specific event is a bubbling event  |
+| [cancelBubble](https://www.w3schools.com/jsref/event_cancelbubble.asp) | Sets or returns whether the event should propagate up the hierarchy or not |
+| [cancelable](https://www.w3schools.com/jsref/event_cancelable.asp) | Returns whether or not an event can have its default action prevented |
+| composed                                                     | Returns whether the event is composed or not                 |
+| [createEvent()](https://www.w3schools.com/jsref/event_createevent.asp) | Creates a new event                                          |
+| [composedPath()](https://www.w3schools.com/jsref/event_composedpath.asp) | Returns the event's path                                     |
+| [currentTarget](https://www.w3schools.com/jsref/event_currenttarget.asp) | Returns the element whose event listeners triggered the event |
+| [defaultPrevented](https://www.w3schools.com/jsref/event_defaultprevented.asp) | Returns whether or not the preventDefault() method was called for the event |
+| [eventPhase](https://www.w3schools.com/jsref/event_eventphase.asp) | Returns which phase of the event flow is currently being evaluated |
+| [isTrusted](https://www.w3schools.com/jsref/event_istrusted.asp) | Returns whether or not an event is trusted                   |
+| [preventDefault()](https://www.w3schools.com/jsref/event_preventdefault.asp) | Cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur |
+| [stopImmediatePropagation()](https://www.w3schools.com/jsref/event_stopimmediatepropagation.asp) | Prevents other listeners of the same event from being called |
+| [stopPropagation()](https://www.w3schools.com/jsref/event_stoppropagation.asp) | Prevents further propagation of an event during event flow   |
+| [target](https://www.w3schools.com/jsref/event_target.asp)   | Returns the element that triggered the event                 |
+| [timeStamp](https://www.w3schools.com/jsref/event_timestamp.asp) | Returns the time (in milliseconds relative to the epoch) at which the event was created |
+| [type](https://www.w3schools.com/jsref/event_type.asp)       | Returns the name of the event                                |
+

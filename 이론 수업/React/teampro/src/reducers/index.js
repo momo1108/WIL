@@ -1,19 +1,23 @@
 const localSelector = (state = [], action) => {
     switch(action.type){
-        case 'NOTCHECKED':
+        case 'CHECKED':
             if(action.payload){
-                state.push(action.payload)
+                state.push(action.payload);
             	return state;    
             } else {
                 return state;
             }
-        case 'CHECKED':
+        case 'NOTCHECKED':
             if(action.payload){
-            	return state - action.payload;    
+                var arrnum = state.indexOf(action.payload);
+                state.splice(arrnum, 1);
+            	return state;
             } else {
-                return state - 1;
+                return state;
             }
         default:
             return state;
     }
 };
+
+export default localSelector;

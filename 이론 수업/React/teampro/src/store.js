@@ -1,8 +1,8 @@
-// import { createStore } from 'redux';
-// import rootReducer from './reducers';
+import { createStore } from 'redux';
+import localSelector from './reducers';
 
-// const myStore = createStore(
-//     rootReducer,
-//     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-// );
-// export default myStore;
+const myStore = createStore(
+    localSelector,
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+);
+export default myStore;

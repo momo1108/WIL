@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { Route, NavLink } from 'react-router-dom';
-import { Seoul, Gyeongi, Incheon, Busan, Daegue, Daejeon, Sejong, Gwangju, Ulsan, Gangwon, Gyungnam, Gyungbuk, Jeonnam, Jeonbuk, Choongnam, Choongbuk, Jeju, Othercountry } from './Locals';
+import { Seoul, Gyeongi, Incheon, Busan, Daegue, Daejeon, Sejong, Gwangju, Ulsan, Gangwon, Gyungnam, Gyungbuk, Jeonnam, Jeonbuk, Choongnam, Choongbuk, Jeju, Othercountry } from './Locals/localbox';
 import './Detailsrch.css';
 
 class Detailsrch extends Component {
-    
+    constructor(props){
+        super(props);
+    }
     render() {
         var localselect = (e) => {
             // togglebtn[0].children[0].checked
-            console.log(e.target);
+            console.log(e.target.getAttribute('name'));
             let selector = document.getElementsByClassName('locals');
             let selector_local = document.getElementsByClassName('localdiv');
             let i = 0;
