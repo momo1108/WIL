@@ -225,7 +225,7 @@ serviceWorker.unregister();
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-class App extends Component {
+function App() {
     // Store에서 counterReducer에 해당하는 State를 불러와서 counter 변수에 저장해준다.
     const counter = useSelector(state=>state.counter);
 	const isLogged = useSelector(state=>state.isLogged);
@@ -256,7 +256,7 @@ import React from 'react';
 // useDispatch를 import해온다.
 import { useSelector, useDispatch } from 'react-redux';
 
-class App extends Component {
+function App() {
     // Store에서 counterReducer에 해당하는 State를 불러와서 counter 변수에 저장해준다.
     const counter = useSelector(state=>state.counter);
 	const isLogged = useSelector(state=>state.isLogged);
@@ -349,7 +349,7 @@ import { useSelector, useDispatch } from 'react-redux';
 // Action들을 import해준다. reducer의 경우와 마찬가지로 index.js는 import 경로에서 생략가능하다.
 import { plus, minus } from './actions';
 
-class App extends Component {
+function App() {
     const counter = useSelector(state=>state.counter);
 	const isLogged = useSelector(state=>state.isLogged);
     render(){
@@ -375,7 +375,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { plus, minus } from './actions';
 
-class App extends Component {
+function App() {
     const counter = useSelector(state=>state.counter);
 	const isLogged = useSelector(state=>state.isLogged);
 	// dispatch를 사용하기 쉽게 선언해주자.

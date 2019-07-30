@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Jumbotron } from 'react-bootstrap';
 import { Route, NavLink } from 'react-router-dom';
-import { Seoul, Gyeongi, Incheon, Busan, Daegue, Daejeon, Sejong, Gwangju, Ulsan, Gangwon, Gyungnam, Gyungbuk, Jeonnam, Jeonbuk, Choongnam, Choongbuk, Jeju, Othercountry } from './Locals/localbox';
+import { Seoul, Gyeongi, Incheon, Busan, Daegue, Daejeon, Sejong, Gwangju, Ulsan, Gangwon, Gyungnam, Gyungbuk, Jeonnam, Jeonbuk, Choongnam, Choongbuk, Jeju, Othercountry } from '../Body/Locals/index';
 import './Detailsrch.css';
 
 class Detailsrch extends Component {
@@ -19,7 +19,7 @@ class Detailsrch extends Component {
                 selector_local[j].style.display = 'none';
               }
             let boxclass = e.target.getAttribute('name');
-            document.getElementsByClassName(boxclass)[0].style.display = 'block';
+            if(boxclass)document.getElementsByClassName(boxclass)[0].style.display = 'block';
             while (selector[i]) {
                 selector[i].className = 'locals';
                 i++;
@@ -33,6 +33,9 @@ class Detailsrch extends Component {
         return (
             <Jumbotron className='searchjumbo'>
                 <p>지역</p>
+                <div>
+                    
+                </div>
                 <ul>
                     <li className='locals' onClick={localselect}><span className='localtext'>전체</span></li>
                     <li className='locals' onClick={localselect} name='localdiv1'><span className='localtext' name='localdiv1'>서울</span></li>
