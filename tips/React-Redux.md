@@ -441,4 +441,109 @@ export default App;
 > );
 > ```
 >
-> 
+
+
+
+# react-redux.js.org 튜토리얼
+
+## Connect
+
+### 1. mapStateToProps로 데이터 추출하기
+
+​	`mapStateToProps`는 `connect`로 들어가는 첫번째 argument로서 component가 필요한 data를 store로부터 선택하게 하준다. 대부분 줄여서 mapState로 참조된다.
+
+- store의 state가 바뀔때마다 매번 호출된다.
+- store의 전체 state 정보를 받지만, component가 필요한 data를 object로서 return해주어야 한다.
+
+
+
+#### 	`mapStateToProps` 정의
+
+`mapStateToProps`는 function으로서 정의되어야 한다.
+
+```js
+function mapStateToProps(state, ownProps?)
+```
+
+ `mapStateToProps`는 첫번째 argument로서 `state`를 받아야 하며, 필요하면 두번째 argument로서 `ownProps`를 받는다. 그 뒤 component가 필요한 data를 담고있는 평범한 object를 return해주어야 한다.
+
+이렇게 선언된 함수는 connect의 첫번째 argument로 들어가야 하며, Redux의 store state가 변화할 때 마다 매번 호출될 것이다. store에 연결되기 싫으면 `connect`의 첫번째 argument로서 `mapStateToProps`대신 `null`이나 `undefined`를 넣어주자.
+
+(`mapStateToProps` function을 만들 때 `function mapState(state) {}`같은 기본 function형식이든 `const mapState = (state) => {}` 같은 arrow function 형식이든 똑같으니 신경쓰지 말자.)
+
+
+
+	#### 	Argument들
+
+1. `state`
+2. `ownProps`(선택사항)
+
+---
+
+`state`
+
+이 첫번째 argument는 **전체 Redux store**(`store.getState()`의 return값과 같음)이다. 그리하야 이 첫번째 argument는 대대로 그냥  `state`라고 불려왔다(이 argument에 원하는 이름을 줄 수 있으나, `store`는 적절하지 않다 - 이 argument는 "state value"이지, "store instance"가 아니기 때문이다.)
+
+`mapStateToProps` function은 반드시 argument로 들어간 `state`를 사용해서 선언되어야 한다.
+
+```js
+// TodoList.js
+
+function mapStateToProps(state) {
+  const { todos } = state
+  return { todoList: todos.allIds }
+}
+
+export default connect(mapStateToProps)(TodoList)
+```
+
+
+
+---
+
+`ownProps`(선택사항)
+
+만약 당신이 store로부터 data를 찾아오기 위해 own props의 data를 필요로 한다면, mapState의 두번째 argument로서 사용해주면 된다. 이 argument는 `connect`로부터 생성된 wrapper component에게 주어진 모든 props를 포함할 것이다.
+
+```js
+// Todo.js
+
+function mapStateToProps(state, ownProps) {
+  const { visibilityFilter } = state
+  const { id } = ownProps
+  const todo = getTodoById(state, id)
+
+  // component receives additionally:
+  return { todo, visibilityFilter }
+}
+
+// Later, in your application, a parent component renders:
+;<ConnectedTodo id={123} />
+// and your component receives props.id, props.todo, and props.visibilityFilter
+```
+
+`mapStateToProps`의 return 값(Object)에 `ownProps`의 value가 포함시킬 필요없다. `connect`가 다른 모든 prop source들을 자동으로 final set의 props에 merge시켜줄 것이다.
+
+---
+
+
+
+#### Return
+
+`mapStateToProps` function은 component가 필요한 data를 단순 object 형태로 return해주어야 한다.
+
+- object의 각 field들은 우리의 진자 component들의 prop이 될것이다.
+- field안의 값들은 component가 다시 render되어야 하는지 판단할 수 있게 해준다.
+
+```js
+function mapStateToProps(state) {
+  return {
+    a: 42,
+    todos: state.todos,
+    filter: state.visibilityFilter
+  }
+}
+
+// component will receive: props.a, props.todos, and props.filter
+```
+
