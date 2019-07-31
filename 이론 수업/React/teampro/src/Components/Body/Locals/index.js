@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
-import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap'
+import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
-import { connect } from "react-redux";
 import { checked, notchecked } from '../../../actions';
 import local from './address';
 import './index.css';
 
 export function Seoul() {
+    var selectedLocal = useSelector(state=>state.selectedLocal);
     var dispatch = useDispatch();
     var btnclicked = (e) => {
         let btnname = e.target.parentNode.getAttribute('id');
         // console.log(btnname);
-        console.log(e.target);
+        // console.log(e.target);
         if (e.target.checked) {
             // console.log('체크됨');
             dispatch(checked(btnname));
@@ -20,10 +20,12 @@ export function Seoul() {
             // console.log('체크안됨');
             dispatch(notchecked(btnname));
         };
+        console.log(selectedLocal);
     }
 
     return (
         <div className='localdiv localdiv1'>
+            {selectedLocal[0]}
             <ToggleButtonGroup className='togglebtngrp' type="checkbox">
                 <ToggleButton className='togglebtn0' onChange={btnclicked} variant="outline-secondary" value={0} id="서울 전체">서울 전체</ToggleButton>
                 {local.Seoul.map((value, index) => {

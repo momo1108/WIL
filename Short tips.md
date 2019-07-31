@@ -203,3 +203,8 @@ https://www.w3schools.com/jsref/obj_event.asp
 | [timeStamp](https://www.w3schools.com/jsref/event_timestamp.asp) | Returns the time (in milliseconds relative to the epoch) at which the event was created |
 | [type](https://www.w3schools.com/jsref/event_type.asp)       | Returns the name of the event                                |
 
+
+
+# hook을 사용할 때의 규칙
+
+https://reactjs.org/docs/hooks-rules.html
