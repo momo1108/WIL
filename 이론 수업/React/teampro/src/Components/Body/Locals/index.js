@@ -6,7 +6,7 @@ import local from './address';
 import './index.css';
 
 export function Seoul() {
-    var selectedLocal = useSelector(state=>state.selectedLocal);
+    // const selectedLocal = useSelector(state=>state.selectedLocal);
     var dispatch = useDispatch();
     var btnclicked = (e) => {
         let btnname = e.target.parentNode.getAttribute('id');
@@ -20,12 +20,12 @@ export function Seoul() {
             // console.log('체크안됨');
             dispatch(notchecked(btnname));
         };
-        console.log(selectedLocal);
+        // console.log(selectedLocal);
     }
 
     return (
         <div className='localdiv localdiv1'>
-            {selectedLocal[0]}
+            {/* <h1>{selectedLocal[0]}</h1> */}
             <ToggleButtonGroup className='togglebtngrp' type="checkbox">
                 <ToggleButton className='togglebtn0' onChange={btnclicked} variant="outline-secondary" value={0} id="서울 전체">서울 전체</ToggleButton>
                 {local.Seoul.map((value, index) => {
