@@ -5,8 +5,11 @@ const localSelector = (state = [], action) => {
         case 'CHECKED':
             if(action.payload){
                 // console.log('checked.action.payload :',action.payload);
-                state.push(action.payload);
-            	return state;    
+                // state.push(action.payload);
+            	return {
+                    ...state,
+                    selectedLocal: [...state, action.payload]
+                };
             } else {
                 // console.log('action.payload 없음');
                 return state;
@@ -15,8 +18,12 @@ const localSelector = (state = [], action) => {
             if(action.payload){
                 // console.log('notchecked.action.payload :',action.payload);
                 var arrnum = state.indexOf(action.payload);
-                state.splice(arrnum, 1);
-            	return state;
+                var arr = state;
+                arr.splice(arrnum, 1);
+            	return {
+                    ...state,
+                    selectedLocal: arr
+                };
             } else {
                 // console.log('action.payload 없음');
                 return state;

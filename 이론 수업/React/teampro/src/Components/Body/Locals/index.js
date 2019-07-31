@@ -6,7 +6,7 @@ import local from './address';
 import './index.css';
 
 export function Seoul() {
-    // const selectedLocal = useSelector(state=>state.selectedLocal);
+    const selectedLocal = useSelector(state=>state.selectedLocal);
     var dispatch = useDispatch();
     var btnclicked = (e) => {
         let btnname = e.target.parentNode.getAttribute('id');
@@ -20,7 +20,7 @@ export function Seoul() {
             // console.log('체크안됨');
             dispatch(notchecked(btnname));
         };
-        // console.log(selectedLocal);
+        console.log(selectedLocal);
     }
 
     return (
