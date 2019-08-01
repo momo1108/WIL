@@ -51,6 +51,11 @@
     border-bottom: 1px solid transparent !important;
     color: blue !important;
 }
+.worktype {
+    padding-left: 10px;
+    font-size: 20px;
+    font-weight: bold;
+}
 hr {
     margin: 0 10px 10px 10px;
     padding: 1px 0;

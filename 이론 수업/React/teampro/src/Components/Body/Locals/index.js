@@ -2,39 +2,61 @@ import React, { Component } from 'react';
 import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { checked, notchecked } from '../../../actions';
+import { connect } from "react-redux";
 import local from './address';
 import './index.css';
-
-export function Seoul() {
-    const locals = useSelector(state=>state.selectedLocal);
-    var dispatch = useDispatch();
-    var btnclicked = (e) => {
-        let btnname = e.target.parentNode.getAttribute('id');
-        // console.log(btnname);
-        // console.log(e.target);
-        if (e.target.checked) {
-            // console.log('체크됨');
-            dispatch(checked(btnname));
-        };
-        if (!e.target.checked) {
-            // console.log('체크안됨');
-            dispatch(notchecked(btnname));
-        };
-        console.log(locals);
+const mapStateToProps = state => {
+    return {
+      localsel : state.selectedLocal.locals
     }
-
-    return (
-        <div className='localdiv localdiv1'>
-            <h1>{locals.after}원래 이러나</h1>
-            <ToggleButtonGroup className='togglebtngrp' type="checkbox">
-                <ToggleButton className='togglebtn0' onChange={btnclicked} variant="outline-secondary" value={0} id="서울 전체">서울 전체</ToggleButton>
-                {local.Seoul.map((value, index) => {
-                    return (<ToggleButton key={index} className='togglebtn' onChange={btnclicked} variant="outline-primary" value={index + 1} id={value}>{value}</ToggleButton>)
-                })}
-            </ToggleButtonGroup>
-        </div>
-    );
+  }
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         check: (btn) => dispatch(checked(btn)),
+//         uncheck: (btn) => dispatch(notchecked(btn))
+//     }
+// }
+class Seoul extends Component {
+    // const selec = useSelector(state=>state.selectedLocal);
+    // var dispatch = useDispatch();
+    constructor(props){
+        super(props)
+    }
+    render(){
+        var btnclicked = (e) => {
+            let btnname = e.target.parentNode.getAttribute('id');
+            // console.log(btnname);
+            // console.log(e.target);
+            if (e.target.checked) {
+                console.log('체크됨');
+                // dispatch(checked(btnname));
+                this.props.checked(btnname);
+            };
+            if (!e.target.checked) {
+                console.log('체크안됨');
+                // dispatch(notchecked(btnname));
+                this.props.notchecked(btnname);
+            };
+            // console.log(selec);
+            console.log(this.props.localsel);
+        }
+        return (
+            <div className='localdiv localdiv1'>
+                {/* {selec.locals.map((value, index)=>{
+                    return (<h1>{value}</h1>)
+                })} */}
+                {this.props.localsel}
+                <ToggleButtonGroup className='togglebtngrp' type="checkbox">
+                    <ToggleButton className='togglebtn0' onChange={btnclicked} variant="outline-secondary" value={0} id="서울 전체">서울 전체</ToggleButton>
+                    {local.Seoul.map((value, index) => {
+                        return (<ToggleButton key={index} className='togglebtn' onChange={btnclicked} variant="outline-primary" value={index + 1} id={value}>{value}</ToggleButton>)
+                    })}
+                </ToggleButtonGroup>
+            </div>
+        );
+    }
 }
+export default connect(mapStateToProps, {checked, notchecked})(Seoul);
 
 export function Gyeongi() {
     var dispatch = useDispatch();

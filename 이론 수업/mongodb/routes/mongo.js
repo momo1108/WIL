@@ -51,11 +51,23 @@ router.post('/comments', (req, res, next) => {
         }
     })
 });
-router.patch('/comments/:id', (req, res, next) => {
-    
+router.patch('/comments/:id', (req, res) => {
+    Comments.updateOne({_id:req.params.id}, {comment: req.body.comment},(err,result)=>{
+        if(err) console.log(err);
+        else{
+            console.log(result);
+            res.json(result);
+        }
+    })
 });
-router.delete('/comments', (req, res, next) => {
-    
+router.delete('/comments/:id', (req, res) => {
+    Comments.remove({_id:req.params.id},(err,result)=>{
+        if(err)console.log(err);
+        else{
+            console.log('성공');
+            res.json(result);
+        }
+    })
 });
 
 module.exports = router;

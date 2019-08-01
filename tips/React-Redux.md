@@ -1,5 +1,11 @@
 # React-Redux
 
+[https://medium.com/@ca3rot/%EC%95%84%EB%A7%88-%EC%9D%B4%EA%B2%8C-%EC%A0%9C%EC%9D%BC-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-%EC%89%AC%EC%9A%B8%EA%B1%B8%EC%9A%94-react-redux-%ED%94%8C%EB%A1%9C%EC%9A%B0%EC%9D%98-%EC%9D%B4%ED%95%B4-1585e911a0a6](https://medium.com/@ca3rot/아마-이게-제일-이해하기-쉬울걸요-react-redux-플로우의-이해-1585e911a0a6)
+
+https://code.tutsplus.com/ko/tutorials/getting-started-with-redux-connecting-redux-with-react--cms-30352
+
+https://velopert.com/1266
+
 ![](https://miro.medium.com/max/588/1*rwnd-zztHEQ_Qt-ZVXH7Jw.png)
 
 ### 기본적인 흐름을 보기위한 코드(+와 -를 가진 카운터)
@@ -577,3 +583,72 @@ export default function counter(state = initialState, action) {
 
 ```
 
+
+
+### 2. `mapDispatchToProps`로 Action Dispatch하기
+
+`mapDispatchToProps`는 connect의 두번째 argument로써, store에 action을 dispatch하는데 사용된다.
+
+`dispatch`는 Redux store의 function이다. 우린 action을 dispatch하기위해 `store.dispatch`를 사용하며 이게 유일하게 state 변화를 trigger할 수 있는 방법이다. (Redux쪽의 개념인듯)
+
+React Redux에서는 Component들은 절대 Store에 직접적으로 연결되지 않고 그 기능을 `connect`가 대신 해준다. React Redux에서는 Component들이 action을 dispatch할 수 있는 두가지 방법이 있다.
+
+- 기본 방식으로서, connect된 component는 `props.dispatch`를 받아와서 스스로 action을 dispatch할 수 있다.
+- `connect`가 `mapDispatchToProps`라는 argument를 받아서 호출됐을 때 dispatch를 해주는 function을 만들 수 있게 해주고, 그 function들을 우리 Component의 props로서 넘겨준다.
+
+`mapDispatchToProps`는 대부분 `mapDispatch`로 줄여서 쓴다. 하지만 원하는 아무이름이나 써도 된다.(connect의 argument 순서만 맞춰준다면 ^^)
+
+---
+
+#### Dispatch로의 접근
+
+##### 	1. 기본 방식: Prop으로써 `dispatch`하기
+
+`connect()`의 두번째 argument를 정해주지 않으면(아래처럼),
+
+```js
+connect()(MyComponent)
+// 위 connect는 아래의 connect와 같다.
+connect(
+  null,
+  null
+)(MyComponent)
+
+// 첫번째 argument만 사용해준 경우
+connect(mapStateToProps /** no second argument */)(MyComponent)
+```
+
+ Component는 `dispatch`를 default로 받는다. 이런식으로 `connect`를 정해주면, Component는 `props.dispatch`를 받는다. 이걸 사용해서 action을 store에 dispatch할 수 있다. 아래의 코드를 보자.
+
+```js
+function Counter({ count, dispatch }) {
+  return (
+    <div>
+      <button onClick={() => dispatch({ type: 'DECREMENT' })}>-</button>
+      <span>{count}</span>
+      <button onClick={() => dispatch({ type: 'INCREMENT' })}>+</button>
+      <button onClick={() => dispatch({ type: 'RESET' })}>reset</button>
+    </div>
+  )
+}
+```
+
+##### 	2. `mapDispatchToProps`를 써준다.
+
+`mapDispatchToProps`는 우리의 Component가 어떤 action을 dispatch할지 정할 수 있게 해준다. action을 dispatch하는 function을 props로 사용할 수 있게 해주는 것이다. 따라서, `props.dispatch(() => increment())`대신, `props.increment()`를 바로 호출할 수 있다. 이렇게 해주는 이유 몇가지를 살펴보자.
+
+##### Declarative
+
+dispatch 과정을 function으로 캡슐화 하는 것은 구현을 더욱 declarative하게 해준다. action을 dispatch하고 Redux store에서 데이터 흐름을 처리하도록 하는 것은 액션을 수행하는 것이 아니라 그 동작을 실행하는 것이다.
+
+좋은 예제는 버튼이 눌렸을 때 action을 dispatch하는 것이다. Connecting the button directly probably doesn't make sense conceptually, and neither does having the button reference `dispatch`.
+
+```js
+// button needs to be aware of "dispatch"
+<button onClick={() => dispatch({ type: "SOMETHING" })} />
+
+// button unaware of "dispatch",
+<button onClick={doSomething} />
+```
+
+Once you've wrapped all our action creators with functions that dispatch the actions, the component is free of the need of `dispatch`. Therefore, **if you define your own mapDispatchToProps, the connected component will no longer receive dispatch.**

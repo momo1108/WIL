@@ -1,17 +1,17 @@
 import { combineReducers } from 'redux';
-
-const localSelector = (state = [], action) => {
+const localSelector = (state = {locals: []}, action) => {
     switch(action.type){
         case 'CHECKED':
             if(action.payload){
+                var arr = state.locals;
+                arr.push(action.payload);
                 // console.log('checked.action.payload :',action.payload);
                 // state.push(action.payload);
-                console.log(statecopy);
-                var statecopy = state;
-                statecopy.push(action.payload);
             	return {
                     ...state,
-                    after: statecopy
+                    locals: arr
+                    // ...state,
+                    // localarray: statecopy
                 };
             } else {
                 // console.log('action.payload 없음');
@@ -20,13 +20,19 @@ const localSelector = (state = [], action) => {
         case 'NOTCHECKED':
             if(action.payload){
                 // console.log('notchecked.action.payload :',action.payload);
-                var arrnum = state.indexOf(action.payload);
-                var arr = state;
+                var arrnum = state.locals.indexOf(action.payload);
+                // var arr = state.localarray;
+                // arr.splice(arrnum, 1);
+                var arr = state.locals;
                 arr.splice(arrnum, 1);
             	return {
                     ...state,
-                    selectedLocal: arr
+                    locals: arr
                 };
+            	// return {
+                //     ...state,
+                //     localarray: arr
+                // };
             } else {
                 // console.log('action.payload 없음');
                 return state;

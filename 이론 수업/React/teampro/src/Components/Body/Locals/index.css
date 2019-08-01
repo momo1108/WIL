@@ -7,7 +7,7 @@
     display: none;
 }
 .togglebtngrp {
-    width: 100%;
+    width: auto;
     display: inline-block;
 }
 .togglebtn, .togglebtn0 {

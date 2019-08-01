@@ -9,6 +9,7 @@ const hasher = require('pbkdf2-password')();
 const fs = require('fs');
 const cors = require('cors');
 const multer = require('multer');
+var connectDB = require('./schemas');
 // const flash = require('connect-messages');
 // const morgan = require('morgan');
 const port = 3002;
@@ -19,7 +20,7 @@ global.a = 0;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 app.engine('html', require('ejs').renderFile);
-
+connectDB();
 // app.use(morgan('dev'));
 
 app.use(express.urlencoded({
@@ -80,11 +81,13 @@ app.use(cors());
 var router1 = require('./router/login.js')(hasher, fs, sampleUserList, multer, path);
 var router2 = require('./router/cars.js')(fs,cardscr,sampleUserList);
 var mysqlrouter = require('./router/mysqlpool.js')(hasher);
+var mongorouter = require('./router/mongo')(hasher);
 // 기본 경로도 설정해줄 수 있다. /test/router의 경우 모듈 js 파일 안에서 /test부분을 안써줘도 된다.
 // https://stackoverflow.com/questions/28305120/differences-between-express-router-and-app-get
 app.use(router1);
 app.use(router2);
 app.use('/mysql', mysqlrouter);
+app.use('/mongo', mongorouter);
 
 
 app.listen(port, function () {
