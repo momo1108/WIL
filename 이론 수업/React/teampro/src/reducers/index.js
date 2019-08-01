@@ -6,9 +6,12 @@ const localSelector = (state = [], action) => {
             if(action.payload){
                 // console.log('checked.action.payload :',action.payload);
                 // state.push(action.payload);
+                console.log(statecopy);
+                var statecopy = state;
+                statecopy.push(action.payload);
             	return {
                     ...state,
-                    selectedLocal: [...state, action.payload]
+                    after: statecopy
                 };
             } else {
                 // console.log('action.payload 없음');
