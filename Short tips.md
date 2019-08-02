@@ -208,3 +208,67 @@ https://www.w3schools.com/jsref/obj_event.asp
 # hook을 사용할 때의 규칙
 
 https://reactjs.org/docs/hooks-rules.html
+
+# javascript 참조변수
+
+[https://yuddomack.tistory.com/entry/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-%EB%B3%80%EC%88%98-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0%EC%99%80-%EB%A9%94%EB%AA%A8%EB%A6%AC-%EC%B0%B8%EC%A1%B0](https://yuddomack.tistory.com/entry/자바스크립트-변수-파라미터와-메모리-참조)
+
+# javascript 에서 array, object의 비교 ★
+
+Javascript 에서는 array와 object 는 reference type이기 때문에 한 배열을 다른배열로, 한 오브젝트를 다른 오브젝트로 복사해 주려면 = 를 사용할 수 없다.
+
+만약 = 를 사용하면 배열이나 객체의 내용이 복사되는것이 아니고 그 배열이나 객체의 참조변수가 되버린다.(주소값을 복사하는듯)
+
+```js
+var arr1 = [];
+var arr2 = arr1;
+// 두개의 배열을 선언해 준 후 = 을 사용한 후에 arr2에 push를 해보자.
+arr2.push('one');
+console.log(arr2); // 결과값: [one]
+// 만약 arr2가 arr1의 value만을 복사했다면 arr1은 빈 배열 상태 그대로일 것이다.
+console.log(arr1); // 예상 결과값: []
+				   // 실제 결과값: [one]
+// 위에서 확인했다시피 arr2가 arr1의 참조변수가 되어버렸으므로 arr2가 바뀌면 arr1의 값도 바뀐다.
+```
+
+
+
+# label tag 사용법
+
+https://aboooks.tistory.com/298
+
+# Functional component 에 props를 넘겨주는 방법
+
+```js
+const Usethisfunction = (thisisprop) => {
+    return (
+        <div>
+        	<p>Here is the prop passed from parent component: {thisisprop}</p>
+        </div>
+    )
+}
+
+class Passprops extends Component{
+    render(){
+        return(
+        	<div>
+            	<Usethisfunction thisisprop = {whatever} />
+            </div>
+        )
+    }
+}
+```
+
+
+
+# console로 자세한 내용을 보기
+
+`console.dir`을 사용하자
+
+# 하위 컴포넌트에서 상위컴포넌트로의 전달
+
+상위컴포넌트에서 callback 함수를 선언해주고 하위 컴포넌트에 props로서 보내주면 하위컴포넌트에서 실행된 함수의 결과를 상위컴포로 전달가능하다.
+
+가까운 컴포넌트의 경우 이런식으로 통신하는게 redux보다 낫고, 복잡한, 넓은 관계의 컴포넌트에서는 callback함수를 계속해서 넘겨줘야 하므로 redux를 사용하는게 더 낫다.
+
+# 자바 스크립트 async, await
