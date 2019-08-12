@@ -652,3 +652,95 @@ dispatch 과정을 function으로 캡슐화 하는 것은 구현을 더욱 decla
 ```
 
 Once you've wrapped all our action creators with functions that dispatch the actions, the component is free of the need of `dispatch`. Therefore, **if you define your own mapDispatchToProps, the connected component will no longer receive dispatch.**
+
+
+
+### 내가 실제로 사용
+
+```js
+const mapStateToProps = state => {
+    return {
+      localsel : state.selectedLocal.locals
+    }
+}
+
+class Seoul extends Component {
+    // const selec = useSelector(state=>state.selectedLocal);
+    // var dispatch = useDispatch();
+    constructor(props){
+        super(props)
+    }
+    render(){
+        var btnclicked = (e) => {
+            let btnname = e.target.parentNode.getAttribute('id');
+            // console.log(btnname);
+            // console.log(e.target);
+            if (e.target.checked) {
+                console.log('체크됨');
+                // dispatch(checked(btnname));
+                this.props.checked(btnname);
+            };
+            if (!e.target.checked) {
+                console.log('체크안됨');
+                // dispatch(notchecked(btnname));
+                this.props.notchecked(btnname);
+            };
+            // console.log(selec);
+            console.log(this.props.localsel);
+        }
+        return (
+            <div className='localdiv localdiv1'>
+                {/* {selec.locals.map((value, index)=>{
+                    return (<h1>{value}</h1>)
+                })} */}
+                {this.props.localsel}
+                <ToggleButtonGroup className='togglebtngrp' type="checkbox">
+                    <ToggleButton className='togglebtn0' onChange={btnclicked} variant="outline-secondary" value={0} id="서울 전체">서울 전체</ToggleButton>
+                    {local.Seoul.map((value, index) => {
+                        return (<ToggleButton key={index} className='togglebtn' onChange={btnclicked} variant="outline-primary" value={index + 1} id={value}>{value}</ToggleButton>)
+                    })}
+                </ToggleButtonGroup>
+            </div>
+        );
+    }
+}
+
+export default connect(mapStateToProps, {checked, notchecked})(Seoul);
+```
+
+#### Reducer
+
+```js
+const localSelector = (state = {locals: []}, action) => {
+    switch(action.type){
+        case 'CHECKED':
+            if(action.payload){
+                var arr = state.locals.slice();
+                arr.push(action.payload);
+            	return {
+                    ...state,
+                    locals: arr
+                };
+            } else {
+                return state;
+            }
+        case 'NOTCHECKED':
+            if(action.payload){
+                var arrnum = state.locals.indexOf(action.payload);
+                var arr = state.locals.slice();
+                arr.splice(arrnum, 1);
+            	return {
+                    ...state,
+                    locals: arr
+                };
+            } else {
+                return state;
+            }
+        default:
+            return state;
+    }
+};
+
+export default localSelector; 
+```
+
