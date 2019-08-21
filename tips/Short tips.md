@@ -302,3 +302,9 @@ https://lucybain.com/blog/2017/react-js-when-to-rerender/
 # ide란?
 
 https://blog.cordelia273.space/27
+
+# try(java, javascript는 확인해보자)
+
+try 구문안에서 오류가 있을 경우 catch에서 잡겠다.
+
+catch가 끝나면 finally로 가거나 try에서 오류가 없으면 마지막으로 실행해줄 것들을 finally에 작성해준다.
