@@ -308,3 +308,11 @@ https://blog.cordelia273.space/27
 try 구문안에서 오류가 있을 경우 catch에서 잡겠다.
 
 catch가 끝나면 finally로 가거나 try에서 오류가 없으면 마지막으로 실행해줄 것들을 finally에 작성해준다.
+
+# sorting algorithm
+
+https://hsp1116.tistory.com/33
+
+# break
+
+break의 가장 큰 특징은 현재 루프만 끝낸다는 점입니다. 따라서 중첩 루프의 안쪽 루프에서 break를 사용하면 안쪽 루프만 끝낼 뿐 바깥쪽 루프는 계속 반복됩니다.
