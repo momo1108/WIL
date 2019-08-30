@@ -658,6 +658,8 @@ Once you've wrapped all our action creators with functions that dispatch the act
 ### 내가 실제로 사용
 
 ```js
+import { checked, notchecked } from '../../redux/actions/actions';
+
 const mapStateToProps = state => {
     return {
       localsel : state.selectedLocal.locals

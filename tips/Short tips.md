@@ -320,3 +320,11 @@ break의 가장 큰 특징은 현재 루프만 끝낸다는 점입니다. 따라
 # 가장 큰 숫자 만들기
 
 https://code-reading.tistory.com/81
+
+# HTML Web Storage
+
+https://www.w3schools.com/html/html5_webstorage.asp
+
+# HTML Value Range Slider
+
+https://www.youtube.com/watch?v=BrpiNUf2XCk
