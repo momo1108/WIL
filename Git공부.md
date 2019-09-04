@@ -391,3 +391,32 @@ origin  https://github.com/momo1108/git_basic.git (push)
 
 ```
 
+
+
+# gist.git
+
+[http://gist.github.com](http://gist.github.com/)
+
+이곳에 코드를 간단히 저장 가능
+
+
+
+# 텔레그램
+
+텔레그램 가입 후 BotFather 검색 후 start
+
+/newbot
+
+봇 이름
+
+유저이름_bot
+
+
+
+getMe: 내 봇에 대한 정보
+
+getUpdates: 메세지 정보
+
+sendMessage: 메세지 보내기
+
+- chat_id(누구) & text(무엇을)
