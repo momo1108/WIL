@@ -328,3 +328,70 @@ https://www.w3schools.com/html/html5_webstorage.asp
 # HTML Value Range Slider
 
 https://www.youtube.com/watch?v=BrpiNUf2XCk
+
+# Create-React-App 시작 포트 변경하는 법
+
+How can we do that? There are three approaches:
+\1. Setting environment variable
+\2. Modifying package.json
+\3. Creating .env file
+
+### 1. Setting environment variable
+
+To set the environment variable, we need to open the command line terminal and add a set a new environment variable for ReactJS port. Let’s say we want to change the port to 8000. After stopping the server (with Ctrl+C or Cmd+C), we then type.
+
+```
+$ export PORT=8000
+```
+
+We then restart the development server again with “**npm start**”.
+
+This approach, however, is less preferred for an environment with several active projects. The environment variable PORT is arguably a generic, non-assuming variable name that can be used by other systems. Remember that by setting an environment variable via an export, that variable will be available for the all processes accessing or spawned by the shell. It will be better to localize the port assignment specific to React as shown in the remaining approaches.
+
+### 2. Modifying package.json(이 방법의 경우 unix(ubuntu,mac,...)환경. window환경은 다른방법쓰세요)
+
+Another approach is by modifying the command to start the development server in package.json. The default “**scripts**” key will contain the following object:
+
+```
+…
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+…
+```
+
+To change the development server port to port 8000, we need to modify the value of “**start**” key as follows:
+
+```
+…
+  "scripts": {
+    "start": “PORT=8000 react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+…
+```
+
+We validate the port change by restarting the server and accessing the app at **http://localhost:8000**
+
+With this approach, the port variable is local to the React project. One little caveat is some purists may not like to embed the port configuration in the command. We can address this what-is-your-flavor issue in the next approach.
+
+### 3. Creating .env file
+
+A **.env** file contains the additional environment variables / configurations that are attached to the NodeJS process that’s running React development server. Remember that when setting an environment variable from the command line terminal, the variable will be available to all processes that interact with the shell. This way, using .env is a sound approach to localize the port configuration and make it available for read only by the React project.
+
+ReactJS leverages [dotenv](https://www.npmjs.com/package/dotenv) to handle the process of loading the variables declared in .env into Node’s process.env.
+
+The .env file should be created in the root directory of the React project. In other words, it resides in the same directory with package.json. If we change the React development server port to 8000, the content of .env file will be as follows.
+
+.env
+
+```
+PORT=8000
+```
+
+To validate the port change, we restart the server again and then access the app at http://localhost:8000
