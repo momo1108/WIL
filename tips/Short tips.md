@@ -395,3 +395,25 @@ PORT=8000
 ```
 
 To validate the port change, we restart the server again and then access the app at http://localhost:8000
+
+
+
+### | bash의 역할
+
+A pipe takes what is piped into it.
+
+So the pipe is full of text coming in from curl.
+
+Instead of piping to sudo bash, you could pipe it to less and read the script:
+
+```
+curl https://packages.gitlab.com/install/repositories/gitlab/raspberry-pi2/script.deb.sh | less
+```
+
+sudo means, execute the following command as the superuser, the all-powerful user, the one that can do serious things like install software or remove system devices and stuff.
+
+bash is a shell. It takes in commands and talks to the kernel to get them done.
+
+So basically you are saying, hey, take this stream of commands from this URL on the internet and run it on my computer with superuser access.
+
+You usually don't want to do this until you've read through the script first, to make sure that you're not actually setting up an open proxy server for some smaller Asian country.
