@@ -1,0 +1,74 @@
+CONFIG_ROOT=/opt/gopath/src/github.com/hyperledger/fabric/peer
+ORG1_MSPCONFIGPATH=${CONFIG_ROOT}/crypto/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+ORG1_TLS_ROOTCERT_FILE=${CONFIG_ROOT}/crypto/peerOrganizations/org1.example.com/peers/peer0.org1.example.com/tls/ca.crt
+ORG2_MSPCONFIGPATH=${CONFIG_ROOT}/crypto/peerOrganizations/org2.example.com/users/Admin@org2.example.com/msp
+ORG2_TLS_ROOTCERT_FILE=${CONFIG_ROOT}/crypto/peerOrganizations/org2.example.com/peers/peer0.org2.example.com/tls/ca.crt
+ORDERER_TLS_ROOTCERT_FILE=${CONFIG_ROOT}/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+
+/opt/gopath/src/github.com/chaincode/fabcar/javascript
+peer chaincode install \
+    -n fabcar1 \
+    -v 1.0 \
+    -p /opt/gopath/src/github.com/chaincode/fabcar/javascript \
+    -l node
+
+peer chaincode instantiate \
+    -o orderer.example.com:7050 \
+    -C mychannel \
+    -n fabcar1 \
+    -l node \
+    -v 1.0 \
+    -c '{"Args":[]}' \
+    -P "AND('Org1MSP.member','Org2MSP.member')" \
+    --tls \
+    --cafile ${ORDERER_TLS_ROOTCERT_FILE} \
+    --peerAddresses peer0.org1.example.com:7051 \
+    --tlsRootCertFiles ${ORG1_TLS_ROOTCERT_FILE}
+
+peer chaincode invoke \
+    -o orderer.example.com:7050 \
+    -C mychannel \
+    -n fabcar1 \
+    -c '{"function":"sendToken","Args":["Hyechan","Dongwon","100"]}' \
+    --waitForEvent \
+    --tls \
+    --cafile ${ORDERER_TLS_ROOTCERT_FILE} \
+    --peerAddresses peer0.org1.example.com:7051 \
+    --peerAddresses peer1.org1.example.com:8051 \
+    --peerAddresses peer0.org2.example.com:9051 \
+    --peerAddresses peer1.org2.example.com:10051 \
+    --tlsRootCertFiles ${ORG1_TLS_ROOTCERT_FILE} \
+    --tlsRootCertFiles ${ORG1_TLS_ROOTCERT_FILE} \
+    --tlsRootCertFiles ${ORG2_TLS_ROOTCERT_FILE} \
+    --tlsRootCertFiles ${ORG2_TLS_ROOTCERT_FILE}
+
+peer chaincode query -n fabcar1 -c '{"Args":["queryCar","Hyechan"]}' -C mychannel
+
+
+    async queryToken(ctx, who) {
+        const tokenAmount = await ctx.stub.getState(who);
+        console.log(tokenAmount.toString());
+        return tokenAmount.toString('ascii');
+    }
+    async queryCar(ctx, carNumber) {
+        const carAsBytes = await ctx.stub.getState(carNumber); // get the car from chaincode state
+        if (!carAsBytes || carAsBytes.length === 0) {
+            throw new Error(`${carNumber} does not exist`);
+        }
+        console.log(carAsBytes);
+        console.log(carAsBytes.toString());
+        return carAsBytes.toString();
+    }
+
+peer chaincode instantiate \
+    -o orderer.example.com:7050 \
+    -C mychannel \
+    -n fabcar3 \
+    -l node \
+    -v 1.0 \
+    -c '{"Args":[]}' \
+    -P "AND('Org1MSP.member','Org2MSP.member')" \
+    --tls \
+    --cafile ${ORDERER_TLS_ROOTCERT_FILE} \
+    --peerAddresses peer0.org1.example.com:7051 \
+    --tlsRootCertFiles ${ORG1_TLS_ROOTCERT_FILE}

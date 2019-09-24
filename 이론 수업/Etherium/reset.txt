@@ -1,0 +1,35 @@
+reset
+
+echo remove wallet
+rm -rf wallet/
+echo go to first-network
+cd ../../first-network
+echo shut down first-network
+sudo ./byfn.sh -m down
+echo remove rest container
+sudo docker rm -f $(sudo docker ps -aq)
+sudo docker ps -a
+
+start
+
+cd ../
+sudo ./startFabric.sh
+cd javascript/
+node enrollAdmin.js
+node registerUser.js
+sudo docker exec -it cli bash
+
+Error: could not assemble transaction, err proposal response was not successful, error code 500, msg chaincode registration failed: container exited with 127
+
+peer chaincode instantiate \
+    -o orderer.example.com:7050 \
+    -C mychannel \
+    -n fabcar \
+    -l node \
+    -v 1.0 \
+    -c '{"Args":[]}' \
+    -P "AND('Org1MSP.member','Org2MSP.member')" \
+    --tls \
+    --cafile ${ORDERER_TLS_ROOTCERT_FILE} \
+    --peerAddresses peer0.org1.example.com:7051 \
+    --tlsRootCertFiles ${ORG1_TLS_ROOTCERT_FILE}

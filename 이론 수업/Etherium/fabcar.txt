@@ -1,0 +1,200 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+'use strict';
+
+const { Contract } = require('fabric-contract-api');
+
+class FabCar extends Contract {
+    async initToken(ctx, Aname, Bname, Atoken, Btoken) {
+        console.info('============= START : Initialize Ledger ===========');
+        ];
+        const arr = [
+            {
+                name: Aname,
+                token: Atoken
+            },
+            {
+                name: Bname,
+                token: Btoken
+            }
+        ];
+        await ctx.stub.putState(Aname, Buffer.from(JSON.stringify(arr[0])));
+        await ctx.stub.putState(Bname, Buffer.from(JSON.stringify(arr[1])));
+        console.info(`${Aname}'s token : ${Atoken}`);
+        console.info(`${Bname}'s token : ${Btoken}`);
+        console.info('============= END : Initialize Ledger ===========');
+    }
+    async queryToken(ctx, carNumber) {
+        const carAsBytes = await ctx.stub.getState(carNumber); // get the car from chaincode state
+        if (!carAsBytes || carAsBytes.length === 0) {
+            throw new Error(`${carNumber} does not exist`);
+        }
+        console.log(carAsBytes);
+        console.log(carAsBytes.toString());
+        return carAsBytes.toString();
+    }
+    async sendToken(ctx, From, To, Token) {
+        let Astoken = await ctx.stub.getState(From);
+        let Bstoken = await ctx.stub.getState(To);
+        if(!Astoken || !Bstoken){
+            console.info(`We can't find ${From} or ${To}!`);
+            return;
+        }
+        let Atokenafter = Astoken - Token;
+        let Btokenafter = Bstoken + Token;
+        await ctx.stub.putState(From, Buffer.from(Atokenafter));
+        await ctx.stub.putState(To, Buffer.from(Btokenafter));
+        console.info(`----Current Token----`);
+        console.info(`${From} - ${Astoken}`);
+        console.info(`${To} - ${Bstoken}`);
+        return;
+    }
+    async initLedger(ctx) {
+        console.info('============= START : Initialize Ledger ===========');
+        const cars = [
+            {
+                color: 'blue',
+                make: 'Toyota',
+                model: 'Prius',
+                owner: 'Tomoko',
+            },
+            {
+                color: 'red',
+                make: 'Ford',
+                model: 'Mustang',
+                owner: 'Brad',
+            },
+            {
+                color: 'green',
+                make: 'Hyundai',
+                model: 'Tucson',
+                owner: 'Jin Soo',
+            },
+            {
+                color: 'yellow',
+                make: 'Volkswagen',
+                model: 'Passat',
+                owner: 'Max',
+            },
+            {
+                color: 'black',
+                make: 'Tesla',
+                model: 'S',
+                owner: 'Adriana',
+            },
+            {
+                color: 'purple',
+                make: 'Peugeot',
+                model: '205',
+                owner: 'Michel',
+            },
+            {
+                color: 'white',
+                make: 'Chery',
+                model: 'S22L',
+                owner: 'Aarav',
+            },
+            {
+                color: 'violet',
+                make: 'Fiat',
+                model: 'Punto',
+                owner: 'Pari',
+            },
+            {
+                color: 'indigo',
+                make: 'Tata',
+                model: 'Nano',
+                owner: 'Valeria',
+            },
+            {
+                color: 'brown',
+                make: 'Holden',
+                model: 'Barina',
+                owner: 'Shotaro',
+            },
+        ];
+
+        for (let i = 0; i < cars.length; i++) {
+            cars[i].docType = 'car';
+            await ctx.stub.putState('CAR' + i, Buffer.from(JSON.stringify(cars[i])));
+            console.info('Added <--> ', cars[i]);
+        }
+        console.info('============= END : Initialize Ledger ===========');
+    }
+
+    async queryCar(ctx, carNumber) {
+        const carAsBytes = await ctx.stub.getState(carNumber); // get the car from chaincode state
+        if (!carAsBytes || carAsBytes.length === 0) {
+            throw new Error(`${carNumber} does not exist`);
+        }
+        console.log(carAsBytes);
+        console.log(carAsBytes.toString());
+        return carAsBytes.toString();
+    }
+
+    async createCar(ctx, carNumber, make, model, color, owner) {
+        console.info('============= START : Create Car ===========');
+
+        const car = {
+            color,
+            docType: 'car',
+            make,
+            model,
+            owner,
+        };
+
+        await ctx.stub.putState(carNumber, Buffer.from(JSON.stringify(car)));
+        console.info('============= END : Create Car ===========');
+    }
+
+    async queryAllCars(ctx) {
+        const startKey = 'CAR0';
+        const endKey = 'CAR999';
+
+        const iterator = await ctx.stub.getStateByRange(startKey, endKey);
+
+        const allResults = [];
+        while (true) {
+            const res = await iterator.next();
+
+            if (res.value && res.value.value.toString()) {
+                console.log(res.value.value.toString('utf8'));
+
+                const Key = res.value.key;
+                let Record;
+                try {
+                    Record = JSON.parse(res.value.value.toString('utf8'));
+                } catch (err) {
+                    console.log(err);
+                    Record = res.value.value.toString('utf8');
+                }
+                allResults.push({ Key, Record });
+            }
+            if (res.done) {
+                console.log('end of data');
+                await iterator.close();
+                console.info(allResults);
+                return JSON.stringify(allResults);
+            }
+        }
+    }
+
+    async changeCarOwner(ctx, carNumber, newOwner) {
+        console.info('============= START : changeCarOwner ===========');
+
+        const carAsBytes = await ctx.stub.getState(carNumber); // get the car from chaincode state
+        if (!carAsBytes || carAsBytes.length === 0) {
+            throw new Error(`${carNumber} does not exist`);
+        }
+        const car = JSON.parse(carAsBytes.toString());
+        car.owner = newOwner;
+
+        await ctx.stub.putState(carNumber, Buffer.from(JSON.stringify(car)));
+        console.info('============= END : changeCarOwner ===========');
+    }
+
+}
+
+module.exports = FabCar;
