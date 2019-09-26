@@ -417,3 +417,116 @@ bash is a shell. It takes in commands and talks to the kernel to get them done.
 So basically you are saying, hey, take this stream of commands from this URL on the internet and run it on my computer with superuser access.
 
 You usually don't want to do this until you've read through the script first, to make sure that you're not actually setting up an open proxy server for some smaller Asian country.
+
+
+
+# map 사용 시 key를 설정해주는 이유
+
+## 1. key를 설정하는 이유
+
+key 값은 html을 랜더링 할 때, 변경된 html만 랜더링, 최적화 하기 위해 사용됩니다. 예를 들면,
+
+```js
+`<``ul``>``  ``<``li``>first</``li``>``  ``<``li``>second</``li``>``</``ul``>` `<``ul``>``  ``<``li``>first</``li``>``  ``<``li``>second</``li``>``  ``<``li``>third</``li``>``</``ul``>`
+```
+
+<ul>태그의 자식 노드들을 반복하며 비교하여 변경된 내용을 랜더링 하게 됩니다. 
+
+<li>third</li>가 추가 되어 위의 <ul>태그가 밑의 <ul>태그로 변경이 된다면,
+
+- 1번째 2번째 자식 노드 변경이 없음
+- 3번째 자식 노드 추가
+
+이렇게 랜더링 하게 됩니다. 이렇게 추가된 자식 노드가 마지막 자식으로 추가가 된다면 매우 나이스한 경우이지만, 노드가 첫번째 자식으로 추가된다면 상황은 달라집니다.
+
+```js
+`<``ul``>``  ``<``li``>first</``li``>``  ``<``li``>second</``li``>``</``ul``>` `<``ul``>``  ``<``li``>zero</``li``>``  ``<``li``>first</``li``>``  ``<``li``>second</``li``>``</``ul``>`
+```
+
+<li>zero</li>가 1번째 자식 노드로 추가가 된다면,
+
+- 1번째 자식 노드 zero로 변경
+- 2번째 자식 노드 first로 변경
+- 3번째 자식 노드 추가
+
+이렇게 랜더링 하게 되는데, 이런 경우 최적화가 필요합니다. 최적화 하기 위해 사용되는 방법이 key를 사용하는 것입니다.
+
+```js
+`<``ul``>``  ``<``li` `key``=``"first"` `>first</``li``>``  ``<``li` `key``=``"second"` `>second</``li``>``</``ul``>` `<``ul``>``  ``<``li` `key``=``"zero"` `>zero</``li``>``  ``<``li` `key``=``"first"` `>first</``li``>``  ``<``li` `key``=``"second"` `>second</``li``>``</``ul``>`
+```
+
+key를 추가하면, 자식 노드의 key로 html를 비교하여 랜더링하게 되는데, 이 때는
+
+- zero를 키로 가지는 자식 노드 추가
+- first와 second를 키로 가지는 자식 노드 변경 없음
+
+이렇게 랜더링 되어 html 랜더링이 최적화 되게 됩니다.
+
+
+
+
+
+## 2. key 설정하기
+
+React에서 키는, 위의 [1. key를 설정하는 이유](https://beomy.tistory.com/29#keyBecause)에서 말씀드렸던 것과 같이 각각의 element들이 변경되었는지 혹은 추가, 삭제 되었는지 확인하기 위해 사용됩니다. 그렇기 때문에 리스트 각각의 요소를 구별할 수 있도록 유니크 해야 하고, 그 할당된 key값은 변하지 않는 값을 할당해 주는것이 중요합니다.
+
+
+
+가장 좋은 방법은 리스트 안에 있는 아이템들의 ID를 key로 사용하는 것입니다.
+
+```js
+`const todoItems = todos.map((todo) =>``  ``<li key={todo.id}>``    ``{todo.text}``  ``</li>``);`
+```
+
+하지만 리스트 안의 아이템들이 ID가 없다면 차선책으로 리스트의 위치(index)를 key로 사용하는 할 수 있습니다.
+
+```js
+`const todoItems = todos.map((todo, index) =>``  ``<li key={todo.index}>``    ``{todo.text}``  ``</li>``);`
+```
+
+리스트가 추가되었거나, 삭제되었을 경우 리스트의 순서가 변경 될 수 있기 때문에 이 방법은 좋지 않은 방법입니다.
+
+
+
+
+
+## 3. key를 추출하기
+
+key는 랜더링 될 때, 그 주변의 context에만 의미가 있습니다.
+
+ListItem 컴포넌트를 만들어 ListItem 컴포넌트가 <li>를 랜더링 하는 예제를 들어보겠습니다.
+
+```js
+`// 아래와 같이 key를 설정하면 안됩니다.``function` `ListItem(props) {``  ``const value = props.value;``  ``return` `(``    ``<li key={value.toString()}>``      ``{value}``    ``</li>``  ``);``}` `function` `NumberList(props) {``  ``const numbers = props.numbers;``  ``const listItems = numbers.map((number) =>``    ``<ListItem value={number} />``  ``);``  ``return` `(``    ``<ul>``      ``{listItems}``    ``</ul>``  ``);``}` `const numbers = [1, 2, 3, 4, 5];``ReactDOM.render(``  ``<NumberList numbers={numbers}>,``  ``document.getElementById(``'root'``)``);`
+```
+
+위와 같이 key를 설정하면 안됩니다.
+
+NumberList 컴포넌트가 리턴하는 JSX에서 {listItems}를 출력하는데, listItems가 저장하는 ListItem 컴포넌트는 key를 가지고 있지 않습니다. ListItem 컴포넌트에서 key를 가지고 있어야 합니다. 위의 코드를 아래 코드와 같이 수정되어야 합니다.
+
+```js
+`//아래와 같이 코드가 수정되어야 합니다.``function` `ListItem(props) {``  ``return` `<li>{props.value}</li>;``}` `function` `NumberList(props) {``  ``const numbers = props.numbers;``  ``const listItems = numbers.map((number) =>``    ``<ListItem key={number.toString()}``              ``value={number} />``  ``);``  ``return` `(``    ``<ul>``      ``{listItems}``    ``</ul>``  ``);``}` `const numbers = [1, 2, 3, 4, 5];``ReactDOM.render(``  ``<NumberList numbers={numbers} />,``  ``document.getElementById(``'root'``)``);`
+```
+
+
+
+## 4. key는 형제 노드끼리 유니크해야 합니다.
+
+key는 전부 유니크할 필요 없이, 형제 노드끼리만 유니크하면 됩니다.
+
+```js
+`function` `Blog(props) {``  ``const sidebar = (``    ``<ul>``      ``{props.posts.map((post) =>``        ``<li key={post.id}>``          ``{post.title}``        ``</li>``      ``)}``    ``</ul>``  ``);``  ``const content = props.posts.map((post) =>``    ``<div key={post.id}>``      ``<h3>{post.title}</h3>``      ``<p>{post.content}</p>``    ``</div>``  ``);``  ``return` `(``    ``<div>``      ``{sidebar}``      ``<hr />``      ``{content}``    ``</div>``  ``);``}` `const posts = [``  ``{id: 1, title: ``'Hello World'``, content: ``'Welcome to learning React!'``},``  ``{id: 2, title: ``'Installation'``, content: ``'You can install React from npm.'``}``];``ReactDOM.render(``  ``<Blog posts={posts} />,``  ``document.getElementById(``'root'``)``);`
+```
+
+
+
+## 5. key는 props.key로 사용이 불가능합니다.
+
+key는 컴포넌트의 구성요소로 전달되지 않습니다. 그렇기 때문에, key는 props.key로 읽어 오는 것이 불가능합니다. key값을 읽어와야 한다면, 다른 props에 key를 담아 읽어와야 합니다.
+
+```js
+`const content = posts.map((post) =>``  ``<Post``    ``key={post.id}``    ``id={post.id}``    ``title={post.title} />``);`
+```
+
+위의 예제에서 props.key는 읽어 오는 것이 불가능하지만, props.id로 key값을 읽어와 사용하는 것이 가능합니다.
+
