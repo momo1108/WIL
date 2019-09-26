@@ -5,10 +5,10 @@ rm -rf wallet/
 echo go to first-network
 cd ../../first-network
 echo shut down first-network
-sudo ./byfn.sh -m down
+./byfn.sh -m down
 echo remove rest container
-sudo docker rm -f $(sudo docker ps -aq)
-sudo docker ps -a
+docker rm -f $(docker ps -aq)
+docker ps -a
 
 start
 
