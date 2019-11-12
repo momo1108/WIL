@@ -623,3 +623,9 @@ https://appear.github.io/2017/09/28/Etc/etc-01/
 
 
 https://jeong-pro.tistory.com/90
+
+
+
+# 소켓과 포트의 차이점
+
+ http://blog.naver.com/PostView.nhn?blogId=myca11&logNo=221389847130&categoryNo=24&parentCategoryNo=0&viewDate=&currentPage=1&postListTopCurrentPage=1&from=postView 
